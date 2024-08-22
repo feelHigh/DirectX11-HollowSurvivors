@@ -28,7 +28,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MyRegisterClass(hInstance);
 
-    HWND hWnd = CreateWindowW(L"MyWindowClass", L"Hollow Survivor", WS_OVERLAPPEDWINDOW,
+    HWND hWnd = CreateWindowW(L"MyWindowClass", L"Hollow Survivors", WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
     if (!hWnd)
