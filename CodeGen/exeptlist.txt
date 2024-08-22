@@ -1,0 +1,1 @@
+HHScriptMgr.h

@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01. Header">
+      <UniqueIdentifier>{9b1f8204-1366-4800-a76f-4ea76e493b54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Engine">
+      <UniqueIdentifier>{131b2a0e-dc76-4d9f-abfa-3700da08f217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Device">
+      <UniqueIdentifier>{5173a2e7-1fc6-4fc6-8bf1-566dfbc4bf20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager">
+      <UniqueIdentifier>{7d020d27-e595-496b-a369-db69122d4b3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05. Level">
+      <UniqueIdentifier>{b7dda08d-d95f-4a11-b49e-c7179d46bcd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset">
+      <UniqueIdentifier>{59f474f1-f902-4d59-8cef-7d8088189972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07. GameObject">
+      <UniqueIdentifier>{4e3a750d-d8a3-4863-b13b-74ca7b09d2db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component">
+      <UniqueIdentifier>{9c32ad36-fcde-4afa-90ec-f4985638e7e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default">
+      <UniqueIdentifier>{daa51472-9098-4ac3-82b6-f901c7d91331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Module">
+      <UniqueIdentifier>{e0fc61ae-f20c-4594-a5d1-1665ab1bbd9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Device\Constant Buffer">
+      <UniqueIdentifier>{5f2bf78f-289a-4cc8-9d6f-a042b6f316d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\01. Path Manager">
+      <UniqueIdentifier>{3d89e690-2709-4d1b-8da8-19c3265fccb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\02. Time Manager">
+      <UniqueIdentifier>{d276bc1f-6dd6-4222-9c55-4136eae8b617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\03. Key Manager">
+      <UniqueIdentifier>{19a4658a-2a08-427a-b19c-483a1bfe3c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\04. Level Manager">
+      <UniqueIdentifier>{f47f0fb5-5512-4c6a-b732-25b909666536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\05. Asset Manager">
+      <UniqueIdentifier>{b435325c-9436-4406-a421-ca9e5d8936ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\01. Mesh">
+      <UniqueIdentifier>{14bb70bd-7d0b-48a0-9b73-ac91a67fdec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\02. Mesh Data">
+      <UniqueIdentifier>{a89e35c6-07a9-4e24-9515-fb783252e4b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\03. Material">
+      <UniqueIdentifier>{3e4e003b-e7ac-471a-8c3f-e133f4e82e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\04. Prefab">
+      <UniqueIdentifier>{5ca40e3d-3ad7-4eeb-ac6d-fb6fe94712c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\05. Texture">
+      <UniqueIdentifier>{9b6043a2-d0fc-41e6-89db-15eb8a5d18ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\06. Sound">
+      <UniqueIdentifier>{43d11b0a-fd4e-4773-ab87-42f55bc9d8be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\Shader">
+      <UniqueIdentifier>{7a7c5f9c-7061-4cbf-9fec-af506c7b95fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\Shader\Graphic Shader">
+      <UniqueIdentifier>{21409910-f1eb-46d6-9936-4a0f62200069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\Shader\Compute Shader">
+      <UniqueIdentifier>{28f3046d-d895-4534-8c7a-377dbabc7bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\01. Transform">
+      <UniqueIdentifier>{cda7db98-469a-4b15-a171-53bf4c306226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\02. Collider2D">
+      <UniqueIdentifier>{3d418a4f-c48d-4e47-a149-1c1e62ef69d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\03. Collider3D">
+      <UniqueIdentifier>{57d8649f-50d8-4fef-8a76-9e01473594bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\06. Rigid Body">
+      <UniqueIdentifier>{0af09e99-a1f7-455a-8d04-7f0658a3ecf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\07. Camera">
+      <UniqueIdentifier>{8bd1b0df-0fc9-4916-b6e3-b3672f577e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component">
+      <UniqueIdentifier>{f46fd8ac-cbd5-41f2-8261-2a83652b89c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\01. Mesh Render">
+      <UniqueIdentifier>{0dba7038-b7a8-4f77-8414-da5a40958610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\02. Tilemap">
+      <UniqueIdentifier>{bbc1f9ef-646d-4e45-ac4e-47c1230642eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\03. Particle System">
+      <UniqueIdentifier>{470fca79-ba4f-4519-becd-2ca48eab26f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\04. Decal">
+      <UniqueIdentifier>{4f7d075a-ff10-4d19-a702-6f3e2440e1e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\05. Skybox">
+      <UniqueIdentifier>{115e7fd0-e741-4099-8a87-650969b619c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Render Component\06. Landscape">
+      <UniqueIdentifier>{2da289bb-0d1d-4034-9eba-fc1cab8cbd9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\06. Render Manager">
+      <UniqueIdentifier>{0c285d7d-c411-4223-b41a-0bb1a161472d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\Script">
+      <UniqueIdentifier>{9a94a46e-cb86-4736-ad58-9fd5bba3fa12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\07. Collision Manager">
+      <UniqueIdentifier>{a84e7ca7-d417-4e74-bbe9-1892fe42d58c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\07. Sprite">
+      <UniqueIdentifier>{92fafebb-7410-4ef8-8dc5-420674d7a038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\08 Flipbook">
+      <UniqueIdentifier>{a7f477b9-78fc-495f-b898-1221f35c206b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\05. Flipbook3D">
+      <UniqueIdentifier>{f2e40e9c-09b0-4181-a68e-2515e0e5a000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\04. Flipbook Renderer">
+      <UniqueIdentifier>{b7f3488b-37d5-4145-92d2-da6a0fd653d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Device\Structured Buffer">
+      <UniqueIdentifier>{5fe9dd5c-148c-41be-bfaf-6431a9d6bd48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\08. Light2D">
+      <UniqueIdentifier>{b4221502-3d00-47bc-b8c2-3436d2b8ffa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\09. Light3D">
+      <UniqueIdentifier>{65e86d74-0304-4126-a028-59b5babe945c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{8d2052ac-f56d-4516-9c16-4b478cdc2155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\01. Header">
+      <UniqueIdentifier>{1484d845-8ce9-4204-a246-4b07a652286b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render">
+      <UniqueIdentifier>{0f9c287a-4d82-415d-92b0-f0415c4ccad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render\2D">
+      <UniqueIdentifier>{aea22bf7-6b29-4dbe-9471-581249682460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render\3D">
+      <UniqueIdentifier>{ef6cce5e-33f4-4cd9-a7d0-6e457c921016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render\Post Process">
+      <UniqueIdentifier>{2a7d8d61-5ed3-44a0-bfd7-e6ceff7b5084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\03. Compute">
+      <UniqueIdentifier>{b18a26fa-9015-42f1-9688-81d2fe1da183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\03. Compute\01. SetColorShader">
+      <UniqueIdentifier>{b3842053-205d-4ad2-ac25-71a399f579aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\03. Compute\02. ParticleTick">
+      <UniqueIdentifier>{4468c191-1b7f-46a3-9bd1-60f8e1adc115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\08. Task Manager">
+      <UniqueIdentifier>{bc01ef1f-5fe9-4ebd-949f-f459e28a00c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\09. Font Manager">
+      <UniqueIdentifier>{453d400f-7ee1-4b3a-8c1e-fc478253d56d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="assets.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="components.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="enum.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HHEngine.h">
+      <Filter>02. Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="HHConstantBuffer.h">
+      <Filter>03. Device\Constant Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="HHDevice.h">
+      <Filter>03. Device</Filter>
+    </ClInclude>
+    <ClInclude Include="HHPathMgr.h">
+      <Filter>04. Manager\01. Path Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTimeMgr.h">
+      <Filter>04. Manager\02. Time Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHKeyMgr.h">
+      <Filter>04. Manager\03. Key Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLevelMgr.h">
+      <Filter>04. Manager\04. Level Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHAssetMgr.h">
+      <Filter>04. Manager\05. Asset Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTaskMgr.h">
+      <Filter>04. Manager\08. Task Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLayer.h">
+      <Filter>05. Level</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLevel.h">
+      <Filter>05. Level</Filter>
+    </ClInclude>
+    <ClInclude Include="HHAsset.h">
+      <Filter>06. Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="Ptr.h">
+      <Filter>06. Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="HHMesh.h">
+      <Filter>06. Asset\01. Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="HHShader.h">
+      <Filter>06. Asset\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="HHGraphicShader.h">
+      <Filter>06. Asset\Shader\Graphic Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="HHComputeShader.h">
+      <Filter>06. Asset\Shader\Compute Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="HHGameObject.h">
+      <Filter>07. GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="HHComponent.h">
+      <Filter>08. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTransform.h">
+      <Filter>08. Component\01. Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="HHCamera.h">
+      <Filter>08. Component\07. Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="HHMeshRender.h">
+      <Filter>08. Component\Render Component\01. Mesh Render</Filter>
+    </ClInclude>
+    <ClInclude Include="HHRenderComponent.h">
+      <Filter>08. Component\Render Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HHEntity.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="HHRenderMgr.h">
+      <Filter>04. Manager\06. Render Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHScript.h">
+      <Filter>08. Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTexture.h">
+      <Filter>06. Asset\05. Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="HHMaterial.h">
+      <Filter>06. Asset\03. Material</Filter>
+    </ClInclude>
+    <ClInclude Include="HHCollider2D.h">
+      <Filter>08. Component\02. Collider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="HHCollisionMgr.h">
+      <Filter>04. Manager\07. Collision Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHSprite.h">
+      <Filter>06. Asset\07. Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="HHFlipbook.h">
+      <Filter>06. Asset\08 Flipbook</Filter>
+    </ClInclude>
+    <ClInclude Include="HHFlipbookRenderer.h">
+      <Filter>08. Component\04. Flipbook Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTilemap.h">
+      <Filter>08. Component\Render Component\02. Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="HHStructuredBuffer.h">
+      <Filter>03. Device\Structured Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLight2D.h">
+      <Filter>08. Component\08. Light2D</Filter>
+    </ClInclude>
+    <ClInclude Include="HHPrefab.h">
+      <Filter>06. Asset\04. Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="HHParticleSystem.h">
+      <Filter>08. Component\Render Component\03. Particle System</Filter>
+    </ClInclude>
+    <ClInclude Include="HHSetColorCS.h">
+      <Filter>HLSL\03. Compute\01. SetColorShader</Filter>
+    </ClInclude>
+    <ClInclude Include="HHParticleTickCS.h">
+      <Filter>HLSL\03. Compute\02. ParticleTick</Filter>
+    </ClInclude>
+    <ClInclude Include="HHSound.h">
+      <Filter>06. Asset\06. Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="HHFontMgr.h">
+      <Filter>04. Manager\09. Font Manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="extern.cpp">
+      <Filter>01. Header</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEngine.cpp">
+      <Filter>02. Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="HHConstantBuffer.cpp">
+      <Filter>03. Device\Constant Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="HHDevice.cpp">
+      <Filter>03. Device</Filter>
+    </ClCompile>
+    <ClCompile Include="HHPathMgr.cpp">
+      <Filter>04. Manager\01. Path Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTimeMgr.cpp">
+      <Filter>04. Manager\02. Time Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHKeyMgr.cpp">
+      <Filter>04. Manager\03. Key Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLevelMgr.cpp">
+      <Filter>04. Manager\04. Level Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHAssetMgr.cpp">
+      <Filter>04. Manager\05. Asset Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTaskMgr.cpp">
+      <Filter>04. Manager\08. Task Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLayer.cpp">
+      <Filter>05. Level</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLevel.cpp">
+      <Filter>05. Level</Filter>
+    </ClCompile>
+    <ClCompile Include="HHAsset.cpp">
+      <Filter>06. Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="HHMesh.cpp">
+      <Filter>06. Asset\01. Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="HHShader.cpp">
+      <Filter>06. Asset\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="HHGraphicShader.cpp">
+      <Filter>06. Asset\Shader\Graphic Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="HHComputeShader.cpp">
+      <Filter>06. Asset\Shader\Compute Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="HHGameObject.cpp">
+      <Filter>07. GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="HHComponent.cpp">
+      <Filter>08. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTransform.cpp">
+      <Filter>08. Component\01. Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="HHCamera.cpp">
+      <Filter>08. Component\07. Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="HHMeshRender.cpp">
+      <Filter>08. Component\Render Component\01. Mesh Render</Filter>
+    </ClCompile>
+    <ClCompile Include="HHRenderComponent.cpp">
+      <Filter>08. Component\Render Component</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEntity.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="HHRenderMgr.cpp">
+      <Filter>04. Manager\06. Render Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHScript.cpp">
+      <Filter>08. Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTexture.cpp">
+      <Filter>06. Asset\05. Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="HHMaterial.cpp">
+      <Filter>06. Asset\03. Material</Filter>
+    </ClCompile>
+    <ClCompile Include="HHAssetMgr_Init.cpp">
+      <Filter>04. Manager\05. Asset Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>01. Header</Filter>
+    </ClCompile>
+    <ClCompile Include="HHCollider2D.cpp">
+      <Filter>08. Component\02. Collider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="HHCollisionMgr.cpp">
+      <Filter>04. Manager\07. Collision Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHSprite.cpp">
+      <Filter>06. Asset\07. Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="HHFlipbook.cpp">
+      <Filter>06. Asset\08 Flipbook</Filter>
+    </ClCompile>
+    <ClCompile Include="HHFlipbookRenderer.cpp">
+      <Filter>08. Component\04. Flipbook Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTilemap.cpp">
+      <Filter>08. Component\Render Component\02. Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="HHStructuredBuffer.cpp">
+      <Filter>03. Device\Structured Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLight2D.cpp">
+      <Filter>08. Component\08. Light2D</Filter>
+    </ClCompile>
+    <ClCompile Include="HHPrefab.cpp">
+      <Filter>06. Asset\04. Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="HHParticleSystem.cpp">
+      <Filter>08. Component\Render Component\03. Particle System</Filter>
+    </ClCompile>
+    <ClCompile Include="HHSetColorCS.cpp">
+      <Filter>HLSL\03. Compute\01. SetColorShader</Filter>
+    </ClCompile>
+    <ClCompile Include="HHParticleTickCS.cpp">
+      <Filter>HLSL\03. Compute\02. ParticleTick</Filter>
+    </ClCompile>
+    <ClCompile Include="HHSound.cpp">
+      <Filter>06. Asset\06. Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="HHFontMgr.cpp">
+      <Filter>04. Manager\09. Font Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="func.fx">
+      <Filter>HLSL\01. Header</Filter>
+    </FxCompile>
+    <FxCompile Include="value.fx">
+      <Filter>HLSL\01. Header</Filter>
+    </FxCompile>
+    <FxCompile Include="struct.fx">
+      <Filter>HLSL\01. Header</Filter>
+    </FxCompile>
+    <FxCompile Include="postprocess.fx">
+      <Filter>HLSL\02. Render\Post Process</Filter>
+    </FxCompile>
+    <FxCompile Include="tilemap.fx">
+      <Filter>HLSL\02. Render\2D</Filter>
+    </FxCompile>
+    <FxCompile Include="debug.fx">
+      <Filter>HLSL\02. Render\2D</Filter>
+    </FxCompile>
+    <FxCompile Include="std2d.fx">
+      <Filter>HLSL\02. Render\2D</Filter>
+    </FxCompile>
+    <FxCompile Include="setcolor.fx">
+      <Filter>HLSL\03. Compute\01. SetColorShader</Filter>
+    </FxCompile>
+    <FxCompile Include="particle.fx">
+      <Filter>HLSL\02. Render\2D</Filter>
+    </FxCompile>
+    <FxCompile Include="particletick.fx">
+      <Filter>HLSL\03. Compute\02. ParticleTick</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl">
+      <Filter>Module</Filter>
+    </None>
+  </ItemGroup>
+</Project>

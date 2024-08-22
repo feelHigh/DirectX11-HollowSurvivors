@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Default">
+      <UniqueIdentifier>{93b40fa3-8730-4903-b25e-a4eaf49d6d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{a6d637c1-5f46-4c95-814c-09b68e459502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\01. Editor Manager">
+      <UniqueIdentifier>{52c6698f-b028-4e4f-a3fe-95f7b32f8e42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\01. Editor Manager\ImGui Example">
+      <UniqueIdentifier>{ea9c936d-203a-4992-bcf5-9960acf06b04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI">
+      <UniqueIdentifier>{94cf173b-180c-4e44-b22f-9f6a403be422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector">
+      <UniqueIdentifier>{f43d862d-3adb-4091-a1de-2e1a0f761964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\02. Content">
+      <UniqueIdentifier>{15dda1f8-d742-4bf6-bc35-f22eeda327aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\03. Outliner">
+      <UniqueIdentifier>{36bd50f3-881f-4ef2-80c9-ca4202645f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjectEx">
+      <UniqueIdentifier>{af661c28-ea20-448d-96bb-6d08eabb0c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjectEx\Scripts">
+      <UniqueIdentifier>{1646510d-9a4e-4134-881b-6e84d28fc5f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI">
+      <UniqueIdentifier>{85069646-1210-4f1f-8fe8-b7343972f778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\04. ListUI">
+      <UniqueIdentifier>{1705ac9e-0f8a-42c8-a4b3-147fadf06759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\Render Component">
+      <UniqueIdentifier>{dad51c38-a90f-4f75-8a7f-19ee69d44924}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\Render Component\Mesh Render">
+      <UniqueIdentifier>{d2d64132-cbb5-4bf0-95cc-1cbfcbb26cdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\Render Component\Tilemap">
+      <UniqueIdentifier>{1ad4b278-624f-4553-9110-f3105d0a142c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\Render Component\Particle System">
+      <UniqueIdentifier>{cf3ebadd-b868-4f03-be92-f2056a40e2f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\01. Transform">
+      <UniqueIdentifier>{9111a86a-1e55-46b7-ada2-36187190a8d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\02. Collider2D">
+      <UniqueIdentifier>{9625b83a-c19e-4443-b17d-4e5402b8d244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\04. Flipbook Renderer">
+      <UniqueIdentifier>{29409e86-c441-4116-bb90-2985ca59463a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\07. Camera">
+      <UniqueIdentifier>{49d91628-0b68-4f62-822b-1e253dd7fec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\05. TreeUI">
+      <UniqueIdentifier>{7fc3e329-4a70-4610-b4d4-f35ad9082fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI">
+      <UniqueIdentifier>{a1e5bdf9-5a28-4a34-bf29-054a8275887f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\03. Material">
+      <UniqueIdentifier>{c1359216-23f3-4808-8039-0f987a9b4965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\01. Mesh">
+      <UniqueIdentifier>{5b50e9a0-ebec-4288-9c7a-65f7ee72d2b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\02. MeshData">
+      <UniqueIdentifier>{6b5fc425-a96a-4cbf-94ae-0b7ec56043f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\04. Prefab">
+      <UniqueIdentifier>{1ef4e2cf-5db8-438d-b395-e184c97fd308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\05. Texture">
+      <UniqueIdentifier>{d4be9546-1a1a-4535-adc0-db46a451ba0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\06. Sprite">
+      <UniqueIdentifier>{843d8de9-4b16-4638-8101-c5c4fc21fdc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\07. Flipbook">
+      <UniqueIdentifier>{f56af7a7-e358-4c1b-a768-72162af13ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\08. Sound">
+      <UniqueIdentifier>{03fcef03-f48c-4b14-955c-283163447fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\Shader">
+      <UniqueIdentifier>{104292d4-de20-4067-aa85-e1a8020b91ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\Shader\GraphicShader">
+      <UniqueIdentifier>{db4b0cf6-a933-4561-a41e-777d6a9689da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\Shader\ComputeShader">
+      <UniqueIdentifier>{5c3f737e-7882-4736-a508-815d6d1cf2bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\06. MenuUI">
+      <UniqueIdentifier>{4f19e355-dbfa-4334-b58e-e812b36def38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Test Level">
+      <UniqueIdentifier>{6dab0be6-c5fd-46e1-9cb9-9f6a20ea2eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\08. Light2D">
+      <UniqueIdentifier>{881db688-1af4-4cc5-9596-d7ab967fa72b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\10. Script">
+      <UniqueIdentifier>{ccd3a41d-5777-4dee-9632-701c5b99d9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\07. Module">
+      <UniqueIdentifier>{264be054-cef9-4ff3-99f3-3c17db13a1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\03. LevelSaveLoad">
+      <UniqueIdentifier>{d3b6cb47-081c-4680-a914-689981f9d0ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor">
+      <UniqueIdentifier>{027b7e6e-894d-4ef7-9eb9-d231389e6d46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor\Sub">
+      <UniqueIdentifier>{6c617b82-f1ae-4c94-a78d-24175b166c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor\Sub\Detail">
+      <UniqueIdentifier>{ac13fc3f-5ca8-417e-8f41-ea89d2d963c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor\Sub\AtlasView">
+      <UniqueIdentifier>{f0660191-7eae-4d5c-8eba-7f8706e71a06}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="HHEditorMgr.h">
+      <Filter>Manager\01. Editor Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHGameObjectEx.h">
+      <Filter>GameObjectEx</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_dx11.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_win32.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_rectpack.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_textedit.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_truetype.h">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClInclude>
+    <ClInclude Include="HHEditorCameraScript.h">
+      <Filter>GameObjectEx\Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorUI.h">
+      <Filter>Editor UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspector.h">
+      <Filter>Editor UI\01. Inspector</Filter>
+    </ClInclude>
+    <ClInclude Include="Content.h">
+      <Filter>Editor UI\02. Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Outliner.h">
+      <Filter>Editor UI\03. Outliner</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\01. Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider2DUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\02. Collider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\07. Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Mesh Render</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Particle System</Filter>
+    </ClInclude>
+    <ClInclude Include="Light2DUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\08. Light2D</Filter>
+    </ClInclude>
+    <ClInclude Include="FlipbookRenUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\04. Flipbook Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="ListUI.h">
+      <Filter>Editor UI\04. ListUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeUI.h">
+      <Filter>Editor UI\05. TreeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputeShaderUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\Shader\ComputeShader</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicShaderUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\Shader\GraphicShader</Filter>
+    </ClInclude>
+    <ClInclude Include="FlipbookUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\07. Flipbook</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\03. Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshDataUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\02. MeshData</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\01. Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\04. Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\08. Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\06. Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\05. Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUI.h">
+      <Filter>Editor UI\06. MenuUI</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTestLevel.h">
+      <Filter>Manager\02. Test Level</Filter>
+    </ClInclude>
+    <ClInclude Include="ParamUI.h">
+      <Filter>Editor UI\07. Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\10. Script</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLevelSaveLoad.h">
+      <Filter>Manager\03. LevelSaveLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEditor.h">
+      <Filter>Editor UI\08. Sprite Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEditorDetail.h">
+      <Filter>Editor UI\08. Sprite Editor\Sub\Detail</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEditorAtlasView.h">
+      <Filter>Editor UI\08. Sprite Editor\Sub\AtlasView</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEditorSub.h">
+      <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Default</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>Default</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>Default</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pch.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEditorMgr.cpp">
+      <Filter>Manager\01. Editor Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHGameObjectEx.cpp">
+      <Filter>GameObjectEx</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_demo.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEditorCameraScript.cpp">
+      <Filter>GameObjectEx\Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorUI.cpp">
+      <Filter>Editor UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspector.cpp">
+      <Filter>Editor UI\01. Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="Content.cpp">
+      <Filter>Editor UI\02. Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Outliner.cpp">
+      <Filter>Editor UI\03. Outliner</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEditorMgr_ObjectEx.cpp">
+      <Filter>Manager\01. Editor Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHEditorMgr_UXcpp.cpp">
+      <Filter>Manager\01. Editor Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\01. Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider2DUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\02. Collider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\07. Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Mesh Render</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\Render Component\Particle System</Filter>
+    </ClCompile>
+    <ClCompile Include="Light2DUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\08. Light2D</Filter>
+    </ClCompile>
+    <ClCompile Include="FlipbookRenUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\04. Flipbook Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="ListUI.cpp">
+      <Filter>Editor UI\04. ListUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeUI.cpp">
+      <Filter>Editor UI\05. TreeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputeShaderUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\Shader\ComputeShader</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicShaderUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\Shader\GraphicShader</Filter>
+    </ClCompile>
+    <ClCompile Include="FlipbookUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\07. Flipbook</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\03. Material</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshDataUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\02. MeshData</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\01. Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefabUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\04. Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\08. Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\06. Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\05. Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspector_Init.cpp">
+      <Filter>Editor UI\01. Inspector</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuUI.cpp">
+      <Filter>Editor UI\06. MenuUI</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTestLevel.cpp">
+      <Filter>Manager\02. Test Level</Filter>
+    </ClCompile>
+    <ClCompile Include="ParamUI.cpp">
+      <Filter>Editor UI\07. Module</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\10. Script</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="HHLevelSaveLoad.cpp">
+      <Filter>Manager\03. LevelSaveLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteEditor.cpp">
+      <Filter>Editor UI\08. Sprite Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteEditorDetail.cpp">
+      <Filter>Editor UI\08. Sprite Editor\Sub\Detail</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteEditorAtlasView.cpp">
+      <Filter>Editor UI\08. Sprite Editor\Sub\AtlasView</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteEditorSub.cpp">
+      <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ImGui\LICENSE.txt">
+      <Filter>Manager\01. Editor Manager\ImGui Example</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
