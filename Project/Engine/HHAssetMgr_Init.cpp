@@ -130,9 +130,9 @@ void HHAssetMgr::CreateEngineTexture()
 													, D3D11_BIND_SHADER_RESOURCE);
 
 	// Noise Texture
-	Load<HHTexture>(L"texture\\noise\\noise_01.png", L"texture\\noise\\noise_01.png");
-	Load<HHTexture>(L"texture\\noise\\noise_02.png", L"texture\\noise\\noise_02.png");
-	Load<HHTexture>(L"texture\\noise\\noise_03.jpg", L"texture\\noise\\noise_03.jpg");
+	//Load<HHTexture>(L"texture\\noise\\noise_01.png", L"texture\\noise\\noise_01.png");
+	//Load<HHTexture>(L"texture\\noise\\noise_02.png", L"texture\\noise\\noise_02.png");
+	//Load<HHTexture>(L"texture\\noise\\noise_03.jpg", L"texture\\noise\\noise_03.jpg");
 }
 
 void HHAssetMgr::CreateEngineSprite()
@@ -176,8 +176,8 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	Ptr<HHGraphicShader> pShader = nullptr;
 	pShader = new HHGraphicShader;
 
-	pShader->CreateVertexShader(L"shader\\std2d.fx", "VS_Std2D");
-	pShader->CreatePixelShader(L"shader\\std2d.fx", "PS_Std2D");
+	pShader->CreateVertexShader(L"Shader\\std2d.fx", "VS_Std2D");
+	pShader->CreatePixelShader(L"Shader\\std2d.fx", "PS_Std2D");
 
 	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
 	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::LESS);
@@ -191,8 +191,8 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	//---------------------------------------------------------------
 	// Std2D Alpha Blend
 	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\std2d.fx", "VS_Std2D");
-	pShader->CreatePixelShader(L"shader\\std2d.fx", "PS_Std2D_AlphaBlend");
+	pShader->CreateVertexShader(L"Shader\\std2d.fx", "VS_Std2D");
+	pShader->CreatePixelShader(L"Shader\\std2d.fx", "PS_Std2D_AlphaBlend");
 
 	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
 	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
@@ -204,8 +204,8 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	//---------------------------------------------------------------
 	// DebugShapeShader
 	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\debug.fx", "VS_DebugShape");
-	pShader->CreatePixelShader(L"shader\\debug.fx", "PS_DebugShape");
+	pShader->CreateVertexShader(L"Shader\\debug.fx", "VS_DebugShape");
+	pShader->CreatePixelShader(L"Shader\\debug.fx", "PS_DebugShape");
 
 	pShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_LINESTRIP);
 
@@ -220,8 +220,8 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	// TilemapShader
 	pShader = new HHGraphicShader;
 
-	pShader->CreateVertexShader(L"shader\\tilemap.fx", "VS_Tilemap");
-	pShader->CreatePixelShader(L"shader\\tilemap.fx", "PS_Tilemap");
+	pShader->CreateVertexShader(L"Shader\\tilemap.fx", "VS_Tilemap");
+	pShader->CreatePixelShader(L"Shader\\tilemap.fx", "PS_Tilemap");
 
 	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
 	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::LESS);
@@ -234,9 +234,9 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	// ParticleShader
 	pShader = new HHGraphicShader;
 
-	pShader->CreateVertexShader(L"shader\\particle.fx", "VS_Particle");
-	pShader->CreateGeometryShader(L"shader\\particle.fx", "GS_Particle");
-	pShader->CreatePixelShader(L"shader\\particle.fx", "PS_Particle");
+	pShader->CreateVertexShader(L"Shader\\particle.fx", "VS_Particle");
+	pShader->CreateGeometryShader(L"Shader\\particle.fx", "GS_Particle");
+	pShader->CreatePixelShader(L"Shader\\particle.fx", "PS_Particle");
 
 	pShader->SetTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
 	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
@@ -246,80 +246,6 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_PARTICLE);
 
 	AddAsset(L"ParticleRenderShader", pShader);
-	//---------------------------------------------------------------
-	// GrayFilterShader
-	pShader = new HHGraphicShader;
-
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_GrayFilter");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_GrayFilter");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-
-	AddAsset(L"GrayFilterShader", pShader);
-
-	// DistortionShader
-	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_Distortion");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_Distortion");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-	AddAsset(L"DistortionShader", pShader);
-	//---------------------------------------------------------------
-	// SepiaToneShader
-	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_SepiaTone");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_SepiaTone");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-	AddAsset(L"SepiaToneShader", pShader);
-
-	// InvertColorShader
-	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_InvertColor");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_InvertColor");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-	AddAsset(L"InvertColorShader", pShader);
-
-	// BlurShader
-	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_Blur");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_Blur");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-	AddAsset(L"BlurShader", pShader);
-
-	// BloomShader
-	pShader = new HHGraphicShader;
-	pShader->CreateVertexShader(L"shader\\postprocess.fx", "VS_Bloom");
-	pShader->CreatePixelShader(L"shader\\postprocess.fx", "PS_Bloom");
-
-	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
-	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::NO_TEST_NO_WRITE);
-	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
-
-	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_POSTPROCESS);
-	AddAsset(L"BloomShader", pShader);
 }
 
 #include "HHParticleTickCS.h"
@@ -359,57 +285,5 @@ void HHAssetMgr::CreateEngineMaterial()
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"ParticleRenderShader"));
 	AddAsset(L"ParticleRenderMtrl", pMtrl);
 	//-----------------------------------------------------------------------
-	// GrayFilterMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"GrayFilterShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"GrayFilterMtrl", pMtrl);
 
-	// DistortionMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"DistortionShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"DistortionMtrl", pMtrl);
-	//-----------------------------------------------------------------------
-	// SepiaToneMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"SepiaToneShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"SepiaToneMtrl", pMtrl);
-
-	// InvertColorMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"InvertColorShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"InvertColorMtrl", pMtrl);
-
-	// BlurMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"BlurShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"BlurMtrl", pMtrl);
-
-	// BloomMtrl
-	pMtrl = new HHMaterial(true);
-	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"BloomShader"));
-	pMtrl->SetTextureParam(TEX_0, FindAsset<HHTexture>(L"PostProcessTex"));
-	pMtrl->SetTextureParam(TEX_1, FindAsset<HHTexture>(L"texture\\noise\\noise_01.png"));
-	pMtrl->SetTextureParam(TEX_2, FindAsset<HHTexture>(L"texture\\noise\\noise_02.png"));
-	pMtrl->SetTextureParam(TEX_3, FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg"));
-	AddAsset(L"BloomMtrl", pMtrl);
 }

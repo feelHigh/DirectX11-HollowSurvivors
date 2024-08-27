@@ -23,7 +23,7 @@ HHParticleSystem::HHParticleSystem()
 	// ParticleTick ComputeShader
 	m_TickCS = (HHParticleTickCS*)HHAssetMgr::GetInstance()->FindAsset<HHComputeShader>(L"ParticleTickCS").Get();
 
-	m_ParticleTex = HHAssetMgr::GetInstance()->FindAsset<HHTexture>(L"texture\\particle\\TX_GlowScene_2.png");
+	m_ParticleTex = HHAssetMgr::GetInstance()->FindAsset<HHTexture>(L"Texture2D\\Particle\\TX_GlowScene_2.png");
 
 	m_ParticleBuffer = new HHStructuredBuffer;
 	m_ParticleBuffer->Create(sizeof(tParticle), m_MaxParticleCount, SB_TYPE::SRV_UAV);

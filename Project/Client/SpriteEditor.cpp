@@ -27,7 +27,8 @@ void SpriteEditor::Initialize()
 	m_AtlasView->m_Owner = this;
 	m_Detail->m_Owner = this;
 
-	m_Detail->SetAtlasTex(HHAssetMgr::GetInstance()->Load<HHTexture>(L"texture\\link.png", L"texture\\link.png"));
+	m_Detail->SetAtlasTex(HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Player\\PlayerSpritesheet.png"
+																	, L"Texture2D\\Player\\PlayerSpritesheet.png"));
 }
 
 void SpriteEditor::Update()

@@ -103,9 +103,6 @@
     <Filter Include="Editor UI\06. MenuUI">
       <UniqueIdentifier>{4f19e355-dbfa-4334-b58e-e812b36def38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager\02. Test Level">
-      <UniqueIdentifier>{6dab0be6-c5fd-46e1-9cb9-9f6a20ea2eba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Editor UI\01. Inspector\ComponentUI\08. Light2D">
       <UniqueIdentifier>{881db688-1af4-4cc5-9596-d7ab967fa72b}</UniqueIdentifier>
     </Filter>
@@ -129,6 +126,9 @@
     </Filter>
     <Filter Include="Editor UI\08. Sprite Editor\Sub\AtlasView">
       <UniqueIdentifier>{f0660191-7eae-4d5c-8eba-7f8706e71a06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels">
+      <UniqueIdentifier>{6dab0be6-c5fd-46e1-9cb9-9f6a20ea2eba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -261,9 +261,6 @@
     <ClInclude Include="MenuUI.h">
       <Filter>Editor UI\06. MenuUI</Filter>
     </ClInclude>
-    <ClInclude Include="HHTestLevel.h">
-      <Filter>Manager\02. Test Level</Filter>
-    </ClInclude>
     <ClInclude Include="ParamUI.h">
       <Filter>Editor UI\07. Module</Filter>
     </ClInclude>
@@ -284,6 +281,9 @@
     </ClInclude>
     <ClInclude Include="SpriteEditorSub.h">
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Manager\02. Game Levels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -421,9 +421,6 @@
     <ClCompile Include="MenuUI.cpp">
       <Filter>Editor UI\06. MenuUI</Filter>
     </ClCompile>
-    <ClCompile Include="HHTestLevel.cpp">
-      <Filter>Manager\02. Test Level</Filter>
-    </ClCompile>
     <ClCompile Include="ParamUI.cpp">
       <Filter>Editor UI\07. Module</Filter>
     </ClCompile>
@@ -445,6 +442,9 @@
     </ClCompile>
     <ClCompile Include="SpriteEditorSub.cpp">
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Manager\02. Game Levels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

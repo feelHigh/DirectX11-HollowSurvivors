@@ -5,11 +5,11 @@
 #include "HHStructuredBuffer.h"
 
 HHParticleTickCS::HHParticleTickCS()
-	: HHComputeShader(1024, 1, 1, L"shader\\particletick.fx", "CS_ParticleTick")
+	: HHComputeShader(1024, 1, 1, L"Shader\\particletick.fx", "CS_ParticleTick")
 	, m_ParticleBuffer(nullptr)
 	, m_SpawnCountBuffer(nullptr)
 {
-	m_NoiseTex = HHAssetMgr::GetInstance()->FindAsset<HHTexture>(L"texture\\noise\\noise_03.jpg");
+	m_NoiseTex = HHAssetMgr::GetInstance()->FindAsset<HHTexture>(L"Texture2D\\Noise\\noise_03.jpg");
 }
 
 HHParticleTickCS::~HHParticleTickCS()

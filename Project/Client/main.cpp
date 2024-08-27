@@ -7,7 +7,7 @@
 #include "ImGui/imgui_impl_win32.h"
 
 #include "HHLevelSaveLoad.h"
-#include "HHTestLevel.h"
+#include "TitleLevel.h"
 
 // 전역 변수:
 HINSTANCE g_hInst = nullptr;
@@ -54,7 +54,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #endif
 
     // 테스트용 레벨 초기상태 만들기
-    HHTestLevel::CreateTestLevel();
+    TitleLevel::Initialize();
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
     MSG msg = {};

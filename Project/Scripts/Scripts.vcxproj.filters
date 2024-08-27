@@ -21,9 +21,6 @@
     <ClInclude Include="HHCameraMoveScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="HHMissileScript.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="HHPlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
@@ -39,9 +36,6 @@
       <Filter>Default</Filter>
     </ClCompile>
     <ClCompile Include="HHCameraMoveScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="HHMissileScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="HHPlayerScript.cpp">

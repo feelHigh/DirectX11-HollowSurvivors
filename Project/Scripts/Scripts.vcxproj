@@ -168,14 +168,12 @@ call CodeGen.exe</Command>
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="HHCameraMoveScript.h" />
-    <ClInclude Include="HHMissileScript.h" />
     <ClInclude Include="HHPlayerScript.h" />
     <ClInclude Include="HHScriptMgr.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HHCameraMoveScript.cpp" />
-    <ClCompile Include="HHMissileScript.cpp" />
     <ClCompile Include="HHPlayerScript.cpp" />
     <ClCompile Include="HHScriptMgr.cpp" />
     <ClCompile Include="pch.cpp">

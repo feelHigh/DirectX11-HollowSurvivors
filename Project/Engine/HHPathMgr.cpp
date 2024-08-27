@@ -21,7 +21,7 @@ void HHPathMgr::Initialize()
 
 	// \\Content\\ ¸¦ ºÙ¿©µÐ´Ù
 	m_Content = szBuffer;
-	m_Content += L"\\content\\";
+	m_Content += L"\\Content\\";
 
 	GetCurrentDirectory(256, szBuffer);
 
