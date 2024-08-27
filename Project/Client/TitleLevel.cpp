@@ -24,7 +24,7 @@ void TitleLevel::Initialize()
 {
 	PreLoad();
 	// Material
-	Ptr<HHMaterial> StandardMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"Std2DMtrl");
+	Ptr<HHMaterial> StandardMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"StandardMtrl");
 
 	// Level 생성
 	HHLevel* pLevel = new HHLevel;
@@ -83,10 +83,9 @@ void TitleLevel::Initialize()
 	pLevel->AddObject(1, BGObject);
 
 	// Foreground 배치
-	/*
 	HHGameObject* FGObject = nullptr;
 	FGObject = new HHGameObject;
-	FGObject->SetName(L"Level Background");
+	FGObject->SetName(L"Level Foreground");
 	FGObject->AddComponent(new HHTransform);
 	FGObject->AddComponent(new HHMeshRender);
 
@@ -97,16 +96,16 @@ void TitleLevel::Initialize()
 
 	Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
 																		, L"Texture2D\\Title\\Hollow18-alpha.png");
-	FGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_0, FGTexture);
+	FGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_1, FGTexture);
 
 	pLevel->AddObject(2, FGObject);
-	*/
+
+	ChangeLevel(pLevel, LEVEL_STATE::PLAY);
+
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
 	strLevelPath += L"Level\\TitleLevel.lv";
 	HHLevelSaveLoad::SaveLevel(strLevelPath, pLevel);
-
-	ChangeLevel(pLevel, LEVEL_STATE::PLAY);
 }
 
 void TitleLevel::PreLoad()

@@ -172,8 +172,10 @@ void HHAssetMgr::CreateEngineSprite()
 
 void HHAssetMgr::CreateEngineGraphicShader()
 {
-	// Std2D Shader
 	Ptr<HHGraphicShader> pShader = nullptr;
+
+#pragma region Default Shader
+	// Std2D Shader
 	pShader = new HHGraphicShader;
 
 	pShader->CreateVertexShader(L"Shader\\std2d.fx", "VS_Std2D");
@@ -246,6 +248,25 @@ void HHAssetMgr::CreateEngineGraphicShader()
 	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_PARTICLE);
 
 	AddAsset(L"ParticleRenderShader", pShader);
+#pragma endregion
+
+#pragma region Game Shader
+	// Standard Shader
+	pShader = new HHGraphicShader;
+
+	pShader->CreateVertexShader(L"Shader\\Standard.fx", "VS_Standard");
+	pShader->CreatePixelShader(L"Shader\\Standard.fx", "PS_Standard");
+
+	pShader->SetRasterizerType(RASTERIZER_STATE_TYPE::CULL_NONE);
+	pShader->SetDepthStencilType(DEPTH_STENCIL_STATE_TYPE::LESS);
+	pShader->SetBlendType(BLEND_STATE_TYPE::DEFAULT);
+
+	pShader->SetDomain(SHADER_DOMAIN::DOMAIN_MASKED);
+
+	AddAsset(L"StandardShader", pShader);
+	//---------------------------------------------------------------
+
+#pragma endregion
 }
 
 #include "HHParticleTickCS.h"
@@ -263,10 +284,13 @@ void HHAssetMgr::CreateEngineMaterial()
 {
 	Ptr<HHMaterial>	pMtrl = nullptr;
 
+#pragma region Default Matrerial
+	// Std2DMtrl
 	pMtrl = new HHMaterial(true);
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"Std2DShader"));
 	AddAsset(L"Std2DMtrl", pMtrl);
 	//-----------------------------------------------------------------------
+	// Std2DAlphaBlendMtrl
 	pMtrl = new HHMaterial(true);
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"Std2DAlphaBlendShader"));
 	AddAsset(L"Std2DAlphaBlendMtrl", pMtrl);
@@ -284,6 +308,14 @@ void HHAssetMgr::CreateEngineMaterial()
 	pMtrl = new HHMaterial(true);
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"ParticleRenderShader"));
 	AddAsset(L"ParticleRenderMtrl", pMtrl);
+#pragma endregion
+
+#pragma region Game Material
+	// StandardMtrl
+	pMtrl = new HHMaterial(true);
+	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"StandardShader"));
+	AddAsset(L"StandardMtrl", pMtrl);
 	//-----------------------------------------------------------------------
 
+#pragma endregion
 }

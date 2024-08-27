@@ -294,6 +294,7 @@ call EngineCopy.bat</Command>
     <FxCompile Include="particletick.fx" />
     <FxCompile Include="postprocess.fx" />
     <FxCompile Include="setcolor.fx" />
+    <FxCompile Include="Standard.fx" />
     <FxCompile Include="std2d.fx" />
     <FxCompile Include="struct.fx" />
     <FxCompile Include="tilemap.fx" />

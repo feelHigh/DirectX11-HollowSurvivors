@@ -175,6 +175,15 @@
     <Filter Include="04. Manager\09. Font Manager">
       <UniqueIdentifier>{453d400f-7ee1-4b3a-8c1e-fc478253d56d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HLSL\02. Render\2D\Title Level">
+      <UniqueIdentifier>{ae2ca052-bbb9-417d-bd47-f25d8d82bd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render\2D\Sanctuary Level">
+      <UniqueIdentifier>{15518dda-fc82-4dae-b887-8c864d82688b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL\02. Render\2D\Dungeon Level">
+      <UniqueIdentifier>{3a4117bb-9eaf-4f02-b5e5-a3dfb29e6b46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -507,6 +516,9 @@
     </FxCompile>
     <FxCompile Include="particletick.fx">
       <Filter>HLSL\03. Compute\02. ParticleTick</Filter>
+    </FxCompile>
+    <FxCompile Include="Standard.fx">
+      <Filter>HLSL\02. Render\2D\Title Level</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
