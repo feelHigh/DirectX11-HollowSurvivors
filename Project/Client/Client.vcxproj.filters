@@ -130,6 +130,21 @@
     <Filter Include="Manager\02. Game Levels">
       <UniqueIdentifier>{6dab0be6-c5fd-46e1-9cb9-9f6a20ea2eba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\02. Game Levels\Level10">
+      <UniqueIdentifier>{64cd6669-1334-4047-ab3d-fd5bbedfe19e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\Level00">
+      <UniqueIdentifier>{88e7a722-cf5e-4153-bc74-d77063fc8c9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\Level01">
+      <UniqueIdentifier>{2702aaaa-263b-41e3-8bba-1f86002b3ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\Level20">
+      <UniqueIdentifier>{0b52d5eb-97bc-4dac-9654-9c9d2d13c0dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\Level21">
+      <UniqueIdentifier>{5fed5954-b1ab-41c8-80ef-5b555a386919}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -283,7 +298,10 @@
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
     </ClInclude>
     <ClInclude Include="TitleLevel.h">
-      <Filter>Manager\02. Game Levels</Filter>
+      <Filter>Manager\02. Game Levels\Level00</Filter>
+    </ClInclude>
+    <ClInclude Include="SanctuaryLevel.h">
+      <Filter>Manager\02. Game Levels\Level10</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -444,7 +462,10 @@
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
     </ClCompile>
     <ClCompile Include="TitleLevel.cpp">
-      <Filter>Manager\02. Game Levels</Filter>
+      <Filter>Manager\02. Game Levels\Level00</Filter>
+    </ClCompile>
+    <ClCompile Include="SanctuaryLevel.cpp">
+      <Filter>Manager\02. Game Levels\Level10</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

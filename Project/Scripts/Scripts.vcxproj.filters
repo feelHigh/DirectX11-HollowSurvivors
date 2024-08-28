@@ -10,6 +10,21 @@
     <Filter Include="Script Manager">
       <UniqueIdentifier>{da916e86-416b-4819-8bd8-413c2190c89b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Player">
+      <UniqueIdentifier>{f4b39303-0e24-4fc5-9300-5651439b1d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\UI">
+      <UniqueIdentifier>{87d50ba9-c9b6-42e7-8580-9d29acc8da7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\NPC">
+      <UniqueIdentifier>{8703a034-7022-4d7a-8616-2ee55d4e0ee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Camera">
+      <UniqueIdentifier>{251cc868-886a-431d-a774-5614b58ef06d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Monster/Boss">
+      <UniqueIdentifier>{82c7e316-3d58-459a-aa2c-e112ac2de6d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -18,14 +33,20 @@
     <ClInclude Include="framework.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="HHCameraMoveScript.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
-    <ClInclude Include="HHPlayerScript.h">
-      <Filter>Scripts</Filter>
-    </ClInclude>
     <ClInclude Include="HHScriptMgr.h">
       <Filter>Script Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HHPlayerScript.h">
+      <Filter>Scripts\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="HHSmallGirlScript.h">
+      <Filter>Scripts\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="HHMenuButtonScript.h">
+      <Filter>Scripts\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HHCameraMoveScript.h">
+      <Filter>Scripts\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -35,14 +56,20 @@
     <ClCompile Include="pch.cpp">
       <Filter>Default</Filter>
     </ClCompile>
-    <ClCompile Include="HHCameraMoveScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
-    <ClCompile Include="HHPlayerScript.cpp">
-      <Filter>Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="HHScriptMgr.cpp">
       <Filter>Script Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHPlayerScript.cpp">
+      <Filter>Scripts\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="HHSmallGirlScript.cpp">
+      <Filter>Scripts\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="HHMenuButtonScript.cpp">
+      <Filter>Scripts\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HHCameraMoveScript.cpp">
+      <Filter>Scripts\Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

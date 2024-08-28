@@ -168,14 +168,18 @@ call CodeGen.exe</Command>
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="HHCameraMoveScript.h" />
+    <ClInclude Include="HHMenuButtonScript.h" />
     <ClInclude Include="HHPlayerScript.h" />
     <ClInclude Include="HHScriptMgr.h" />
+    <ClInclude Include="HHSmallGirlScript.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HHCameraMoveScript.cpp" />
+    <ClCompile Include="HHMenuButtonScript.cpp" />
     <ClCompile Include="HHPlayerScript.cpp" />
     <ClCompile Include="HHScriptMgr.cpp" />
+    <ClCompile Include="HHSmallGirlScript.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

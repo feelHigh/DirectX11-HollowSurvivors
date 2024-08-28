@@ -40,14 +40,11 @@ void HHPlayerScript::Tick()
 
 void HHPlayerScript::BeginOverlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
 {
-	DeleteObject(_OtherObject);
-
-	Vec3 vScale = Transform()->GetRelativeScale();
-
-	vScale += Vec3(10.f, 10.f, 0.f);
-	Collider2D()->SetScale(Collider2D()->GetScale() + Vec3(10.f, 10.f, 0.f));
-
-	Transform()->SetRelativeScale(vScale);
+	if (_OtherCollider->GetOwner()->GetName() == L"Level Foreground2")
+	{
+		DeleteObject(_OtherObject);
+		//return;
+	}
 }
 
 void HHPlayerScript::SaveToFile(FILE* _File)

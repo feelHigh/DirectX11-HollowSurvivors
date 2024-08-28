@@ -1,10 +1,10 @@
 #pragma once
 
+class HHLevel;
+
 class TitleLevel
 {
 public:
-	static void Initialize();
-	static void PreLoad();
+	static HHLevel* CreateTitleLevel();
 
 };
-
