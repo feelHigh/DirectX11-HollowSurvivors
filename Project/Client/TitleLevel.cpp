@@ -24,15 +24,16 @@ void TitleLevel::Initialize()
 {
 	PreLoad();
 	// Material
-	Ptr<HHMaterial> StandardMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"StandardMtrl");
+	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
+
 
 	// Level 생성
-	HHLevel* pLevel = new HHLevel;
+	HHLevel* TitleLvl = new HHLevel;
 
-	pLevel->GetLayer(0)->SetName(L"Default");
-	pLevel->GetLayer(1)->SetName(L"Background");
-	pLevel->GetLayer(2)->SetName(L"Foreground");
-	pLevel->GetLayer(3)->SetName(L"Menu");
+	TitleLvl->GetLayer(0)->SetName(L"Default");
+	TitleLvl->GetLayer(1)->SetName(L"Background");
+	TitleLvl->GetLayer(2)->SetName(L"Foreground");
+	TitleLvl->GetLayer(3)->SetName(L"Menu");
 
 	// 카메라 오브젝트
 	HHGameObject* MainCamera = new HHGameObject;
@@ -49,7 +50,7 @@ void TitleLevel::Initialize()
 	MainCamera->Camera()->SetFar(100000.f);
 	MainCamera->Camera()->SetProjectionType(ORTHOGRAPHIC);
 
-	pLevel->AddObject(0, MainCamera);
+	TitleLvl->AddObject(0, MainCamera);
 		
 	// 광원 오브젝트 추가
 	HHGameObject* Global_Illumination = nullptr;
@@ -62,7 +63,7 @@ void TitleLevel::Initialize()
 	Global_Illumination->Light2D()->SetLightType(LIGHT_TYPE::DIRECTIONAL);
 	Global_Illumination->Light2D()->SetLightAmbient(Vec3(1.f, 1.f, 1.f));
 
-	pLevel->AddObject(0, Global_Illumination);
+	TitleLvl->AddObject(0, Global_Illumination);
 
 	// Background 배치
 	HHGameObject* BGObject = nullptr;
@@ -74,13 +75,14 @@ void TitleLevel::Initialize()
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
 	BGObject->Transform()->SetRelativeScale(Vec3(1600.f, 900.f, 1.f));
 	BGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
-	BGObject->MeshRender()->SetMaterial(StandardMtrl);
-
+	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
+	
 	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png"
 																		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
 	BGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_0, BGTexture);
+	BGObject->GetRenderComponent()->GetMaterial()->SetScalarParam(INT_0, 0);
 
-	pLevel->AddObject(1, BGObject);
+	TitleLvl->AddObject(1, BGObject);
 
 	// Foreground 배치
 	HHGameObject* FGObject = nullptr;
@@ -88,24 +90,21 @@ void TitleLevel::Initialize()
 	FGObject->SetName(L"Level Foreground");
 	FGObject->AddComponent(new HHTransform);
 	FGObject->AddComponent(new HHMeshRender);
+	FGObject->AddComponent(new HHPlayerScript);
 
-	FGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 900.f));
+	FGObject->Transform()->SetRelativePosition(Vec3(0.f, 176.f, 900.f));
 	FGObject->Transform()->SetRelativeScale(Vec3(543.f, 294.f, 1.f));
 	FGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
-	FGObject->MeshRender()->SetMaterial(StandardMtrl);
+	FGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
-	Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
-																		, L"Texture2D\\Title\\Hollow18-alpha.png");
-	FGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_1, FGTexture);
+	TitleLvl->AddObject(2, FGObject);
 
-	pLevel->AddObject(2, FGObject);
-
-	ChangeLevel(pLevel, LEVEL_STATE::PLAY);
+	ChangeLevel(TitleLvl, LEVEL_STATE::PLAY);
 
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
 	strLevelPath += L"Level\\TitleLevel.lv";
-	HHLevelSaveLoad::SaveLevel(strLevelPath, pLevel);
+	HHLevelSaveLoad::SaveLevel(strLevelPath, TitleLvl);
 }
 
 void TitleLevel::PreLoad()

@@ -62,26 +62,6 @@ float4 PS_Standard(VTX_OUT _in) : SV_Target
         {
             vColor = g_tex_0.Sample(g_sam_1, _in.vUV);
         }
-        else if (g_btex_1)
-        {
-            vColor = g_tex_1.Sample(g_sam_1, _in.vUV);
-        }
-        else if (g_btex_2)
-        {
-            vColor = g_tex_2.Sample(g_sam_1, _in.vUV);
-        }
-        else if (g_btex_3)
-        {
-            vColor = g_tex_3.Sample(g_sam_1, _in.vUV);
-        }
-        else if (g_btex_4)
-        {
-            vColor = g_tex_4.Sample(g_sam_1, _in.vUV);
-        }
-        else if (g_btex_5)
-        {
-            vColor = g_tex_5.Sample(g_sam_1, _in.vUV);
-        }
         else
         {
             vColor = float4(1.f, 0.f, 1.f, 1.f);

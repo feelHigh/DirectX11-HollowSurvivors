@@ -311,10 +311,10 @@ void HHAssetMgr::CreateEngineMaterial()
 #pragma endregion
 
 #pragma region Game Material
-	// StandardMtrl
+	// BackgroundMtrl
 	pMtrl = new HHMaterial(true);
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"StandardShader"));
-	AddAsset(L"StandardMtrl", pMtrl);
+	AddAsset(L"BackgroundMtrl", pMtrl);
 	//-----------------------------------------------------------------------
 
 #pragma endregion

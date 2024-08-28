@@ -102,7 +102,7 @@ void MenuUI::Level()
 		if (ImGui::MenuItem("Stop"))
 		{
 			wstring StrLevelLoadPath = HHPathMgr::GetInstance()->GetContentPath();
-			StrLevelLoadPath += L"level\\Temp.lv";
+			StrLevelLoadPath += L"level\\TitleLevel.lv";
 			HHLevel* pLoadedLevel = HHLevelSaveLoad::LoadLevel(StrLevelLoadPath);
 			ChangeLevel(pLoadedLevel, LEVEL_STATE::STOP);
 

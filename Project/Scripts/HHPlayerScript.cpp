@@ -15,9 +15,10 @@ HHPlayerScript::~HHPlayerScript()
 
 void HHPlayerScript::Begin()
 {
-	GetRenderComponent()->GetDynamicMaterial();
-
-	//m_MissilePref = HHAssetMgr::GetInstance()->FindAsset<HHPrefab>(L"MissilePref");
+	Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
+																		, L"Texture2D\\Title\\Hollow18-alpha.png");
+	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, FGTexture);
+	//GetRenderComponent()->GetDynamicMaterial()->SetScalarParam(INT_0, 0);
 }
 
 void HHPlayerScript::Tick()
@@ -32,7 +33,6 @@ void HHPlayerScript::Tick()
 		vPos.y += DT * m_Speed;
 	if (KEY_PRESSED(KEY::DOWN))
 		vPos.y -= DT * m_Speed;
-
 
 
 	Transform()->SetRelativePosition(vPos);
