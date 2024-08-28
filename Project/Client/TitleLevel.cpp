@@ -73,7 +73,7 @@ void TitleLevel::Initialize()
 	BGObject->AddComponent(new HHMeshRender);
 
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
-	BGObject->Transform()->SetRelativeScale(Vec3(1600.f, 900.f, 1.f));
+	BGObject->Transform()->SetRelativeScale(Vec3(2560.f, 1440.f, 1.f));
 	BGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 	
