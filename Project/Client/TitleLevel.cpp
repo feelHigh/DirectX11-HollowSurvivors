@@ -12,6 +12,8 @@
 
 #include <Engine/HHCollisionMgr.h>
 
+#include <Engine/HHText.h>
+
 #include <Engine/HHSetColorCS.h>
 #include <Engine/HHStructuredBuffer.h>
 
@@ -77,7 +79,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	// Background 배치
 	HHGameObject* BGObject = nullptr;
 	BGObject = new HHGameObject;
-	BGObject->SetName(L"Level Background");
+	BGObject->SetName(L"Title Background Texture");
 	BGObject->AddComponent(new HHTransform);
 	BGObject->AddComponent(new HHMeshRender);
 
@@ -87,7 +89,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
 	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png"
-		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
+																		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
 	BGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_0, BGTexture);
 	BGObject->GetRenderComponent()->GetMaterial()->SetScalarParam(INT_0, 0);
 
@@ -96,7 +98,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	// Foreground 배치
 	HHGameObject* FGObject = nullptr;
 	FGObject = new HHGameObject;
-	FGObject->SetName(L"Level Foreground");
+	FGObject->SetName(L"Title Logo");
 	FGObject->AddComponent(new HHTransform);
 	FGObject->AddComponent(new HHMeshRender);
 	FGObject->AddComponent(new HHPlayerScript);
@@ -113,6 +115,23 @@ HHLevel* TitleLevel::CreateTitleLevel()
 
 	TitleLvl->AddObject(2, FGObject);
 
+	FGObject = new HHGameObject;
+	FGObject->SetName(L"Title Menu");
+	FGObject->AddComponent(new HHTransform);
+	FGObject->AddComponent(new HHCollider2D);
+	FGObject->AddComponent(new HHText);
+
+	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -100.f, 900.f));
+	FGObject->Transform()->SetRelativeScale(Vec3(150.f, 100.f, 1.f));
+
+	FGObject->Collider2D()->SetIndependentScale(false);
+	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+
+	FGObject->Text()->SetText(L"게임 시작");
+
+	TitleLvl->AddObject(2, FGObject);
+	/*
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Level Foreground2");
 	FGObject->AddComponent(new HHTransform);
@@ -133,7 +152,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 
 	// 충돌 지정
 	HHCollisionMgr::GetInstance()->CollisionCheck(2, 3);
-
+	*/
 	return TitleLvl;
 
 	//ChangeLevel(TitleLvl, LEVEL_STATE::PLAY);

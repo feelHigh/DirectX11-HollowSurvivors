@@ -12,7 +12,7 @@ public:
     virtual int Load(const wstring& _FilePath) override;
     virtual int Save(const wstring& _FilePath) override;
 
-    // GracphiShader - t register
+    // GraphicShader - t register
     void Binding(UINT _RegisterNum);
     static void Clear(UINT _RegisterNum);
 

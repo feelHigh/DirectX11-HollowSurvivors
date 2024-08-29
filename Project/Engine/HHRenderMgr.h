@@ -22,6 +22,8 @@ public:
 
     void PostProcessCopy();
 
+    Ptr<HHTexture> GetPostProcessTexture() { return m_PostProcessTex; }
+
 private:
     vector<HHCamera*>       m_vecCam;
     HHCamera*               m_EditorCamera;

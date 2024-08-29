@@ -17,4 +17,7 @@
 //#include "HHDecal.h"
 //#include "HHLandScape.h"
 
+#include "HHText.h"
+#include "HHButton.h"
+
 #include "HHScript.h"

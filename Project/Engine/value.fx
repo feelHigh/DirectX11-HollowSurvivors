@@ -102,4 +102,6 @@ Texture2D g_AtlasTex : register(t10);
 StructuredBuffer<tLightInfo> g_Light2D : register(t11);
 StructuredBuffer<tLightInfo> g_Light3D : register(t12);
 
+Texture2D g_PostProcessTex : register(t13);
+
 #endif

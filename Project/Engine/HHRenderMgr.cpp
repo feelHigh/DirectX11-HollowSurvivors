@@ -20,6 +20,9 @@
 
 #include "HHKeyMgr.h"
 
+#include "HHText.h"
+#include "HHFontMgr.h"
+
 HHRenderMgr::HHRenderMgr()
 	: m_EditorCamera(nullptr)
 	, m_DebugObject(nullptr)
@@ -57,7 +60,7 @@ void HHRenderMgr::Tick()
 
 	RenderStart();
 
-	// Level 이 Player 상태인 경우, Level 내에 있는 카메라 시점으로 렌더링하기
+	// Level 이 Play 상태인 경우, Level 내에 있는 카메라 시점으로 렌더링하기
 	if (PLAY == pCurLevel->GetState())
 	{
 		for (size_t i = 0; i < m_vecCam.size(); ++i)
@@ -80,7 +83,7 @@ void HHRenderMgr::Tick()
 
 	// Debug Render
 	RenderDebugShape();
-
+	
 	// Time 정보 출력
 	HHTimeMgr::GetInstance()->Render();
 

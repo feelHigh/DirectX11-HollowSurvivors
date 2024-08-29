@@ -184,6 +184,15 @@
     <Filter Include="HLSL\02. Render\2D\Dungeon Level">
       <UniqueIdentifier>{3a4117bb-9eaf-4f02-b5e5-a3dfb29e6b46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="08. Component\UI Component">
+      <UniqueIdentifier>{0a27cceb-1367-4b3f-b6a8-e12d57c38adc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\UI Component\Text">
+      <UniqueIdentifier>{1770b858-0db8-479e-8efc-ab75c9881a7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. Component\UI Component\Button">
+      <UniqueIdentifier>{509d4c82-397c-481d-a9cb-bb286335cec9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -345,6 +354,12 @@
     <ClInclude Include="HHFontMgr.h">
       <Filter>04. Manager\09. Font Manager</Filter>
     </ClInclude>
+    <ClInclude Include="HHText.h">
+      <Filter>08. Component\UI Component\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="HHButton.h">
+      <Filter>08. Component\UI Component\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -484,6 +499,12 @@
     </ClCompile>
     <ClCompile Include="HHFontMgr.cpp">
       <Filter>04. Manager\09. Font Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="HHText.cpp">
+      <Filter>08. Component\UI Component\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="HHButton.cpp">
+      <Filter>08. Component\UI Component\Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

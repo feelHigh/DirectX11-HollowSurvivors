@@ -183,6 +183,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="global.h" />
     <ClInclude Include="HHAsset.h" />
     <ClInclude Include="HHAssetMgr.h" />
+    <ClInclude Include="HHButton.h" />
     <ClInclude Include="HHCamera.h" />
     <ClInclude Include="HHCollider2D.h" />
     <ClInclude Include="HHCollisionMgr.h" />
@@ -221,6 +222,7 @@ call EngineCopy.bat</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="HHText.h" />
     <ClInclude Include="HHTexture.h" />
     <ClInclude Include="HHTilemap.h" />
     <ClInclude Include="HHTimeMgr.h" />
@@ -238,6 +240,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="HHAsset.cpp" />
     <ClCompile Include="HHAssetMgr.cpp" />
     <ClCompile Include="HHAssetMgr_Init.cpp" />
+    <ClCompile Include="HHButton.cpp" />
     <ClCompile Include="HHCamera.cpp" />
     <ClCompile Include="HHCollider2D.cpp" />
     <ClCompile Include="HHCollisionMgr.cpp" />
@@ -276,6 +279,7 @@ call EngineCopy.bat</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="HHText.cpp" />
     <ClCompile Include="HHTexture.cpp" />
     <ClCompile Include="HHTilemap.cpp" />
     <ClCompile Include="HHTimeMgr.cpp" />

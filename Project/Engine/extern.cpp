@@ -3,6 +3,8 @@
 tTransform	g_Trans = {};
 tGlobalData g_GlobalData = {};
 
+wstring e_Font = {};
+
 const char* ASSET_TYPE_STRING[] =
 {
 	"MESH",
@@ -36,7 +38,9 @@ const char* COMPONENT_TYPE_STRING[] =
 	"PARTICLE_SYSTEM",
 	"DECAl",
 	"SKYBOX",
-	"LANDSCAPE"
+	"LANDSCAPE",
+	"GAME_TEXT",
+	"GAME_BUTTON",
 };
 
 const char* ToString(COMPONENT_TYPE _Type) { return COMPONENT_TYPE_STRING[(UINT)_Type]; }

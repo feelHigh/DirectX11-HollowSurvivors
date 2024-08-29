@@ -34,6 +34,8 @@ public:
     GET_OTHER_COMPONENT(Tilemap);
     GET_OTHER_COMPONENT(Light2D);
     GET_OTHER_COMPONENT(ParticleSystem);
+    GET_OTHER_COMPONENT(Text);
+    GET_OTHER_COMPONENT(Button);
 
 private:
     const COMPONENT_TYPE    m_Type;

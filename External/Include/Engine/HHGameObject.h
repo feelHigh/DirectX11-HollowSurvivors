@@ -28,6 +28,16 @@ public:
     void                AddComponent(HHComponent* _Component);
     HHComponent*        GetComponent(COMPONENT_TYPE _Type) { return m_arrCom[(UINT)_Type]; }
 
+    template<typename T>
+    T* GetUnComponent(COMPONENT_TYPE _Type)
+    {
+        T* tComp = dynamic_cast<T*>(m_arrCom[(UINT)_Type]);
+        if (tComp != nullptr)
+            return tComp;
+
+        return tComp;
+    }
+
     HHRenderComponent*  GetRenderComponent()    { return m_RenderCom; }
     HHGameObject*       GetParentObject()       { return m_ParentObj; }
     int                 GetLayerIndex()         { return m_LayerIdx; }
@@ -53,6 +63,8 @@ public:
     GET_COMPONENT(Tilemap, TILEMAP);
     GET_COMPONENT(Light2D, LIGHT2D);
     GET_COMPONENT(ParticleSystem, PARTICLESYSTEM);
+    GET_COMPONENT(Text, GAME_TEXT);
+    GET_COMPONENT(Button, GAME_BUTTON);
 
 private:
     HHComponent*            m_arrCom[(UINT)COMPONENT_TYPE::END];

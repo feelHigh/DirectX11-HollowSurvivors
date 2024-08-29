@@ -104,47 +104,25 @@ void HHCamera::SortGameObject()
 	for (UINT i = 0; i < MAX_LAYER; ++i)
 	{
 		if (false == (m_LayerCheck & (1 << i)))
-		{
 			continue;
-		}
 
 		HHLayer* pLayer = pLevel->GetLayer(i);
 
 		const vector<HHGameObject*>& vecObjects = pLayer->GetObjects();
+
 		for (size_t j = 0; j < vecObjects.size(); ++j)
 		{
-			if (nullptr == vecObjects[j]->GetRenderComponent()
-				|| nullptr == vecObjects[j]->GetRenderComponent()->GetMesh()
-				|| nullptr == vecObjects[j]->GetRenderComponent()->GetMaterial()
-				|| nullptr == vecObjects[j]->GetRenderComponent()->GetMaterial()->GetShader())
-			{
+			HHRenderComponent* pRenderComponent = vecObjects[j]->GetRenderComponent();
+
+			if (pRenderComponent == nullptr)
 				continue;
-			}
 
 			Ptr<HHGraphicShader> pShader = vecObjects[j]->GetRenderComponent()->GetMaterial()->GetShader();
+
 			SHADER_DOMAIN Domain = pShader->GetDomain();
 
-			switch (Domain)
-			{
-			case DOMAIN_OPAQUE:
-				m_vecOpaque.push_back(vecObjects[j]);
-				break;
-			case DOMAIN_MASKED:
-				m_vecMasked.push_back(vecObjects[j]);
-				break;
-			case DOMAIN_TRANSPARENT:
-				m_vecTransparent.push_back(vecObjects[j]);
-				break;
-			case DOMAIN_PARTICLE:
-				m_vecParticle.push_back(vecObjects[j]);
-				break;
-			case DOMAIN_POSTPROCESS:
-				m_vecPostProcess.push_back(vecObjects[j]);
-				break;
-			case DOMAIN_UI:
-				m_vecUI.push_back(vecObjects[j]);
-				break;
-			}
+			// Sort by Domain
+			m_DomainSort[(UINT)Domain].push_back(vecObjects[j]);
 		}
 	}
 }
@@ -158,49 +136,38 @@ void HHCamera::Render()
 	g_Trans.matView = m_matView;
 	g_Trans.matProjection = m_matProjection;
 
-	// Opaque
-	for (size_t i = 0; i < m_vecOpaque.size(); ++i)
+	for (int _idx = 0; _idx < (UINT)SHADER_DOMAIN::DOMAIN_NONE; _idx++)
 	{
-		m_vecOpaque[i]->Render();
+		if (_idx == (UINT)SHADER_DOMAIN::DOMAIN_POSTPROCESS)
+		{
+			PostProcessRender(m_DomainSort[_idx]);
+		}
+		else
+		{
+			Render(m_DomainSort[_idx]);
+		}
 	}
+}
 
-	// Masked
-	for (size_t i = 0; i < m_vecMasked.size(); ++i)
+void HHCamera::Render(vector<HHGameObject*>& _vecObj)
+{
+	for (size_t _idx = 0; _idx < _vecObj.size(); _idx++)
 	{
-		m_vecMasked[i]->Render();
+		_vecObj[_idx]->Render();
 	}
+	_vecObj.clear();
+}
 
-	// Transparent
-	for (size_t i = 0; i < m_vecTransparent.size(); ++i)
+void HHCamera::PostProcessRender(vector<HHGameObject*>& _vecObj)
+{
+	for (size_t _idx = 0; _idx < _vecObj.size(); _idx++)
 	{
-		m_vecTransparent[i]->Render();
-	}
+		Ptr<HHTexture> pPostProcessTex = HHRenderMgr::GetInstance()->GetPostProcessTexture();
+		pPostProcessTex->Binding(13);
 
-	// Particles
-	for (size_t i = 0; i < m_vecParticle.size(); ++i)
-	{
-		m_vecParticle[i]->Render();
+		_vecObj[_idx]->Render();
 	}
-
-	// PostProcess 
-	for (size_t i = 0; i < m_vecPostProcess.size(); ++i)
-	{
-		HHRenderMgr::GetInstance()->PostProcessCopy();
-		m_vecPostProcess[i]->Render();
-	}
-
-	// UI
-	for (size_t i = 0; i < m_vecUI.size(); ++i)
-	{
-		m_vecUI[i]->Render();
-	}
-
-	m_vecOpaque.clear();
-	m_vecMasked.clear();
-	m_vecTransparent.clear();
-	m_vecParticle.clear();
-	m_vecPostProcess.clear();
-	m_vecUI.clear();
+	_vecObj.clear();
 }
 
 void HHCamera::SaveToFile(FILE* _File)

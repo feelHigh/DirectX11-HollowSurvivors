@@ -47,6 +47,9 @@ enum class COMPONENT_TYPE
 	SKYBOX,
 	LANDSCAPE,
 
+	GAME_TEXT,
+	GAME_BUTTON,
+
 	END,
 
 	// Script는 해당 게임 오브젝트의 고유 기능 담당하기 때문에 END 뒤에 배치

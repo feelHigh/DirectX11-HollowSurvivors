@@ -73,6 +73,7 @@ void HHEngine::Progress()
 	HHTimeMgr::GetInstance()->Tick();
 	HHAssetMgr::GetInstance()->Tick();
 	HHLevelMgr::GetInstance()->Progress();
+	HHFontMgr::GetInstance()->Tick();
 
 	// Collision
 	HHCollisionMgr::GetInstance()->Tick();

@@ -21,6 +21,9 @@ public:
     virtual void FinalTick() override;
     void Render();
 
+    void Render(vector<HHGameObject*>& _vecObj);
+    void PostProcessRender(vector<HHGameObject*>& _vecObj);
+
     void SetPriority(int _Priority) { m_Priority = _Priority; }
     void SetLayer(UINT _LayerIdx, bool _bCheck)
     {
@@ -79,12 +82,8 @@ private:
     Matrix                  m_matView;          // 뷰 행렬
     Matrix                  m_matProjection;    // 투영 행렬
 
-    vector<HHGameObject*>   m_vecOpaque;        // 불투명
-    vector<HHGameObject*>   m_vecMasked;        // 불투명, 투명
-    vector<HHGameObject*>   m_vecTransparent;   // 투명, 반투명
-    vector<HHGameObject*>   m_vecParticle;      // 투명, 반투명, 입자 타입
-    vector<HHGameObject*>   m_vecPostProcess;   // 후처리 오브젝트
-    vector<HHGameObject*>   m_vecUI;            // 후처리 오브젝트
+    // Domain 일괄 처리
+    vector<HHGameObject*>   m_DomainSort[(UINT)SHADER_DOMAIN::DOMAIN_NONE];
 
     void SortGameObject();
 };
