@@ -33,8 +33,8 @@ void HHText::Render()
 	vPosition.x += HHDevice::GetInstance()->GetResolution().x / 2.f;
 	vPosition.y += HHDevice::GetInstance()->GetResolution().y / 2.f;
 
-	HHFontMgr::GetInstance()->DrawFont(m_TextInput
-										, vPosition.x - (wcslen(m_TextInput) * m_FontSize) / 2.f
+	HHFontMgr::GetInstance()->DrawFont(m_TextInput.c_str()
+										, vPosition.x - (m_TextInput.length() * m_FontSize) / 4.f
 										, vPosition.y - m_FontSize / 2.f
 										, m_FontSize, FONT_RGBA(255, 255, 225, 255));
 }
@@ -45,9 +45,4 @@ void HHText::SaveToFile(FILE* _File)
 
 void HHText::LoadFromFile(FILE* _File)
 {
-}
-
-void HHText::SetText(wstring _Text)
-{
-	m_TextInput = _Text.c_str();
 }

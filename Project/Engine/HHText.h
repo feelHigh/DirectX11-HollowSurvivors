@@ -19,14 +19,14 @@ public:
 	virtual void SaveToFile(FILE* _File) override;
 	virtual void LoadFromFile(FILE* _File) override;
 
-	void SetText(wstring _Text);
+	void SetText(wstring _Text) { m_TextInput = _Text; }
 	void SetFontSize(float _size) { m_FontSize = _size; }
 
-	const wchar_t* GetText() const { return  m_TextInput; }
+	const wstring& GetText() const { return  m_TextInput; }
 	float GetFontSize() { return m_FontSize; }
 
 private:
-	const wchar_t*		m_TextInput;
-	float				m_FontSize;
+	wstring		m_TextInput;
+	float		m_FontSize;
 
 };

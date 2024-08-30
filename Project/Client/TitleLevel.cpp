@@ -130,7 +130,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
 	FGObject->Text()->SetText(L"START");
-	FGObject->Text()->SetFontSize(24.f);
+	FGObject->Text()->SetFontSize(40.f);
 
 	TitleLvl->AddObject(2, FGObject);
 	/*

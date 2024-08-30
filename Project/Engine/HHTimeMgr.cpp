@@ -97,5 +97,5 @@ void HHTimeMgr::Tick()
 
 void HHTimeMgr::Render()
 {
-	HHFontMgr::GetInstance()->DrawFont(m_TimeInfo, 10, 20, 16, FONT_RGBA(255, 20, 20, 255));
+	//HHFontMgr::GetInstance()->DrawFont(m_TimeInfo, 10, 20, 16, FONT_RGBA(255, 20, 20, 255));
 }

@@ -19,10 +19,13 @@ void TextUI::Update()
 
 	HHText* pText = GetTargetObject()->Text();
 
-	string strText = ConvertWcharToString(pText->GetText());
-	//string strText = string(pText->GetTextW().begin(), pText->GetTextW().end());
+	std::string strText = ConvertWcharToString(pText->GetText().c_str()); // Use c_str() to get the const wchar_t* from wstring
 	ImGui::Text("Output Text");
 	ImGui::InputText("##OutputText", (char*)strText.c_str(), strText.length(), ImGuiInputTextFlags_ReadOnly);
+
+	/*string strText = string(pText->GetText().begin(), pText->GetText().end());
+	ImGui::Text("Output Text");
+	ImGui::InputText("##OutputText", (char*)strText.c_str(), strText.length(), ImGuiInputTextFlags_ReadOnly);*/
 }
 
 string TextUI::ConvertWcharToString(const wchar_t* wstr)
