@@ -26,10 +26,10 @@ void HHMouseCursorScript::Tick()
 {
 	Vec2 vPos = HHKeyMgr::GetInstance()->GetMousePos();
 
-	vPos.x *= -1.f;
+	//vPos.x *= -1.f;
 	vPos.y *= -1.f;
 
-	vPos.x += HHDevice::GetInstance()->GetResolution().x / 2.f;
+	vPos.x -= HHDevice::GetInstance()->GetResolution().x / 2.f;
 	vPos.y += HHDevice::GetInstance()->GetResolution().y / 2.f;
 
 	Transform()->SetRelativePosition(Vec3(vPos.x, vPos.y, 1.f));

@@ -26,6 +26,8 @@
 
 HHLevel* TitleLevel::CreateTitleLevel()
 {
+	ShowCursor(false);
+
 	// Level Load
 	//wstring StrLevelLoadPath = HHPathMgr::GetInstance()->GetContentPath();
 	//StrLevelLoadPath += L"level\\TitleLevel.lv";
