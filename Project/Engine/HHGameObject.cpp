@@ -241,4 +241,9 @@ void HHGameObject::Render()
 {
 	if (m_RenderCom)
 		m_RenderCom->Render();
+
+	for (size_t i = 0; i < m_vecChildObj.size(); i++)
+	{
+		m_vecChildObj[i]->Render();
+	}
 }

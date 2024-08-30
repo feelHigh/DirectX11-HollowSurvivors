@@ -3,8 +3,6 @@
 tTransform	g_Trans = {};
 tGlobalData g_GlobalData = {};
 
-wstring e_Font = {};
-
 const char* ASSET_TYPE_STRING[] =
 {
 	"MESH",

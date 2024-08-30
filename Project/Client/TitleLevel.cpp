@@ -120,6 +120,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->AddComponent(new HHTransform);
 	FGObject->AddComponent(new HHCollider2D);
 	FGObject->AddComponent(new HHText);
+	FGObject->AddComponent(new HHTextRenderer);
 
 	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -100.f, 900.f));
 	FGObject->Transform()->SetRelativeScale(Vec3(150.f, 100.f, 1.f));
@@ -128,7 +129,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	FGObject->Text()->SetText(L"게임 시작");
+	FGObject->Text()->SetText(L"START");
+	FGObject->Text()->SetFontSize(24.f);
 
 	TitleLvl->AddObject(2, FGObject);
 	/*

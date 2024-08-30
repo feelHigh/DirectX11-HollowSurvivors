@@ -193,6 +193,9 @@
     <Filter Include="08. Component\UI Component\Button">
       <UniqueIdentifier>{509d4c82-397c-481d-a9cb-bb286335cec9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="08. Component\Render Component\Text Renderer">
+      <UniqueIdentifier>{1a293930-da52-49a7-9d46-ac3770ab0eb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -360,6 +363,9 @@
     <ClInclude Include="HHButton.h">
       <Filter>08. Component\UI Component\Button</Filter>
     </ClInclude>
+    <ClInclude Include="HHTextRenderer.h">
+      <Filter>08. Component\Render Component\Text Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -505,6 +511,9 @@
     </ClCompile>
     <ClCompile Include="HHButton.cpp">
       <Filter>08. Component\UI Component\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTextRenderer.cpp">
+      <Filter>08. Component\Render Component\Text Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

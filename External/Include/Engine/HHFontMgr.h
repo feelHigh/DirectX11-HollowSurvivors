@@ -21,11 +21,9 @@ public:
     void Tick();
 
     void DrawFont(const wchar_t* _pStr, float _fPosX, float _fPosY, float _fFontSize, UINT _Color);
-    void DrawFont(wstring _str, UINT32 _color, wstring _font, DWRITE_FONT_WEIGHT _fontweight, float _x, float _y, float _fontsize = 32.0f);
 
 private:
     IFW1Factory*        m_FW1Factory;
-    IDWriteFactory*     m_WriteFactory;
     IFW1FontWrapper*    m_FontWrapper;
 
 };

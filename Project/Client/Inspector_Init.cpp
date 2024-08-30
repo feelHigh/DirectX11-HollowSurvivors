@@ -28,6 +28,7 @@
 #include "GraphicShaderUI.h"
 #include "ComputeShaderUI.h"
 #include "ScriptUI.h"
+#include "TextUI.h"
 
 void Inspector::Initialize()
 {
@@ -86,6 +87,11 @@ void Inspector::CreateComponentUI()
 	m_arrComponentUI[(UINT)COMPONENT_TYPE::PARTICLESYSTEM]->SetName("ParticleSystemUI");
 	m_arrComponentUI[(UINT)COMPONENT_TYPE::PARTICLESYSTEM]->SetChildSize(ImVec2(0.f, 100.f));
 	AddChildUI(m_arrComponentUI[(UINT)COMPONENT_TYPE::PARTICLESYSTEM]);
+
+	m_arrComponentUI[(UINT)COMPONENT_TYPE::GAME_TEXT] = new TextUI;
+	m_arrComponentUI[(UINT)COMPONENT_TYPE::GAME_TEXT]->SetName("TextUI");
+	m_arrComponentUI[(UINT)COMPONENT_TYPE::GAME_TEXT]->SetChildSize(ImVec2(0.f, 100.f));
+	AddChildUI(m_arrComponentUI[(UINT)COMPONENT_TYPE::GAME_TEXT]);
 }
 
 void Inspector::CreateScriptUI(UINT _Count)

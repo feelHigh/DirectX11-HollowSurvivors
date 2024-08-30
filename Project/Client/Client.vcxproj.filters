@@ -145,6 +145,12 @@
     <Filter Include="Manager\02. Game Levels\Level21">
       <UniqueIdentifier>{5fed5954-b1ab-41c8-80ef-5b555a386919}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\UI Component">
+      <UniqueIdentifier>{bb2c3f65-8599-4c41-9afd-bd9eda26d2c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\01. Inspector\ComponentUI\UI Component\Text">
+      <UniqueIdentifier>{8e6baa5b-8176-4464-9450-70d476a68054}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -302,6 +308,9 @@
     </ClInclude>
     <ClInclude Include="SanctuaryLevel.h">
       <Filter>Manager\02. Game Levels\Level10</Filter>
+    </ClInclude>
+    <ClInclude Include="TextUI.h">
+      <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +475,9 @@
     </ClCompile>
     <ClCompile Include="SanctuaryLevel.cpp">
       <Filter>Manager\02. Game Levels\Level10</Filter>
+    </ClCompile>
+    <ClCompile Include="TextUI.cpp">
+      <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
