@@ -20,6 +20,7 @@
 #include <Scripts/HHPlayerScript.h>
 #include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
+#include <Scripts/HHMouseCursorScript.h>
 
 #include "HHLevelSaveLoad.h"
 
@@ -45,6 +46,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	TitleLvl->GetLayer(1)->SetName(L"Background");
 	TitleLvl->GetLayer(2)->SetName(L"Foreground");
 	TitleLvl->GetLayer(3)->SetName(L"Menu");
+	TitleLvl->GetLayer(10)->SetName(L"UI");
 
 	// 카메라 오브젝트
 	HHGameObject* MainCamera = new HHGameObject;
@@ -62,6 +64,20 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MainCamera->Camera()->SetProjectionType(ORTHOGRAPHIC);
 
 	TitleLvl->AddObject(0, MainCamera);
+
+	// 마우스 커서 테스트
+	HHGameObject* MouseCursor = new HHGameObject;
+	MouseCursor->SetName(L"Mouse Cursor");
+	MouseCursor->AddComponent(new HHTransform);
+	MouseCursor->AddComponent(new HHMeshRender);
+	MouseCursor->AddComponent(new HHMouseCursorScript);
+
+	MouseCursor->Transform()->SetRelativeScale(Vec3(32.f, 32.f, 1.f));
+
+	MouseCursor->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
+	MouseCursor->MeshRender()->SetMaterial(BackgroundMtrl);
+
+	TitleLvl->AddObject(10, MouseCursor);
 
 	// 광원 오브젝트 추가
 	HHGameObject* Global_Illumination = nullptr;

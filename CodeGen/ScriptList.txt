@@ -1,4 +1,5 @@
 HHCameraMoveScript
 HHMenuButtonScript
+HHMouseCursorScript
 HHPlayerScript
 HHSmallGirlScript

@@ -48,6 +48,9 @@
     <ClInclude Include="HHCameraMoveScript.h">
       <Filter>Scripts\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="HHMouseCursorScript.h">
+      <Filter>Scripts\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts.cpp">
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="HHCameraMoveScript.cpp">
       <Filter>Scripts\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="HHMouseCursorScript.cpp">
+      <Filter>Scripts\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

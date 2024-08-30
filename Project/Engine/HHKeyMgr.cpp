@@ -23,6 +23,7 @@ UINT g_RealKey[(UINT)KEY::KEY_END] =
 };
 
 HHKeyMgr::HHKeyMgr()
+	:m_MouseCapture(false)
 {
 
 }
