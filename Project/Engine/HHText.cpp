@@ -34,7 +34,7 @@ void HHText::Render()
 	vPosition.y += HHDevice::GetInstance()->GetResolution().y / 2.f;
 
 	HHFontMgr::GetInstance()->DrawFont(m_TextInput.c_str()
-										, vPosition.x - (m_TextInput.length() * m_FontSize) / 4.f
+										, vPosition.x - (m_TextInput.length() * m_FontSize) / 4.5f
 										, vPosition.y - m_FontSize / 2.f
 										, m_FontSize, FONT_RGBA(255, 255, 225, 255));
 }

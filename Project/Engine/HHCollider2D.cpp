@@ -42,10 +42,10 @@ void HHCollider2D::FinalTick()
 	m_matColWorld = matScale * matTranslation * matObjectScaleInv * GetOwner()->Transform()->GetWorldMatrix();
 
 	// Debug 렌더링으로 충돌체의 위치를 표시
-	if (m_OverlapCount)
+	/*if (m_OverlapCount)
 		DrawDebugRect(m_matColWorld, Vec4(1.f, 0.f, 0.f, 1.f), 0.f, false);
 	else
-		DrawDebugRect(m_matColWorld, Vec4(0.f, 1.f, 0.f, 1.f), 0.f, false);
+		DrawDebugRect(m_matColWorld, Vec4(0.f, 1.f, 0.f, 1.f), 0.f, false);*/
 }
 
 void HHCollider2D::BeginOverlap(HHCollider2D* _Other)
