@@ -25,6 +25,9 @@
     <Filter Include="Scripts\Monster/Boss">
       <UniqueIdentifier>{82c7e316-3d58-459a-aa2c-e112ac2de6d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Background">
+      <UniqueIdentifier>{fc6c4399-1190-4dd9-a41b-45e2fd9f83cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -42,14 +45,17 @@
     <ClInclude Include="HHSmallGirlScript.h">
       <Filter>Scripts\NPC</Filter>
     </ClInclude>
-    <ClInclude Include="HHMenuButtonScript.h">
-      <Filter>Scripts\UI</Filter>
-    </ClInclude>
     <ClInclude Include="HHCameraMoveScript.h">
       <Filter>Scripts\Camera</Filter>
     </ClInclude>
     <ClInclude Include="HHMouseCursorScript.h">
       <Filter>Scripts\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HHButtonScript.h">
+      <Filter>Scripts\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLevelBackgroundScript.h">
+      <Filter>Scripts\Background</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,14 +74,17 @@
     <ClCompile Include="HHSmallGirlScript.cpp">
       <Filter>Scripts\NPC</Filter>
     </ClCompile>
-    <ClCompile Include="HHMenuButtonScript.cpp">
-      <Filter>Scripts\UI</Filter>
-    </ClCompile>
     <ClCompile Include="HHCameraMoveScript.cpp">
       <Filter>Scripts\Camera</Filter>
     </ClCompile>
     <ClCompile Include="HHMouseCursorScript.cpp">
       <Filter>Scripts\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HHButtonScript.cpp">
+      <Filter>Scripts\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLevelBackgroundScript.cpp">
+      <Filter>Scripts\Background</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

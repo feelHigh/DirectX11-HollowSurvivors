@@ -167,8 +167,9 @@ call CodeGen.exe</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HHButtonScript.h" />
     <ClInclude Include="HHCameraMoveScript.h" />
-    <ClInclude Include="HHMenuButtonScript.h" />
+    <ClInclude Include="HHLevelBackgroundScript.h" />
     <ClInclude Include="HHMouseCursorScript.h" />
     <ClInclude Include="HHPlayerScript.h" />
     <ClInclude Include="HHScriptMgr.h" />
@@ -176,8 +177,9 @@ call CodeGen.exe</Command>
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HHButtonScript.cpp" />
     <ClCompile Include="HHCameraMoveScript.cpp" />
-    <ClCompile Include="HHMenuButtonScript.cpp" />
+    <ClCompile Include="HHLevelBackgroundScript.cpp" />
     <ClCompile Include="HHMouseCursorScript.cpp" />
     <ClCompile Include="HHPlayerScript.cpp" />
     <ClCompile Include="HHScriptMgr.cpp" />

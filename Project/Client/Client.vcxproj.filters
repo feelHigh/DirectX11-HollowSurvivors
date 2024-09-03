@@ -151,6 +151,9 @@
     <Filter Include="Editor UI\01. Inspector\ComponentUI\UI Component\Text">
       <UniqueIdentifier>{8e6baa5b-8176-4464-9450-70d476a68054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\Game Level Loader">
+      <UniqueIdentifier>{959e5854-2efe-4031-8ecf-88933f89fa27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -311,6 +314,9 @@
     </ClInclude>
     <ClInclude Include="TextUI.h">
       <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="HHLoadGameLevel.h">
+      <Filter>Manager\Game Level Loader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +484,9 @@
     </ClCompile>
     <ClCompile Include="TextUI.cpp">
       <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="HHLoadGameLevel.cpp">
+      <Filter>Manager\Game Level Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

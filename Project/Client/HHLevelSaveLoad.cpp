@@ -246,6 +246,16 @@ HHComponent* HHLevelSaveLoad::GetComponent(COMPONENT_TYPE _Type)
 
 	case COMPONENT_TYPE::LANDSCAPE:
 		break;
+
+	case COMPONENT_TYPE::TEXTRENDERER:
+		return new HHTextRenderer;
+
+	case COMPONENT_TYPE::GAME_TEXT:
+		return new HHText;
+
+	/*case COMPONENT_TYPE::GAME_BUTTON:
+		return new HHButton;*/
+
 	}
 
 	return nullptr;

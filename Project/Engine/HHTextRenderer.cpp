@@ -31,8 +31,10 @@ void HHTextRenderer::Render()
 
 void HHTextRenderer::SaveToFile(FILE* _File)
 {
+	SaveDataToFile(_File);
 }
 
 void HHTextRenderer::LoadFromFile(FILE* _File)
 {
+	LoadDataFromFile(_File);
 }

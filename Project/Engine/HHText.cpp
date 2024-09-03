@@ -41,8 +41,12 @@ void HHText::Render()
 
 void HHText::SaveToFile(FILE* _File)
 {
+	fwrite(&m_TextInput, sizeof(wstring), 1, _File);
+	fwrite(&m_FontSize, sizeof(float), 1, _File);
 }
 
 void HHText::LoadFromFile(FILE* _File)
 {
+	fread(&m_TextInput, sizeof(wstring), 1, _File);
+	fread(&m_FontSize, sizeof(float), 1, _File);
 }

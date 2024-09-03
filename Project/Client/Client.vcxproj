@@ -162,6 +162,7 @@
     <ClInclude Include="HHEditorMgr.h" />
     <ClInclude Include="HHGameObjectEx.h" />
     <ClInclude Include="HHLevelSaveLoad.h" />
+    <ClInclude Include="HHLoadGameLevel.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -224,6 +225,7 @@
     <ClCompile Include="HHEditorMgr_UXcpp.cpp" />
     <ClCompile Include="HHGameObjectEx.cpp" />
     <ClCompile Include="HHLevelSaveLoad.cpp" />
+    <ClCompile Include="HHLoadGameLevel.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />

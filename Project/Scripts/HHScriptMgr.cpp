@@ -1,16 +1,18 @@
 #include "pch.h"
 #include "HHScriptMgr.h"
 
+#include "HHButtonScript.h"
 #include "HHCameraMoveScript.h"
-#include "HHMenuButtonScript.h"
+#include "HHLevelBackgroundScript.h"
 #include "HHMouseCursorScript.h"
 #include "HHPlayerScript.h"
 #include "HHSmallGirlScript.h"
 
 void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 {
+	_vec.push_back(L"HHButtonScript");
 	_vec.push_back(L"HHCameraMoveScript");
-	_vec.push_back(L"HHMenuButtonScript");
+	_vec.push_back(L"HHLevelBackgroundScript");
 	_vec.push_back(L"HHMouseCursorScript");
 	_vec.push_back(L"HHPlayerScript");
 	_vec.push_back(L"HHSmallGirlScript");
@@ -18,10 +20,12 @@ void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 
 HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 {
+	if (L"HHButtonScript" == _strScriptName)
+		return new HHButtonScript;
 	if (L"HHCameraMoveScript" == _strScriptName)
 		return new HHCameraMoveScript;
-	if (L"HHMenuButtonScript" == _strScriptName)
-		return new HHMenuButtonScript;
+	if (L"HHLevelBackgroundScript" == _strScriptName)
+		return new HHLevelBackgroundScript;
 	if (L"HHMouseCursorScript" == _strScriptName)
 		return new HHMouseCursorScript;
 	if (L"HHPlayerScript" == _strScriptName)
@@ -35,11 +39,14 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 {
 	switch (_iScriptType)
 	{
+	case (UINT)SCRIPT_TYPE::BUTTONSCRIPT:
+		return new HHButtonScript;
+		break;
 	case (UINT)SCRIPT_TYPE::CAMERAMOVESCRIPT:
 		return new HHCameraMoveScript;
 		break;
-	case (UINT)SCRIPT_TYPE::MENUBUTTONSCRIPT:
-		return new HHMenuButtonScript;
+	case (UINT)SCRIPT_TYPE::LEVELBACKGROUNDSCRIPT:
+		return new HHLevelBackgroundScript;
 		break;
 	case (UINT)SCRIPT_TYPE::MOUSECURSORSCRIPT:
 		return new HHMouseCursorScript;
@@ -58,12 +65,16 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 {
 	switch ((SCRIPT_TYPE)_pScript->GetScriptType())
 	{
+	case SCRIPT_TYPE::BUTTONSCRIPT:
+		return L"HHButtonScript";
+		break;
+
 	case SCRIPT_TYPE::CAMERAMOVESCRIPT:
 		return L"HHCameraMoveScript";
 		break;
 
-	case SCRIPT_TYPE::MENUBUTTONSCRIPT:
-		return L"HHMenuButtonScript";
+	case SCRIPT_TYPE::LEVELBACKGROUNDSCRIPT:
+		return L"HHLevelBackgroundScript";
 		break;
 
 	case SCRIPT_TYPE::MOUSECURSORSCRIPT:

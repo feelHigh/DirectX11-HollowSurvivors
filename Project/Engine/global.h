@@ -40,6 +40,9 @@ using std::list;
 using std::map;
 using std::make_pair;
 
+#include <unordered_map>
+using std::unordered_map;
+
 #include <typeinfo>
 
 #include <filesystem>

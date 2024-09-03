@@ -17,6 +17,7 @@
 #include <Engine/HHSetColorCS.h>
 #include <Engine/HHStructuredBuffer.h>
 
+#include <Scripts/HHLevelBackgroundScript.h>
 #include <Scripts/HHPlayerScript.h>
 #include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
@@ -28,18 +29,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 {
 	ShowCursor(false);
 
-	// Level Load
-	//wstring StrLevelLoadPath = HHPathMgr::GetInstance()->GetContentPath();
-	//StrLevelLoadPath += L"level\\TitleLevel.lv";
-	//HHLevel* pLoadedLevel = HHLevelSaveLoad::LoadLevel(StrLevelLoadPath);
-
-	//ChangeLevel(pLoadedLevel, LEVEL_STATE::PLAY);
-
-	//return;
-
 	// Material
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
-
 
 	// Level 생성
 	HHLevel* TitleLvl = new HHLevel;
@@ -100,6 +91,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	BGObject->SetName(L"Title Background Texture");
 	BGObject->AddComponent(new HHTransform);
 	BGObject->AddComponent(new HHMeshRender);
+	BGObject->AddComponent(new HHLevelBackgroundScript);
 
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
 	BGObject->Transform()->SetRelativeScale(Vec3(2560.f, 1440.f, 1.f));
@@ -108,8 +100,6 @@ HHLevel* TitleLevel::CreateTitleLevel()
 
 	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png"
 																		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
-	BGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_0, BGTexture);
-	BGObject->GetRenderComponent()->GetMaterial()->SetScalarParam(INT_0, 0);
 
 	TitleLvl->AddObject(1, BGObject);
 
@@ -208,34 +198,11 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Text()->SetFontSize(56.f);
 
 	TitleLvl->AddObject(2, FGObject);
-	/*
-	FGObject = new HHGameObject;
-	FGObject->SetName(L"Level Foreground2");
-	FGObject->AddComponent(new HHTransform);
-	FGObject->AddComponent(new HHMeshRender);
-	FGObject->AddComponent(new HHSmallGirlScript);
-	FGObject->AddComponent(new HHCollider2D);
-
-	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -200.f, 900.f));
-	FGObject->Transform()->SetRelativeScale(Vec3(344.f, 344.f, 1.f));
-	FGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
-	FGObject->MeshRender()->SetMaterial(BackgroundMtrl);
-
-	FGObject->Collider2D()->SetIndependentScale(false);
-	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
-	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
-
-	TitleLvl->AddObject(3, FGObject);
-
-	// 충돌 지정
-	HHCollisionMgr::GetInstance()->CollisionCheck(2, 3);
-	*/
-	return TitleLvl;
-
-	//ChangeLevel(TitleLvl, LEVEL_STATE::PLAY);
 
 	// 레벨 지정 Save
-	//wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
-	//strLevelPath += L"Level\\TitleLevel.lv";
-	//HHLevelSaveLoad::SaveLevel(strLevelPath, TitleLvl);
+	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
+	strLevelPath += L"Level\\TitleLevel.lv";
+	HHLevelSaveLoad::SaveLevel(strLevelPath, TitleLvl);
+
+	return TitleLvl;
 }

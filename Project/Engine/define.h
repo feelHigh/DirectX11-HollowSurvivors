@@ -22,6 +22,8 @@
 
 #define DELETE(p) if(nullptr != p) delete p; p = nullptr;
 
+#define FIND_OBJECT(ObjectName) HHLevelMgr::GetInstance()->GetCurrentLevel()->FindObjectByName(ObjectName)
+
 typedef Vector2 Vec2;
 typedef Vector3 Vec3;
 typedef Vector4 Vec4;
