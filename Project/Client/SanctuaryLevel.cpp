@@ -26,7 +26,7 @@
 
 HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 {
-	ShowCursor(false);
+	//ShowCursor(false);
 
 	// Material
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
@@ -36,7 +36,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 
 	SanctuaryLvl->GetLayer(0)->SetName(L"Default");
 	SanctuaryLvl->GetLayer(1)->SetName(L"Background");
-	SanctuaryLvl->GetLayer(2)->SetName(L"Tilemap");
+	SanctuaryLvl->GetLayer(3)->SetName(L"Player");
 
 	// 카메라 오브젝트
 	HHGameObject* MainCamera = new HHGameObject;
@@ -97,13 +97,13 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 
 	SanctuaryLvl->AddObject(1, BGObject);
 
-	// Tilemap 배치
-	HHGameObject* pTilemap = nullptr;
+	// Tilemap 배치 보류
+	/*HHGameObject* pTilemap = nullptr;
 	pTilemap = new HHGameObject;
 	pTilemap->SetName(L"Tilemap");
 	pTilemap->AddComponent(new HHTransform);
 	pTilemap->AddComponent(new HHTilemap);
-	//pTilemap->AddComponent(new HHTilemapScript);
+	pTilemap->AddComponent(new HHTilemapScript);
 
 	pTilemap->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 900.f));
 
@@ -115,7 +115,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	pTilemap->Tilemap()->SetAtlasTexture(pTexture);
 	pTilemap->Tilemap()->SetAtlasTileSize(Vec2(16.f, 16.f));
 
-	SanctuaryLvl->AddObject(2, pTilemap);
+	SanctuaryLvl->AddObject(2, pTilemap);*/
 
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();

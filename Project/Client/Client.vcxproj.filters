@@ -124,26 +124,8 @@
     <Filter Include="Editor UI\08. Sprite Editor\Sub\Detail">
       <UniqueIdentifier>{ac13fc3f-5ca8-417e-8f41-ea89d2d963c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Editor UI\08. Sprite Editor\Sub\AtlasView">
-      <UniqueIdentifier>{f0660191-7eae-4d5c-8eba-7f8706e71a06}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Manager\02. Game Levels">
       <UniqueIdentifier>{6dab0be6-c5fd-46e1-9cb9-9f6a20ea2eba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager\02. Game Levels\Level10">
-      <UniqueIdentifier>{64cd6669-1334-4047-ab3d-fd5bbedfe19e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager\02. Game Levels\Level00">
-      <UniqueIdentifier>{88e7a722-cf5e-4153-bc74-d77063fc8c9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager\02. Game Levels\Level01">
-      <UniqueIdentifier>{2702aaaa-263b-41e3-8bba-1f86002b3ea7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager\02. Game Levels\Level20">
-      <UniqueIdentifier>{0b52d5eb-97bc-4dac-9654-9c9d2d13c0dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Manager\02. Game Levels\Level21">
-      <UniqueIdentifier>{5fed5954-b1ab-41c8-80ef-5b555a386919}</UniqueIdentifier>
     </Filter>
     <Filter Include="Editor UI\01. Inspector\ComponentUI\UI Component">
       <UniqueIdentifier>{bb2c3f65-8599-4c41-9afd-bd9eda26d2c7}</UniqueIdentifier>
@@ -153,6 +135,24 @@
     </Filter>
     <Filter Include="Manager\Game Level Loader">
       <UniqueIdentifier>{959e5854-2efe-4031-8ecf-88933f89fa27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\01. Title">
+      <UniqueIdentifier>{88e7a722-cf5e-4153-bc74-d77063fc8c9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\02. Tutorial">
+      <UniqueIdentifier>{64cd6669-1334-4047-ab3d-fd5bbedfe19e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\03. Sanctuary">
+      <UniqueIdentifier>{0b52d5eb-97bc-4dac-9654-9c9d2d13c0dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\02. Game Levels\04. First Floor">
+      <UniqueIdentifier>{5fed5954-b1ab-41c8-80ef-5b555a386919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor\Sub\Flipbook Preview">
+      <UniqueIdentifier>{7ec79f33-f6f3-4883-8773-4f7223016cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor UI\08. Sprite Editor\Sub\Atlas View">
+      <UniqueIdentifier>{f0660191-7eae-4d5c-8eba-7f8706e71a06}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -301,22 +301,25 @@
       <Filter>Editor UI\08. Sprite Editor\Sub\Detail</Filter>
     </ClInclude>
     <ClInclude Include="SpriteEditorAtlasView.h">
-      <Filter>Editor UI\08. Sprite Editor\Sub\AtlasView</Filter>
+      <Filter>Editor UI\08. Sprite Editor\Sub\Atlas View</Filter>
     </ClInclude>
     <ClInclude Include="SpriteEditorSub.h">
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
     </ClInclude>
     <ClInclude Include="TitleLevel.h">
-      <Filter>Manager\02. Game Levels\Level00</Filter>
-    </ClInclude>
-    <ClInclude Include="SanctuaryLevel.h">
-      <Filter>Manager\02. Game Levels\Level10</Filter>
+      <Filter>Manager\02. Game Levels\01. Title</Filter>
     </ClInclude>
     <ClInclude Include="TextUI.h">
       <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
     </ClInclude>
     <ClInclude Include="HHLoadGameLevel.h">
       <Filter>Manager\Game Level Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="SanctuaryLevel.h">
+      <Filter>Manager\02. Game Levels\03. Sanctuary</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEditorFlipbookPreview.h">
+      <Filter>Editor UI\08. Sprite Editor\Sub\Flipbook Preview</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -471,22 +474,25 @@
       <Filter>Editor UI\08. Sprite Editor\Sub\Detail</Filter>
     </ClCompile>
     <ClCompile Include="SpriteEditorAtlasView.cpp">
-      <Filter>Editor UI\08. Sprite Editor\Sub\AtlasView</Filter>
+      <Filter>Editor UI\08. Sprite Editor\Sub\Atlas View</Filter>
     </ClCompile>
     <ClCompile Include="SpriteEditorSub.cpp">
       <Filter>Editor UI\08. Sprite Editor\Sub</Filter>
     </ClCompile>
     <ClCompile Include="TitleLevel.cpp">
-      <Filter>Manager\02. Game Levels\Level00</Filter>
-    </ClCompile>
-    <ClCompile Include="SanctuaryLevel.cpp">
-      <Filter>Manager\02. Game Levels\Level10</Filter>
+      <Filter>Manager\02. Game Levels\01. Title</Filter>
     </ClCompile>
     <ClCompile Include="TextUI.cpp">
       <Filter>Editor UI\01. Inspector\ComponentUI\UI Component\Text</Filter>
     </ClCompile>
     <ClCompile Include="HHLoadGameLevel.cpp">
       <Filter>Manager\Game Level Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="SanctuaryLevel.cpp">
+      <Filter>Manager\02. Game Levels\03. Sanctuary</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteEditorFlipbookPreview.cpp">
+      <Filter>Editor UI\08. Sprite Editor\Sub\Flipbook Preview</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

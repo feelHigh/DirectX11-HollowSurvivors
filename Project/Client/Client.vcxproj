@@ -191,6 +191,7 @@
     <ClInclude Include="SpriteEditor.h" />
     <ClInclude Include="SpriteEditorAtlasView.h" />
     <ClInclude Include="SpriteEditorDetail.h" />
+    <ClInclude Include="SpriteEditorFlipbookPreview.h" />
     <ClInclude Include="SpriteEditorSub.h" />
     <ClInclude Include="SpriteUI.h" />
     <ClInclude Include="targetver.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="SpriteEditor.cpp" />
     <ClCompile Include="SpriteEditorAtlasView.cpp" />
     <ClCompile Include="SpriteEditorDetail.cpp" />
+    <ClCompile Include="SpriteEditorFlipbookPreview.cpp" />
     <ClCompile Include="SpriteEditorSub.cpp" />
     <ClCompile Include="SpriteUI.cpp" />
     <ClCompile Include="TextUI.cpp" />

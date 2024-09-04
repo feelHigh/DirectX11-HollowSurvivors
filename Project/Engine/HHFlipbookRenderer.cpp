@@ -10,7 +10,6 @@
 
 HHFlipbookRenderer::HHFlipbookRenderer()
 	: HHComponent(COMPONENT_TYPE::FLIPBOOK_RENDERER)
-
 {
 }
 
