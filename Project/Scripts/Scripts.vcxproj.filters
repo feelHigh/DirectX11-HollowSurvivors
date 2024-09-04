@@ -28,6 +28,9 @@
     <Filter Include="Scripts\Background">
       <UniqueIdentifier>{fc6c4399-1190-4dd9-a41b-45e2fd9f83cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Level">
+      <UniqueIdentifier>{668df7a2-e85b-4055-80c1-6f573ac30a0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -57,6 +60,9 @@
     <ClInclude Include="HHLevelBackgroundScript.h">
       <Filter>Scripts\Background</Filter>
     </ClInclude>
+    <ClInclude Include="HHTilemapScript.h">
+      <Filter>Scripts\Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts.cpp">
@@ -85,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="HHLevelBackgroundScript.cpp">
       <Filter>Scripts\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTilemapScript.cpp">
+      <Filter>Scripts\Level</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

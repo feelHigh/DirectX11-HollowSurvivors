@@ -4,3 +4,4 @@ HHLevelBackgroundScript
 HHMouseCursorScript
 HHPlayerScript
 HHSmallGirlScript
+HHTilemapScript

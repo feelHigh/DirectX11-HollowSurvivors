@@ -8,6 +8,7 @@
 
 #include "HHLevelSaveLoad.h"
 #include "TitleLevel.h"
+#include "SanctuaryLevel.h"
 
 #include "HHLoadGameLevel.h"
 
@@ -54,11 +55,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // HHEditorMgr 초기화
     HHEditorMgr::GetInstance()->Initialize();
 #endif
-    // Level 로딩 테스트
-    HHLoadGameLevel::GetInstance()->Initialize();
+    // Level Pre-Load 테스트
+    //HHLoadGameLevel::GetInstance()->Initialize();
 
     // 테스트용 레벨 초기상태 만들기
     //ChangeLevel(TitleLevel::CreateTitleLevel(), LEVEL_STATE::PLAY);
+    ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
     MSG msg = {};

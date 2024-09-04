@@ -15,33 +15,28 @@
 #include <Engine/HHSetColorCS.h>
 #include <Engine/HHStructuredBuffer.h>
 
+#include <Scripts/HHLevelBackgroundScript.h>
 #include <Scripts/HHPlayerScript.h>
+#include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
+#include <Scripts/HHMouseCursorScript.h>
+#include <Scripts/HHTilemapScript.h>
 
 #include "HHLevelSaveLoad.h"
 
 HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 {
-	// Level Load
-	//wstring StrLevelLoadPath = HHPathMgr::GetInstance()->GetContentPath();
-	//StrLevelLoadPath += L"level\\TitleLevel.lv";
-	//HHLevel* pLoadedLevel = HHLevelSaveLoad::LoadLevel(StrLevelLoadPath);
-
-	//ChangeLevel(pLoadedLevel, LEVEL_STATE::PLAY);
-
-	//return;
+	ShowCursor(false);
 
 	// Material
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
 
-
 	// Level 생성
-	HHLevel* pLevel = new HHLevel;
+	HHLevel* SanctuaryLvl = new HHLevel;
 
-	pLevel->GetLayer(0)->SetName(L"Default");
-	pLevel->GetLayer(1)->SetName(L"Background");
-	pLevel->GetLayer(2)->SetName(L"Foreground");
-	pLevel->GetLayer(3)->SetName(L"Menu");
+	SanctuaryLvl->GetLayer(0)->SetName(L"Default");
+	SanctuaryLvl->GetLayer(1)->SetName(L"Background");
+	SanctuaryLvl->GetLayer(2)->SetName(L"Tilemap");
 
 	// 카메라 오브젝트
 	HHGameObject* MainCamera = new HHGameObject;
@@ -58,7 +53,21 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	MainCamera->Camera()->SetFar(100000.f);
 	MainCamera->Camera()->SetProjectionType(ORTHOGRAPHIC);
 
-	pLevel->AddObject(0, MainCamera);
+	SanctuaryLvl->AddObject(0, MainCamera);
+
+	// 마우스 커서 테스트
+	HHGameObject* MouseCursor = new HHGameObject;
+	MouseCursor->SetName(L"Mouse Cursor");
+	MouseCursor->AddComponent(new HHTransform);
+	MouseCursor->AddComponent(new HHMeshRender);
+	MouseCursor->AddComponent(new HHMouseCursorScript);
+
+	MouseCursor->Transform()->SetRelativeScale(Vec3(32.f, 32.f, 1.f));
+
+	MouseCursor->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
+	MouseCursor->MeshRender()->SetMaterial(BackgroundMtrl);
+
+	SanctuaryLvl->AddObject(10, MouseCursor);
 
 	// 광원 오브젝트 추가
 	HHGameObject* Global_Illumination = nullptr;
@@ -71,33 +80,47 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	Global_Illumination->Light2D()->SetLightType(LIGHT_TYPE::DIRECTIONAL);
 	Global_Illumination->Light2D()->SetLightAmbient(Vec3(1.f, 1.f, 1.f));
 
-	pLevel->AddObject(0, Global_Illumination);
+	SanctuaryLvl->AddObject(0, Global_Illumination);
 
 	// Background 배치
 	HHGameObject* BGObject = nullptr;
 	BGObject = new HHGameObject;
-	BGObject->SetName(L"Level Background");
+	BGObject->SetName(L"Sanctuary Background Texture");
 	BGObject->AddComponent(new HHTransform);
 	BGObject->AddComponent(new HHMeshRender);
+	BGObject->AddComponent(new HHLevelBackgroundScript);
 
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
 	BGObject->Transform()->SetRelativeScale(Vec3(2560.f, 1440.f, 1.f));
 	BGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
-	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png"
-		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
-	BGObject->GetRenderComponent()->GetMaterial()->SetTextureParam(TEX_0, BGTexture);
-	BGObject->GetRenderComponent()->GetMaterial()->SetScalarParam(INT_0, 0);
+	SanctuaryLvl->AddObject(1, BGObject);
 
-	pLevel->AddObject(1, BGObject);
+	// Tilemap 배치
+	HHGameObject* pTilemap = nullptr;
+	pTilemap = new HHGameObject;
+	pTilemap->SetName(L"Tilemap");
+	pTilemap->AddComponent(new HHTransform);
+	pTilemap->AddComponent(new HHTilemap);
+	//pTilemap->AddComponent(new HHTilemapScript);
 
-	return pLevel;
+	pTilemap->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 900.f));
 
-	//ChangeLevel(TitleLvl, LEVEL_STATE::PLAY);
+	pTilemap->Tilemap()->SetRowCol(30, 30);
+	pTilemap->Tilemap()->SetTileSize(Vec2(16.f, 16.f));
+
+	Ptr<HHTexture> pTexture = HHAssetMgr::GetInstance()->FindAsset<HHTexture>(L"Texture2D\\Sanctuary\\floor_tileset.png");
+
+	pTilemap->Tilemap()->SetAtlasTexture(pTexture);
+	pTilemap->Tilemap()->SetAtlasTileSize(Vec2(16.f, 16.f));
+
+	SanctuaryLvl->AddObject(2, pTilemap);
 
 	// 레벨 지정 Save
-	//wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
-	//strLevelPath += L"Level\\TitleLevel.lv";
-	//HHLevelSaveLoad::SaveLevel(strLevelPath, TitleLvl);
+	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
+	strLevelPath += L"Level\\SanctuaryLevel.lv";
+	HHLevelSaveLoad::SaveLevel(strLevelPath, SanctuaryLvl);
+
+	return SanctuaryLvl;
 }

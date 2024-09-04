@@ -98,9 +98,6 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	BGObject->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
-	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png"
-																		, L"Texture2D\\Title\\HollowSurvivorsArtwork3-alpha.png");
-
 	TitleLvl->AddObject(1, BGObject);
 
 	// Foreground ¹èÄ¡

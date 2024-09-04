@@ -7,6 +7,7 @@
 #include "HHMouseCursorScript.h"
 #include "HHPlayerScript.h"
 #include "HHSmallGirlScript.h"
+#include "HHTilemapScript.h"
 
 void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 {
@@ -16,6 +17,7 @@ void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 	_vec.push_back(L"HHMouseCursorScript");
 	_vec.push_back(L"HHPlayerScript");
 	_vec.push_back(L"HHSmallGirlScript");
+	_vec.push_back(L"HHTilemapScript");
 }
 
 HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
@@ -32,6 +34,8 @@ HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 		return new HHPlayerScript;
 	if (L"HHSmallGirlScript" == _strScriptName)
 		return new HHSmallGirlScript;
+	if (L"HHTilemapScript" == _strScriptName)
+		return new HHTilemapScript;
 	return nullptr;
 }
 
@@ -56,6 +60,9 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 		break;
 	case (UINT)SCRIPT_TYPE::SMALLGIRLSCRIPT:
 		return new HHSmallGirlScript;
+		break;
+	case (UINT)SCRIPT_TYPE::TILEMAPSCRIPT:
+		return new HHTilemapScript;
 		break;
 	}
 	return nullptr;
@@ -87,6 +94,10 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 
 	case SCRIPT_TYPE::SMALLGIRLSCRIPT:
 		return L"HHSmallGirlScript";
+		break;
+
+	case SCRIPT_TYPE::TILEMAPSCRIPT:
+		return L"HHTilemapScript";
 		break;
 
 	}
