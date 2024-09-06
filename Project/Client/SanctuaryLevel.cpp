@@ -29,6 +29,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	//ShowCursor(false);
 
 	// Material
+	Ptr<HHMaterial> pMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"Std2DMtrl");
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
 
 	// Level 생성
@@ -36,6 +37,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 
 	SanctuaryLvl->GetLayer(0)->SetName(L"Default");
 	SanctuaryLvl->GetLayer(1)->SetName(L"Background");
+	SanctuaryLvl->GetLayer(2)->SetName(L"Tileset");
 	SanctuaryLvl->GetLayer(3)->SetName(L"Player");
 
 	// 카메라 오브젝트
@@ -116,6 +118,31 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	pTilemap->Tilemap()->SetAtlasTileSize(Vec2(16.f, 16.f));
 
 	SanctuaryLvl->AddObject(2, pTilemap);*/
+
+	// Player
+	/*HHGameObject* pPlayer = new HHGameObject;
+	pPlayer->SetName(L"Player");
+	pPlayer->AddComponent(new HHTransform);
+	pPlayer->AddComponent(new HHMeshRender);
+	pPlayer->AddComponent(new HHCollider2D);
+	pPlayer->AddComponent(new HHFlipbookRenderer);
+	pPlayer->AddComponent(new HHPlayerScript);
+	pPlayer->Transform()->SetRelativePosition(0.f, 0.f, 100.f);
+	pPlayer->Transform()->SetRelativeScale(200.f, 200.f, 1.f);
+
+	pPlayer->Collider2D()->SetIndependentScale(false);
+	pPlayer->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	pPlayer->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+
+	pPlayer->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
+	pPlayer->MeshRender()->SetMaterial(pMtrl);
+
+	Ptr<HHFlipbook> pFlipBook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Down.flip");
+	pPlayer->FlipbookRenderer()->AddFlipbook(0, pFlipBook);
+	pPlayer->FlipbookRenderer()->Play(0, 10, true);
+
+	SanctuaryLvl->AddObject(3, pPlayer);*/
+
 
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();

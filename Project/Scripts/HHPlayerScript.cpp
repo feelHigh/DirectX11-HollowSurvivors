@@ -15,9 +15,10 @@ HHPlayerScript::~HHPlayerScript()
 
 void HHPlayerScript::Begin()
 {
-	Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
+	GetRenderComponent()->GetDynamicMaterial();
+	/*Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
 																		, L"Texture2D\\Title\\Hollow18-alpha.png");
-	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, FGTexture);
+	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, FGTexture);*/
 	//GetRenderComponent()->GetDynamicMaterial()->SetScalarParam(INT_0, 0);
 }
 

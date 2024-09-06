@@ -31,6 +31,9 @@
     <Filter Include="Scripts\Level">
       <UniqueIdentifier>{668df7a2-e85b-4055-80c1-6f573ac30a0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Level\Title">
+      <UniqueIdentifier>{abdcb93c-adb1-45e8-a714-6afed8be7977}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

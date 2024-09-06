@@ -18,6 +18,7 @@
 #include "SpriteEditor.h"
 #include "SpriteEditorAtlasView.h"
 #include "SpriteEditorDetail.h"
+#include "SpriteEditorFlipbookPreview.h"
 
 void HHEditorMgr::Initialize_ImGui()
 {
@@ -208,6 +209,12 @@ void HHEditorMgr::CreateEditorUI()
     pUI = new SpriteEditorDetail;
     pUI->Initialize();
     pUI->SetName("SpriteEditorDetail");
+    m_mapUI.insert(make_pair(pUI->GetName(), pUI));
+
+    // SE_Preview
+    pUI = new SpriteEditorFlipbookPreview;
+    pUI->Initialize();
+    pUI->SetName("SpriteEditorFlipbookPreview");
     m_mapUI.insert(make_pair(pUI->GetName(), pUI));
 
     // SpriteEditor

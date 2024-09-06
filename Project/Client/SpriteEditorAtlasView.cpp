@@ -2,6 +2,7 @@
 #include "SpriteEditorAtlasView.h"
 
 #include "SpriteEditorDetail.h"
+#include "SpriteEditorFlipbookPreview.h"
 
 #include <Engine/HHKeyMgr.h>
 
@@ -93,23 +94,6 @@ void SpriteEditorAtlasView::SelectCheck()
 	float PixelPos[] = { vDiff.x, vDiff.y };
 	ImGui::InputFloat2("PixelPos", PixelPos);
 
-	// 마우스 왼쪽 Tap 체크
-	/*
-	if (ImGui::IsMouseClicked(ImGuiMouseButton_Left))
-	{
-		m_MouseLT = ImGui::GetMousePos();
-		ImVec2 vDiff = ImVec2(m_MouseLT.x - ImageRectMin.x, m_MouseLT.y - ImageRectMin.y);
-		m_MouseLT = ImVec2(vDiff.x / m_Ratio, vDiff.y / m_Ratio);
-	}
-
-	if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
-	{
-		m_MouseRB = ImGui::GetMousePos();
-		ImVec2 vDiff = ImVec2(m_MouseRB.x - ImageRectMin.x, m_MouseRB.y - ImageRectMin.y);
-		m_MouseRB = ImVec2(vDiff.x / m_Ratio, vDiff.y / m_Ratio);
-	}
-	*/
-
 	// 마우스 왼쪽 클릭 체크
 	if (KEY_RELEASED(KEY::LBTN))
 	{
@@ -121,6 +105,16 @@ void SpriteEditorAtlasView::SelectCheck()
 			&& 0.f <= vPixelPos.y && vPixelPos.y < m_AtlasTex->Height())
 		{
 			CalculateSpriteSize(vPixelPos);
+			
+			// 선택한 이미지를 sprite으로 만들기
+			//m_SelectedSprites.push_back(selectedSprite); // Assuming selectedSprite is determined
+
+			//// Update the preview in SpriteEditorFlipbookPreview
+			//SpriteEditorFlipbookPreview* flipbookPreview = GetFlipbookPreview(); // Assume you have a method to get the FlipbookPreview instance
+			//if (flipbookPreview) 
+			//{
+			//	flipbookPreview->SetSpritesToPreview(m_SelectedSprites);
+			//}
 		}
 	}
 }

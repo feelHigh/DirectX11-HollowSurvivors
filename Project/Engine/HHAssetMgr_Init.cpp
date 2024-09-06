@@ -137,37 +137,73 @@ void HHAssetMgr::CreateEngineTexture()
 
 void HHAssetMgr::CreateEngineSprite()
 {
-	//wstring strContentPath = HHPathMgr::GetInstance()->GetContentPath();
-	/*
-	Ptr<HHSprite> pSprite = nullptr;
+	//Ptr<HHTexture> pAtlasTex = Load<HHTexture>(L"Texture2D\\Player\\Player_Test.png", L"Texture2D\\Player\\Player_Test.png");
 
-	for (int i = 0; i < 10; ++i)
+	//Ptr<HHSprite> pSprite = nullptr;
+
+	//for (int i = 0; i < nSprite; ++i)
+	//{
+	//	wchar_t szKey[50] = {};
+	//	swprintf_s(szKey, 50, L"Player_Idle_Down_%d", i);
+
+	//	pSprite = new HHSprite;
+	//	pSprite->Create(pAtlasTex, Vec2((float)i * 64.f, 0.f), Vec2(64.f, 64.f));
+	//	pSprite->SetBackground(Vec2(64.f, 64.f));
+
+	//	/*if (i == 2)
+	//		pSprite->SetOffset(Vec2(30.f, 0.f));*/
+
+	//	AddAsset(szKey, pSprite);
+	//}
+
+	//Ptr<HHFlipbook> pFlipBook = nullptr;
+
+	//pFlipBook = new HHFlipbook;
+
+	//for (int i = 0; i < nSprite; ++i)
+	//{
+	//	wchar_t szKey[50] = {};
+	//	swprintf_s(szKey, 50, L"Player_Idle_Down_%d", i);
+	//	pFlipBook->AddSprite(FindAsset<HHSprite>(szKey));
+	//}
+
+	//AddAsset(L"Player_Idle_Down", pFlipBook);
+	// 여기까는 AddAsset만하고 Save/Load 안됌
+	// 여기부터 사용
+	/*int nSprite = 9;
+	int nRow = 27;
+
+	wstring strContentPath = HHPathMgr::GetInstance()->GetContentPath();
+	
+	for (int i = 0; i < nSprite; ++i)
 	{
 		wchar_t Buffer[50] = {};
-		swprintf_s(Buffer, 50, L"Link_MoveDown_%d", i);
+		swprintf_s(Buffer, 50, L"Player_Attack_Sword_Combo3_Right_%d", i);
 
-		pSprite = Load<HHSprite>(Buffer, wstring(L"Animation\\") + Buffer + L".sprite");		
+		pSprite = new HHSprite;
+		pSprite->Create(pAtlasTex, Vec2((float)i * 64.f, nRow * 64.f), Vec2(64.f, 64.f));
+		pSprite->SetBackground(Vec2(64.f, 64.f));	
 
 		pSprite->SetRelativePath(wstring(L"Animation\\") + Buffer + L".sprite");
 		pSprite->Save(strContentPath + L"Animation\\" + Buffer + L".sprite");
-	}
 
+
+		pSprite = Load<HHSprite>(Buffer, wstring(L"Animation\\") + Buffer + L".sprite");
+	}
 
 	Ptr<HHFlipbook> pFilpBook = new HHFlipbook;
 
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < nSprite; ++i)
 	{
 		wchar_t Buffer[50] = {};
-		swprintf_s(Buffer, 50, L"Link_MoveDown_%d", i);
+		swprintf_s(Buffer, 50, L"Player_Attack_Sword_Combo3_Right_%d", i);
 		pFilpBook->AddSprite(FindAsset<HHSprite>(Buffer));		
 	}
 
-	AddAsset(L"Link_MoveDown", pFilpBook);
-	pFilpBook->Save(strContentPath + L"Animation\\" + L"Link_MoveDown" + L".flip");
-	*/
-
-	//Ptr<HHFlipbook> pFilpBook = new HHFlipbook;
-	//Load<HHFlipbook>(L"Link_MoveDown", L"Animation\\Link_MoveDown.flip");
+	AddAsset(L"Player_Attack_Sword_Combo3_Right", pFilpBook);
+	pFilpBook->Save(strContentPath + L"Animation\\" + L"Player_Attack_Sword_Combo3_Right" + L".flip");*/
+	// 여기 사용 안함
+	//Load<HHFlipbook>(L"Player_Idle_Down", L"Animation\\Player_Idle_Down.flip");
 }
 
 void HHAssetMgr::CreateEngineGraphicShader()
