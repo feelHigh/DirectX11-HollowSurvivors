@@ -25,17 +25,20 @@ public:
     {
         if (m_Master)
         {
-            m_StateMachie = _SM;
+            m_StateMachine = _SM;
         }
     }
     HHFSM* GetFSMIstance();
 
-    HHStateMachine* GetStateMachine() { return m_StateMachie; }
+    HHStateMachine* GetStateMachine() { return m_StateMachine; }
     void ChangeState(const wstring& _strStateName);
+
+    virtual int Load(const wstring& _FilePath) override;
+    virtual int Save(const wstring& _FilePath) override;
 
 private:
     HHFSM*                  m_Master;
-    HHStateMachine*         m_StateMachie; // FSM 을 사용하는 StateMachine;
+    HHStateMachine*         m_StateMachine; // FSM 을 사용하는 StateMachine;
 
     map<wstring, HHState*>  m_mapState;
     HHBlackboard*           m_Blackboard;
