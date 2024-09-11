@@ -154,6 +154,9 @@
     <Filter Include="Editor UI\08. Sprite Editor\Sub\Atlas View">
       <UniqueIdentifier>{f0660191-7eae-4d5c-8eba-7f8706e71a06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Editor UI\01. Inspector\AssetUI\FSM">
+      <UniqueIdentifier>{42b91986-daf5-47fa-bce7-adf77055f6f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -320,6 +323,9 @@
     </ClInclude>
     <ClInclude Include="SpriteEditorFlipbookPreview.h">
       <Filter>Editor UI\08. Sprite Editor\Sub\Flipbook Preview</Filter>
+    </ClInclude>
+    <ClInclude Include="FSMUI.h">
+      <Filter>Editor UI\01. Inspector\AssetUI\FSM</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -493,6 +499,9 @@
     </ClCompile>
     <ClCompile Include="SpriteEditorFlipbookPreview.cpp">
       <Filter>Editor UI\08. Sprite Editor\Sub\Flipbook Preview</Filter>
+    </ClCompile>
+    <ClCompile Include="FSMUI.cpp">
+      <Filter>Editor UI\01. Inspector\AssetUI\FSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

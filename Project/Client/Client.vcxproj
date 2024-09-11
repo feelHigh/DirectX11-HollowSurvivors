@@ -157,6 +157,7 @@
     <ClInclude Include="FlipbookRenUI.h" />
     <ClInclude Include="FlipbookUI.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="FSMUI.h" />
     <ClInclude Include="GraphicShaderUI.h" />
     <ClInclude Include="HHEditorCameraScript.h" />
     <ClInclude Include="HHEditorMgr.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="EditorUI.cpp" />
     <ClCompile Include="FlipbookRenUI.cpp" />
     <ClCompile Include="FlipbookUI.cpp" />
+    <ClCompile Include="FSMUI.cpp" />
     <ClCompile Include="GraphicShaderUI.cpp" />
     <ClCompile Include="HHEditorCameraScript.cpp" />
     <ClCompile Include="HHEditorMgr.cpp" />

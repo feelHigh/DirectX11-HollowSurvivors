@@ -58,6 +58,7 @@ public:
     GET_COMPONENT(Transform, TRANSFORM);
     GET_COMPONENT(MeshRender, MESHRENDER);
     GET_COMPONENT(Camera, CAMERA);
+    GET_COMPONENT(StateMachine, STATE_MACHINE);
     GET_COMPONENT(Collider2D, COLLIDER2D);
     GET_COMPONENT(FlipbookRenderer, FLIPBOOK_RENDERER);
     GET_COMPONENT(Tilemap, TILEMAP);
@@ -66,7 +67,6 @@ public:
     GET_COMPONENT(TextRenderer, TEXTRENDERER);
     GET_COMPONENT(Text, GAME_TEXT);
     GET_COMPONENT(Button, GAME_BUTTON);
-    GET_COMPONENT(StateMachine, STATE_MACHINE);
 
 private:
     HHComponent*            m_arrCom[(UINT)COMPONENT_TYPE::END];

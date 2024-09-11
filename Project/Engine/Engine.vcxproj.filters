@@ -384,7 +384,9 @@
     <ClInclude Include="HHFSM.h">
       <Filter>06. Asset\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="HHState.h" />
+    <ClInclude Include="HHState.h">
+      <Filter>06. Asset\FSM\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

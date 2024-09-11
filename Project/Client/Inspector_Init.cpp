@@ -29,6 +29,7 @@
 #include "ComputeShaderUI.h"
 #include "ScriptUI.h"
 #include "TextUI.h"
+#include "FSMUI.h"
 
 void Inspector::Initialize()
 {
@@ -162,4 +163,9 @@ void Inspector::CreateAssetUI()
 	UI->SetName("ComputeShaderUI");
 	AddChildUI(UI);
 	m_arrAssetUI[(UINT)ASSET_TYPE::COMPUTE_SHADER] = UI;
+
+	UI = new FSMUI;
+	UI->SetName("FSMUI");
+	AddChildUI(UI);
+	m_arrAssetUI[(UINT)ASSET_TYPE::FSM] = UI;
 }
