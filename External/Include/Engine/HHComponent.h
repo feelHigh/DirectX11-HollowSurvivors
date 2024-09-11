@@ -37,6 +37,7 @@ public:
     GET_OTHER_COMPONENT(TextRenderer);
     GET_OTHER_COMPONENT(Text);
     GET_OTHER_COMPONENT(Button);
+    GET_OTHER_COMPONENT(StateMachine);
 
 private:
     const COMPONENT_TYPE    m_Type;

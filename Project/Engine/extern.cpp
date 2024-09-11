@@ -15,6 +15,7 @@ const char* ASSET_TYPE_STRING[] =
 	"COMPUTE_SHADER",
 	"SPRITE",
 	"FLIPBOOK",
+	"FSM",
 };
 
 const char* ToString(ASSET_TYPE _Type) { return ASSET_TYPE_STRING[(UINT)_Type]; }
@@ -37,8 +38,8 @@ const char* COMPONENT_TYPE_STRING[] =
 	"DECAl",
 	"SKYBOX",
 	"LANDSCAPE",
-	"GAME_TEXT",
-	"GAME_BUTTON",
+	"GAME_TEXT",		// 텍스트 출력
+	"GAME_BUTTON",		// UI 버턴
 };
 
 const char* ToString(COMPONENT_TYPE _Type) { return COMPONENT_TYPE_STRING[(UINT)_Type]; }

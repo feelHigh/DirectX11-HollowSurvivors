@@ -9,7 +9,7 @@
 //#include "HHLight3D.h"
 //#include "HHAnimator3D.h"
 //#include "HHRigidBody.h"
-//#include "HHStateMachine.h"
+#include "HHStateMachine.h"
 
 #include "HHMeshRender.h"
 #include "HHTilemap.h"

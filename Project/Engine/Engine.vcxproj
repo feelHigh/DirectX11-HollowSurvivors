@@ -183,6 +183,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="global.h" />
     <ClInclude Include="HHAsset.h" />
     <ClInclude Include="HHAssetMgr.h" />
+    <ClInclude Include="HHBlackboard.h" />
     <ClInclude Include="HHButton.h" />
     <ClInclude Include="HHCamera.h" />
     <ClInclude Include="HHCollider2D.h" />
@@ -196,6 +197,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="HHFlipbook.h" />
     <ClInclude Include="HHFlipbookRenderer.h" />
     <ClInclude Include="HHFontMgr.h" />
+    <ClInclude Include="HHFSM.h" />
     <ClInclude Include="HHGameObject.h" />
     <ClInclude Include="HHGraphicShader.h" />
     <ClInclude Include="HHKeyMgr.h" />
@@ -217,6 +219,8 @@ call EngineCopy.bat</Command>
     <ClInclude Include="HHShader.h" />
     <ClInclude Include="HHSound.h" />
     <ClInclude Include="HHSprite.h" />
+    <ClInclude Include="HHState.h" />
+    <ClInclude Include="HHStateMachine.h" />
     <ClInclude Include="HHStructuredBuffer.h" />
     <ClInclude Include="HHTaskMgr.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -241,6 +245,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="HHAsset.cpp" />
     <ClCompile Include="HHAssetMgr.cpp" />
     <ClCompile Include="HHAssetMgr_Init.cpp" />
+    <ClCompile Include="HHBlackboard.cpp" />
     <ClCompile Include="HHButton.cpp" />
     <ClCompile Include="HHCamera.cpp" />
     <ClCompile Include="HHCollider2D.cpp" />
@@ -254,6 +259,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="HHFlipbook.cpp" />
     <ClCompile Include="HHFlipbookRenderer.cpp" />
     <ClCompile Include="HHFontMgr.cpp" />
+    <ClCompile Include="HHFSM.cpp" />
     <ClCompile Include="HHGameObject.cpp" />
     <ClCompile Include="HHGraphicShader.cpp" />
     <ClCompile Include="HHKeyMgr.cpp" />
@@ -275,6 +281,8 @@ call EngineCopy.bat</Command>
     <ClCompile Include="HHShader.cpp" />
     <ClCompile Include="HHSound.cpp" />
     <ClCompile Include="HHSprite.cpp" />
+    <ClCompile Include="HHState.cpp" />
+    <ClCompile Include="HHStateMachine.cpp" />
     <ClCompile Include="HHStructuredBuffer.cpp" />
     <ClCompile Include="HHTaskMgr.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

@@ -72,4 +72,6 @@ ASSET_TYPE GetAssetType()
 		return ASSET_TYPE::SPRITE;
 	if constexpr (std::is_same_v<T, HHFlipbook>)
 		return ASSET_TYPE::FLIPBOOK;
+	if constexpr (std::is_same_v<T, HHFSM>)
+		return ASSET_TYPE::HHFSM;
 }

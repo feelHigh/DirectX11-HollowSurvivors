@@ -21,6 +21,7 @@ enum class ASSET_TYPE
 	COMPUTE_SHADER,
 	SPRITE,
 	FLIPBOOK,
+	FSM,
 	END,
 };
 

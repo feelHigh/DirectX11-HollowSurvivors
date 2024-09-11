@@ -120,7 +120,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	SanctuaryLvl->AddObject(2, pTilemap);*/
 
 	// Player
-	/*HHGameObject* pPlayer = new HHGameObject;
+	HHGameObject* pPlayer = new HHGameObject;
 	pPlayer->SetName(L"Player");
 	pPlayer->AddComponent(new HHTransform);
 	pPlayer->AddComponent(new HHMeshRender);
@@ -137,11 +137,11 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	pPlayer->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	pPlayer->MeshRender()->SetMaterial(pMtrl);
 
-	Ptr<HHFlipbook> pFlipBook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Down.flip");
+	Ptr<HHFlipbook> pFlipBook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Left.flip");
 	pPlayer->FlipbookRenderer()->AddFlipbook(0, pFlipBook);
-	pPlayer->FlipbookRenderer()->Play(0, 10, true);
+	pPlayer->FlipbookRenderer()->Play(0, 8, true);
 
-	SanctuaryLvl->AddObject(3, pPlayer);*/
+	SanctuaryLvl->AddObject(3, pPlayer);
 
 
 	// 레벨 지정 Save

@@ -66,6 +66,7 @@ public:
     GET_COMPONENT(TextRenderer, TEXTRENDERER);
     GET_COMPONENT(Text, GAME_TEXT);
     GET_COMPONENT(Button, GAME_BUTTON);
+    GET_COMPONENT(StateMachine, STATE_MACHINE);
 
 private:
     HHComponent*            m_arrCom[(UINT)COMPONENT_TYPE::END];

@@ -196,6 +196,15 @@
     <Filter Include="08. Component\Render Component\Text Renderer">
       <UniqueIdentifier>{1a293930-da52-49a7-9d46-ac3770ab0eb8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="08. Component\10. State Machine">
+      <UniqueIdentifier>{084b09e2-d5a7-493b-9ba5-073e5e485abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\FSM">
+      <UniqueIdentifier>{7b01a00d-3960-4062-b7e3-13f31f9fa2f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06. Asset\FSM\State">
+      <UniqueIdentifier>{a2565889-05e5-475b-a4f0-2023a2e3d5d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -366,6 +375,16 @@
     <ClInclude Include="HHTextRenderer.h">
       <Filter>08. Component\Render Component\Text Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="HHBlackboard.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="HHStateMachine.h">
+      <Filter>08. Component\10. State Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="HHFSM.h">
+      <Filter>06. Asset\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HHState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -514,6 +533,18 @@
     </ClCompile>
     <ClCompile Include="HHTextRenderer.cpp">
       <Filter>08. Component\Render Component\Text Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="HHBlackboard.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="HHStateMachine.cpp">
+      <Filter>08. Component\10. State Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="HHFSM.cpp">
+      <Filter>06. Asset\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="HHState.cpp">
+      <Filter>06. Asset\FSM\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
