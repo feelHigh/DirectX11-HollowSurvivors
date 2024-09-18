@@ -1,15 +1,6 @@
 #pragma once
 #include <Engine/HHScript.h>
 
-enum BUTTON_TYPE
-{
-    TITLE_PLAY,
-    TITLE_OPTION,
-    TITLE_CREDITS,
-    TITLE_QUIT,
-    END,
-};
-
 class HHButtonScript :
     public HHScript
 {

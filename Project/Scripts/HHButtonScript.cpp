@@ -5,7 +5,6 @@
 
 HHButtonScript::HHButtonScript()
 	: HHScript(UINT(SCRIPT_TYPE::BUTTONSCRIPT))
-	, m_ButtonType(BUTTON_TYPE::END)
 {
 }
 
@@ -23,14 +22,19 @@ void HHButtonScript::Tick()
 
 void HHButtonScript::BeginOverlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
 {
-	if (m_ButtonType == BUTTON_TYPE::TITLE_PLAY && _OtherCollider->GetOwner()->GetName() == L"Mouse Cursor")
-	{
-		//ChangeLevel()
-	}
 }
 
 void HHButtonScript::Overlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
 {
+	m_ButtonType = GetOwner()->Button()->GetButtonType();
+
+	if (m_ButtonType == BUTTON_TYPE::TITLE_PLAY && _OtherCollider->GetOwner()->GetName() == L"Mouse Cursor")
+	{
+		if (KEY_PRESSED(KEY::LBTN))
+		{
+			ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
+		}
+	}
 }
 
 void HHButtonScript::EndOverlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)

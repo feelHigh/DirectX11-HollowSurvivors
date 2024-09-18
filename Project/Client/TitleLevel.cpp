@@ -23,6 +23,7 @@
 #include <Scripts/HHCameraMoveScript.h>
 #include <Scripts/HHMouseCursorScript.h>
 #include <Scripts/HHTitleLogoScript.h>
+#include <Scripts/HHButtonScript.h>
 
 #include "HHLevelSaveLoad.h"
 
@@ -125,81 +126,86 @@ HHLevel* TitleLevel::CreateTitleLevel()
 #pragma endregion
 
 #pragma region Menu Layer
-	FGObject = new HHGameObject;
-	FGObject->SetName(L"Play Menu");
-	FGObject->AddComponent(new HHTransform);
-	FGObject->AddComponent(new HHCollider2D);
-	FGObject->AddComponent(new HHText);
-	FGObject->AddComponent(new HHTextRenderer);
+	HHGameObject* MenuObject = nullptr;
+	MenuObject = new HHGameObject;
+	MenuObject->SetName(L"Play Menu");
+	MenuObject->AddComponent(new HHTransform);
+	MenuObject->AddComponent(new HHCollider2D);
+	MenuObject->AddComponent(new HHText);
+	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButtonScript);
 
-	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -100.f, 900.f));
-	FGObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
+	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -100.f, 900.f));
+	MenuObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
 
-	FGObject->Collider2D()->SetIndependentScale(false);
-	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
-	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+	MenuObject->Collider2D()->SetIndependentScale(false);
+	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	FGObject->Text()->SetText(L"PLAY");
-	FGObject->Text()->SetFontSize(56.f);
+	MenuObject->Text()->SetText(L"PLAY");
+	MenuObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(3, FGObject);
+	TitleLvl->AddObject(3, MenuObject);
 
-	FGObject = new HHGameObject;
-	FGObject->SetName(L"Option Menu");
-	FGObject->AddComponent(new HHTransform);
-	FGObject->AddComponent(new HHCollider2D);
-	FGObject->AddComponent(new HHText);
-	FGObject->AddComponent(new HHTextRenderer);
+	MenuObject = new HHGameObject;
+	MenuObject->SetName(L"Option Menu");
+	MenuObject->AddComponent(new HHTransform);
+	MenuObject->AddComponent(new HHCollider2D);
+	MenuObject->AddComponent(new HHText);
+	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButtonScript);
 
-	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -150.f, 900.f));
-	FGObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
+	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -150.f, 900.f));
+	MenuObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
 
-	FGObject->Collider2D()->SetIndependentScale(false);
-	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
-	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+	MenuObject->Collider2D()->SetIndependentScale(false);
+	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	FGObject->Text()->SetText(L"OPTIONS");
-	FGObject->Text()->SetFontSize(56.f);
+	MenuObject->Text()->SetText(L"OPTIONS");
+	MenuObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(3, FGObject);
+	TitleLvl->AddObject(3, MenuObject);
 
-	FGObject = new HHGameObject;
-	FGObject->SetName(L"Credits Menu");
-	FGObject->AddComponent(new HHTransform);
-	FGObject->AddComponent(new HHCollider2D);
-	FGObject->AddComponent(new HHText);
-	FGObject->AddComponent(new HHTextRenderer);
+	MenuObject = new HHGameObject;
+	MenuObject->SetName(L"Credits Menu");
+	MenuObject->AddComponent(new HHTransform);
+	MenuObject->AddComponent(new HHCollider2D);
+	MenuObject->AddComponent(new HHText);
+	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButtonScript);
 
-	FGObject->Transform()->SetRelativePosition(Vec3(0.f, -200.f, 900.f));
-	FGObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
+	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -200.f, 900.f));
+	MenuObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
 
-	FGObject->Collider2D()->SetIndependentScale(false);
-	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
-	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+	MenuObject->Collider2D()->SetIndependentScale(false);
+	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	FGObject->Text()->SetText(L"CREDITS");
-	FGObject->Text()->SetFontSize(56.f);
+	MenuObject->Text()->SetText(L"CREDITS");
+	MenuObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(3, FGObject);
+	TitleLvl->AddObject(3, MenuObject);
 
-	FGObject = new HHGameObject;
-	FGObject->SetName(L"Quit Menu");
-	FGObject->AddComponent(new HHTransform);
-	FGObject->AddComponent(new HHCollider2D);
-	FGObject->AddComponent(new HHText);
-	FGObject->AddComponent(new HHTextRenderer);
+	MenuObject = new HHGameObject;
+	MenuObject->SetName(L"Quit Menu");
+	MenuObject->AddComponent(new HHTransform);
+	MenuObject->AddComponent(new HHCollider2D);
+	MenuObject->AddComponent(new HHText);
+	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButtonScript);
 
-	FGObject->Transform()->SetRelativePosition(Vec3(-9.f, -250.f, 900.f));
-	FGObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
+	MenuObject->Transform()->SetRelativePosition(Vec3(-9.f, -250.f, 900.f));
+	MenuObject->Transform()->SetRelativeScale(Vec3(180.f, 40.f, 1.f));
 
-	FGObject->Collider2D()->SetIndependentScale(false);
-	FGObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
-	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+	MenuObject->Collider2D()->SetIndependentScale(false);
+	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	FGObject->Text()->SetText(L"QUIT");
-	FGObject->Text()->SetFontSize(56.f);
+	MenuObject->Text()->SetText(L"QUIT");
+	MenuObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(3, FGObject);
+	TitleLvl->AddObject(3, MenuObject);
 #pragma endregion
 
 	// 레벨 지정 Save
