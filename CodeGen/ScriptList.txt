@@ -5,3 +5,4 @@ HHMouseCursorScript
 HHPlayerScript
 HHSmallGirlScript
 HHTilemapScript
+HHTitleLogoScript

@@ -39,6 +39,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	SanctuaryLvl->GetLayer(1)->SetName(L"Background");
 	SanctuaryLvl->GetLayer(2)->SetName(L"Tileset");
 	SanctuaryLvl->GetLayer(3)->SetName(L"Player");
+	SanctuaryLvl->GetLayer(10)->SetName(L"UI");
 
 	// 카메라 오브젝트
 	HHGameObject* MainCamera = new HHGameObject;
@@ -84,7 +85,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 
 	SanctuaryLvl->AddObject(0, Global_Illumination);
 
-	// Background 배치
+#pragma region Background Layer
 	HHGameObject* BGObject = nullptr;
 	BGObject = new HHGameObject;
 	BGObject->SetName(L"Sanctuary Background Texture");
@@ -98,7 +99,9 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
 	SanctuaryLvl->AddObject(1, BGObject);
+#pragma endregion
 
+#pragma region Tilemap Layer
 	// Tilemap 배치 보류
 	/*HHGameObject* pTilemap = nullptr;
 	pTilemap = new HHGameObject;
@@ -118,8 +121,9 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	pTilemap->Tilemap()->SetAtlasTileSize(Vec2(16.f, 16.f));
 
 	SanctuaryLvl->AddObject(2, pTilemap);*/
+#pragma endregion
 
-	// Player
+#pragma region Player Layer
 	HHGameObject* pPlayer = new HHGameObject;
 	pPlayer->SetName(L"Player");
 	pPlayer->AddComponent(new HHTransform);
@@ -142,7 +146,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	pPlayer->FlipbookRenderer()->Play(0, 8, true);
 
 	SanctuaryLvl->AddObject(3, pPlayer);
-
+#pragma endregion
 
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();

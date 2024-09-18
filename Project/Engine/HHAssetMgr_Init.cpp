@@ -352,6 +352,11 @@ void HHAssetMgr::CreateEngineMaterial()
 	pMtrl->SetShader(FindAsset<HHGraphicShader>(L"StandardShader"));
 	AddAsset(L"BackgroundMtrl", pMtrl);
 	//-----------------------------------------------------------------------
+	// ForegroundMtrl
+	//pMtrl = new HHMaterial(true);
+	//pMtrl->SetShader(FindAsset<HHGraphicShader>(L"StandardShader"));
+	//AddAsset(L"ForegroundMtrl", pMtrl);
+	//-----------------------------------------------------------------------
 
 #pragma endregion
 }

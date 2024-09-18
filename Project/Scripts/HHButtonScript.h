@@ -7,6 +7,7 @@ enum BUTTON_TYPE
     TITLE_OPTION,
     TITLE_CREDITS,
     TITLE_QUIT,
+    END,
 };
 
 class HHButtonScript :
@@ -29,5 +30,6 @@ public:
 
 private:
     Ptr<HHTexture>  m_Texture;
+    BUTTON_TYPE     m_ButtonType;
 
 };

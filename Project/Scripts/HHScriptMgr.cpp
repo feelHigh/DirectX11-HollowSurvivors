@@ -8,6 +8,7 @@
 #include "HHPlayerScript.h"
 #include "HHSmallGirlScript.h"
 #include "HHTilemapScript.h"
+#include "HHTitleLogoScript.h"
 
 void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 {
@@ -18,6 +19,7 @@ void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 	_vec.push_back(L"HHPlayerScript");
 	_vec.push_back(L"HHSmallGirlScript");
 	_vec.push_back(L"HHTilemapScript");
+	_vec.push_back(L"HHTitleLogoScript");
 }
 
 HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
@@ -36,6 +38,8 @@ HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 		return new HHSmallGirlScript;
 	if (L"HHTilemapScript" == _strScriptName)
 		return new HHTilemapScript;
+	if (L"HHTitleLogoScript" == _strScriptName)
+		return new HHTitleLogoScript;
 	return nullptr;
 }
 
@@ -63,6 +67,9 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 		break;
 	case (UINT)SCRIPT_TYPE::TILEMAPSCRIPT:
 		return new HHTilemapScript;
+		break;
+	case (UINT)SCRIPT_TYPE::TITLELOGOSCRIPT:
+		return new HHTitleLogoScript;
 		break;
 	}
 	return nullptr;
@@ -98,6 +105,10 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 
 	case SCRIPT_TYPE::TILEMAPSCRIPT:
 		return L"HHTilemapScript";
+		break;
+
+	case SCRIPT_TYPE::TITLELOGOSCRIPT:
+		return L"HHTitleLogoScript";
 		break;
 
 	}

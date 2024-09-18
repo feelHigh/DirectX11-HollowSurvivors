@@ -22,12 +22,13 @@
 #include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
 #include <Scripts/HHMouseCursorScript.h>
+#include <Scripts/HHTitleLogoScript.h>
 
 #include "HHLevelSaveLoad.h"
 
 HHLevel* TitleLevel::CreateTitleLevel()
 {
-	ShowCursor(false);
+	//ShowCursor(false);
 
 	// Material
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
@@ -85,7 +86,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 
 	TitleLvl->AddObject(0, Global_Illumination);
 
-	// Background 배치
+#pragma region Background
 	HHGameObject* BGObject = nullptr;
 	BGObject = new HHGameObject;
 	BGObject->SetName(L"Title Background Texture");
@@ -99,15 +100,17 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	BGObject->MeshRender()->SetMaterial(BackgroundMtrl);
 
 	TitleLvl->AddObject(1, BGObject);
+#pragma endregion
 
+#pragma region Foreground Layer
 	// Foreground 배치
 	HHGameObject* FGObject = nullptr;
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Title Logo");
 	FGObject->AddComponent(new HHTransform);
 	FGObject->AddComponent(new HHMeshRender);
-	FGObject->AddComponent(new HHPlayerScript);
 	FGObject->AddComponent(new HHCollider2D);
+	FGObject->AddComponent(new HHTitleLogoScript);
 
 	FGObject->Transform()->SetRelativePosition(Vec3(6.f, 176.f, 900.f));
 	FGObject->Transform()->SetRelativeScale(Vec3(543.f, 294.f, 1.f));
@@ -119,7 +122,9 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
 	TitleLvl->AddObject(2, FGObject);
+#pragma endregion
 
+#pragma region Menu Layer
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Play Menu");
 	FGObject->AddComponent(new HHTransform);
@@ -137,7 +142,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Text()->SetText(L"PLAY");
 	FGObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(2, FGObject);
+	TitleLvl->AddObject(3, FGObject);
 
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Option Menu");
@@ -156,7 +161,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Text()->SetText(L"OPTIONS");
 	FGObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(2, FGObject);
+	TitleLvl->AddObject(3, FGObject);
 
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Credits Menu");
@@ -175,7 +180,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Text()->SetText(L"CREDITS");
 	FGObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(2, FGObject);
+	TitleLvl->AddObject(3, FGObject);
 
 	FGObject = new HHGameObject;
 	FGObject->SetName(L"Quit Menu");
@@ -194,7 +199,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	FGObject->Text()->SetText(L"QUIT");
 	FGObject->Text()->SetFontSize(56.f);
 
-	TitleLvl->AddObject(2, FGObject);
+	TitleLvl->AddObject(3, FGObject);
+#pragma endregion
 
 	// 레벨 지정 Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();

@@ -57,14 +57,17 @@
     <ClInclude Include="HHMouseCursorScript.h">
       <Filter>Scripts\UI</Filter>
     </ClInclude>
-    <ClInclude Include="HHButtonScript.h">
-      <Filter>Scripts\UI</Filter>
-    </ClInclude>
     <ClInclude Include="HHLevelBackgroundScript.h">
       <Filter>Scripts\Background</Filter>
     </ClInclude>
     <ClInclude Include="HHTilemapScript.h">
       <Filter>Scripts\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTitleLogoScript.h">
+      <Filter>Scripts\Level\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="HHButtonScript.h">
+      <Filter>Scripts\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,14 +92,17 @@
     <ClCompile Include="HHMouseCursorScript.cpp">
       <Filter>Scripts\UI</Filter>
     </ClCompile>
-    <ClCompile Include="HHButtonScript.cpp">
-      <Filter>Scripts\UI</Filter>
-    </ClCompile>
     <ClCompile Include="HHLevelBackgroundScript.cpp">
       <Filter>Scripts\Background</Filter>
     </ClCompile>
     <ClCompile Include="HHTilemapScript.cpp">
       <Filter>Scripts\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTitleLogoScript.cpp">
+      <Filter>Scripts\Level\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="HHButtonScript.cpp">
+      <Filter>Scripts\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

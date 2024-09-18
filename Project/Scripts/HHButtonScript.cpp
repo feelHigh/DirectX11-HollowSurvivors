@@ -5,6 +5,7 @@
 
 HHButtonScript::HHButtonScript()
 	: HHScript(UINT(SCRIPT_TYPE::BUTTONSCRIPT))
+	, m_ButtonType(BUTTON_TYPE::END)
 {
 }
 
@@ -14,10 +15,6 @@ HHButtonScript::~HHButtonScript()
 
 void HHButtonScript::Begin()
 {
-	/*Ptr<HHTexture> MouseCursorTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\UI\\crosshair-PIXELLarger-alpha.png"
-																				 , L"Texture2D\\UI\\crosshair-PIXELLarger-alpha.png");
-	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, MouseCursorTexture);*/
-	//GetRenderComponent()->GetDynamicMaterial()->SetScalarParam(INT_0, 0);
 }
 
 void HHButtonScript::Tick()
@@ -26,7 +23,7 @@ void HHButtonScript::Tick()
 
 void HHButtonScript::BeginOverlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
 {
-	if (BUTTON_TYPE::TITLE_PLAY && _OtherCollider->GetOwner()->GetName() == L"Mouse Cursor")
+	if (m_ButtonType == BUTTON_TYPE::TITLE_PLAY && _OtherCollider->GetOwner()->GetName() == L"Mouse Cursor")
 	{
 		//ChangeLevel()
 	}
