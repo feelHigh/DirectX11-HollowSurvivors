@@ -2,6 +2,7 @@
 #include "HHButtonScript.h"
 
 #include <Engine/HHLevelMgr.h>
+#include <Client/HHLoadGameLevel.h>
 
 HHButtonScript::HHButtonScript()
 	: HHScript(UINT(SCRIPT_TYPE::BUTTONSCRIPT))
@@ -32,7 +33,7 @@ void HHButtonScript::Overlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObj
 	{
 		if (KEY_PRESSED(KEY::LBTN))
 		{
-			ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
+			HHLoadGameLevel::GetInstance()->ChangeLevelByName(L"SanctuaryLevel", LEVEL_STATE::PLAY);
 		}
 	}
 }

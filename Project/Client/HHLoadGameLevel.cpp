@@ -7,6 +7,7 @@
 
 HHLoadGameLevel::HHLoadGameLevel()
     : m_arrLevel{}
+    , levelMap{}
 {
 }
 
@@ -21,7 +22,7 @@ void HHLoadGameLevel::Initialize()
     StrLevelLoadPath += L"Level\\";
 
     // Create a map to associate file names with enum values
-    unordered_map<wstring, LEVEL_TYPE> levelMap =
+    levelMap =
     {
         { L"TitleLevel.lv", LEVEL_TYPE::TITLE },
         { L"SanctuaryLevel.lv", LEVEL_TYPE::SANCTUARY }
@@ -30,10 +31,10 @@ void HHLoadGameLevel::Initialize()
     for (const auto& entry : directory_iterator(StrLevelLoadPath))
     {
         // Get the file path as a wstring
-        std::wstring filePath = entry.path().wstring();
+        wstring filePath = entry.path().wstring();
 
         // Get the file name only
-        std::wstring fileName = entry.path().filename().wstring();
+        wstring fileName = entry.path().filename().wstring();
 
         // Check if the file name is in our map
         if (levelMap.find(fileName) != levelMap.end()) 
@@ -51,4 +52,26 @@ void HHLoadGameLevel::Initialize()
 
     HHLevel* pStartLevel = m_arrLevel[(UINT)LEVEL_TYPE::TITLE];
     ChangeLevel(pStartLevel, LEVEL_STATE::PLAY);
+}
+
+void HHLoadGameLevel::ChangeLevelByName(const wstring& levelName, LEVEL_STATE state)
+{
+    auto iter = levelMap.find(levelName);
+    if (iter != levelMap.end())
+    {
+        LEVEL_TYPE levelType = iter->second;
+        HHLevel* pLevel = m_arrLevel[(UINT)levelType];
+        if (pLevel)
+        {
+            ChangeLevel(pLevel, state);
+        }
+        else
+        {
+            // Handle error: level not found
+        }
+    }
+    else
+    {
+        // Handle error: invalid level name
+    }
 }

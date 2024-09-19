@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "TitleLevel.h"
 
+#include "HHLoadGameLevel.h"
+
 #include <Engine/HHAssetMgr.h>
 #include <Engine/assets.h>
 
@@ -133,6 +135,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->AddComponent(new HHCollider2D);
 	MenuObject->AddComponent(new HHText);
 	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButton);
 	MenuObject->AddComponent(new HHButtonScript);
 
 	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -100.f, 900.f));
@@ -141,6 +144,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetIndependentScale(false);
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_PLAY);
 
 	MenuObject->Text()->SetText(L"PLAY");
 	MenuObject->Text()->SetFontSize(56.f);
@@ -153,6 +158,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->AddComponent(new HHCollider2D);
 	MenuObject->AddComponent(new HHText);
 	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButton);
 	MenuObject->AddComponent(new HHButtonScript);
 
 	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -150.f, 900.f));
@@ -161,6 +167,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetIndependentScale(false);
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_OPTION);
 
 	MenuObject->Text()->SetText(L"OPTIONS");
 	MenuObject->Text()->SetFontSize(56.f);
@@ -173,6 +181,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->AddComponent(new HHCollider2D);
 	MenuObject->AddComponent(new HHText);
 	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButton);
 	MenuObject->AddComponent(new HHButtonScript);
 
 	MenuObject->Transform()->SetRelativePosition(Vec3(0.f, -200.f, 900.f));
@@ -181,6 +190,8 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetIndependentScale(false);
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_CREDITS);
 
 	MenuObject->Text()->SetText(L"CREDITS");
 	MenuObject->Text()->SetFontSize(56.f);
@@ -193,6 +204,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->AddComponent(new HHCollider2D);
 	MenuObject->AddComponent(new HHText);
 	MenuObject->AddComponent(new HHTextRenderer);
+	MenuObject->AddComponent(new HHButton);
 	MenuObject->AddComponent(new HHButtonScript);
 
 	MenuObject->Transform()->SetRelativePosition(Vec3(-9.f, -250.f, 900.f));
@@ -202,10 +214,17 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_QUIT);
+
 	MenuObject->Text()->SetText(L"QUIT");
 	MenuObject->Text()->SetFontSize(56.f);
 
 	TitleLvl->AddObject(3, MenuObject);
+#pragma endregion
+
+#pragma region Collision Manager
+	// 충돌 지정
+	//HHCollisionMgr::GetInstance()->CollisionCheck(3, 10); // Menu & User
 #pragma endregion
 
 	// 레벨 지정 Save

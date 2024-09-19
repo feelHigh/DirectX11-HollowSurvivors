@@ -1,14 +1,6 @@
 #pragma once
 #include <Engine/HHScript.h>
 
-enum BUTTON_TYPE
-{
-    TITLE_PLAY,
-    TITLE_OPTION,
-    TITLE_CREDITS,
-    TITLE_QUIT,
-};
-
 class HHButtonScript :
     public HHScript
 {
@@ -29,5 +21,6 @@ public:
 
 private:
     Ptr<HHTexture>  m_Texture;
+    BUTTON_TYPE     m_ButtonType;
 
 };
