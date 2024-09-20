@@ -56,10 +56,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HHEditorMgr::GetInstance()->Initialize();
 #endif
     // Level Pre-Load 테스트
-    HHLoadGameLevel::GetInstance()->Initialize();
+    //HHLoadGameLevel::GetInstance()->Initialize();
 
     // 테스트용 레벨 초기상태 만들기
-    //ChangeLevel(TitleLevel::CreateTitleLevel(), LEVEL_STATE::PLAY);
+    ChangeLevel(TitleLevel::CreateTitleLevel(), LEVEL_STATE::PLAY);
     //ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));

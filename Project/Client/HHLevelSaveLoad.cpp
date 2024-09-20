@@ -253,8 +253,8 @@ HHComponent* HHLevelSaveLoad::GetComponent(COMPONENT_TYPE _Type)
 	case COMPONENT_TYPE::GAME_TEXT:
 		return new HHText;
 
-	/*case COMPONENT_TYPE::GAME_BUTTON:
-		return new HHButton;*/
+	case COMPONENT_TYPE::GAME_BUTTON:
+		return new HHButton;
 
 	}
 

@@ -29,6 +29,7 @@ public:
     GET_OTHER_COMPONENT(Transform);
     GET_OTHER_COMPONENT(MeshRender);
     GET_OTHER_COMPONENT(Camera);
+    GET_OTHER_COMPONENT(StateMachine);
     GET_OTHER_COMPONENT(Collider2D);
     GET_OTHER_COMPONENT(FlipbookRenderer);
     GET_OTHER_COMPONENT(Tilemap);
@@ -37,7 +38,6 @@ public:
     GET_OTHER_COMPONENT(TextRenderer);
     GET_OTHER_COMPONENT(Text);
     GET_OTHER_COMPONENT(Button);
-    GET_OTHER_COMPONENT(StateMachine);
 
 private:
     const COMPONENT_TYPE    m_Type;

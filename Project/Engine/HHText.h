@@ -13,7 +13,6 @@ public:
 
 	virtual void Tick();
 	virtual void Render();
-
 	virtual void FinalTick() {};
 
 	virtual void SaveToFile(FILE* _File) override;

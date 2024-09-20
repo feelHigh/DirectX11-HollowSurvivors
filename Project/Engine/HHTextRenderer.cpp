@@ -16,6 +16,7 @@ HHTextRenderer::HHTextRenderer()
 
 HHTextRenderer::~HHTextRenderer()
 {
+	//delete pText;
 }
 
 void HHTextRenderer::FinalTick()
@@ -24,7 +25,8 @@ void HHTextRenderer::FinalTick()
 
 void HHTextRenderer::Render()
 {
-	HHText* pText = GetOwner()->GetUnComponent<HHText>(COMPONENT_TYPE::GAME_TEXT);
+	//pText = new HHText;
+	pText = GetOwner()->GetUnComponent<HHText>(COMPONENT_TYPE::GAME_TEXT);
 	if (nullptr != pText)
 		pText->Render();
 }

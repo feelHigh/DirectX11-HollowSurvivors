@@ -66,10 +66,15 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	HHGameObject* MouseCursor = new HHGameObject;
 	MouseCursor->SetName(L"Mouse Cursor");
 	MouseCursor->AddComponent(new HHTransform);
+	MouseCursor->AddComponent(new HHCollider2D);
 	MouseCursor->AddComponent(new HHMeshRender);
 	MouseCursor->AddComponent(new HHMouseCursorScript);
 
 	MouseCursor->Transform()->SetRelativeScale(Vec3(32.f, 32.f, 1.f));
+
+	MouseCursor->Collider2D()->SetIndependentScale(false);
+	MouseCursor->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
+	MouseCursor->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
 	MouseCursor->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	MouseCursor->MeshRender()->SetMaterial(BackgroundMtrl);
@@ -168,10 +173,10 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_OPTION);
-
 	MenuObject->Text()->SetText(L"OPTIONS");
 	MenuObject->Text()->SetFontSize(56.f);
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_OPTION);
 
 	TitleLvl->AddObject(3, MenuObject);
 
@@ -191,10 +196,10 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_CREDITS);
-
 	MenuObject->Text()->SetText(L"CREDITS");
 	MenuObject->Text()->SetFontSize(56.f);
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_CREDITS);
 
 	TitleLvl->AddObject(3, MenuObject);
 
@@ -214,17 +219,17 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MenuObject->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));
 	MenuObject->Collider2D()->SetScale(Vec3(1.f, 1.f, 1.f));
 
-	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_QUIT);
-
 	MenuObject->Text()->SetText(L"QUIT");
 	MenuObject->Text()->SetFontSize(56.f);
+
+	MenuObject->Button()->SetButtonType(BUTTON_TYPE::TITLE_QUIT);
 
 	TitleLvl->AddObject(3, MenuObject);
 #pragma endregion
 
 #pragma region Collision Manager
 	// 충돌 지정
-	//HHCollisionMgr::GetInstance()->CollisionCheck(3, 10); // Menu & User
+	HHCollisionMgr::GetInstance()->CollisionCheck(3, 10); // Menu & User
 #pragma endregion
 
 	// 레벨 지정 Save
