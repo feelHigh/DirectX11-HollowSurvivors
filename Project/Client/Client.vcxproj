@@ -206,10 +206,12 @@ call ClientCopy.bat</Command>
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="TextureUI.h" />
+    <ClInclude Include="TilemapEditor.h" />
     <ClInclude Include="TilemapUI.h" />
     <ClInclude Include="TitleLevel.h" />
     <ClInclude Include="TransformUI.h" />
     <ClInclude Include="TreeUI.h" />
+    <ClInclude Include="TutorialLevel.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
@@ -273,10 +275,12 @@ call ClientCopy.bat</Command>
     <ClCompile Include="SpriteUI.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="TextureUI.cpp" />
+    <ClCompile Include="TilemapEditor.cpp" />
     <ClCompile Include="TilemapUI.cpp" />
     <ClCompile Include="TitleLevel.cpp" />
     <ClCompile Include="TransformUI.cpp" />
     <ClCompile Include="TreeUI.cpp" />
+    <ClCompile Include="TutorialLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ImGui\LICENSE.txt" />

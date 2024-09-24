@@ -74,3 +74,13 @@ void HHFSM::ChangeState(const wstring& _strStateName)
 
 	m_CurState->Enter();
 }
+
+int HHFSM::Load(const wstring& _FilePath)
+{
+	return 0;
+}
+
+int HHFSM::Save(const wstring& _FilePath)
+{
+	return 0;
+}

@@ -19,7 +19,7 @@
 #include <Engine/HHSetColorCS.h>
 #include <Engine/HHStructuredBuffer.h>
 
-#include <Scripts/HHLevelBackgroundScript.h>
+#include <Scripts/HHTitleBackgroundScript.h>
 #include <Scripts/HHPlayerScript.h>
 #include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
@@ -29,7 +29,7 @@
 
 #include "HHLevelSaveLoad.h"
 
-HHLevel* TitleLevel::CreateTitleLevel()
+HHLevel* TitleLevel::Initialize()
 {
 	//ShowCursor(false);
 
@@ -52,13 +52,15 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	MainCamera->AddComponent(new HHCamera);
 	MainCamera->AddComponent(new HHCameraMoveScript);
 
+	MainCamera->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 500.f));
+
 	// 우선순위를 0 : MainCamera 로 설정
 	MainCamera->Camera()->SetPriority(0);
 
 	// 카메라 레이어 설정
 	MainCamera->Camera()->SetLayerAll();
 	MainCamera->Camera()->SetFar(100000.f);
-	MainCamera->Camera()->SetProjectionType(ORTHOGRAPHIC);
+	MainCamera->Camera()->SetProjectionType(PERSPECTIVE);
 
 	TitleLvl->AddObject(0, MainCamera);
 
@@ -100,7 +102,7 @@ HHLevel* TitleLevel::CreateTitleLevel()
 	BGObject->SetName(L"Title Background Texture");
 	BGObject->AddComponent(new HHTransform);
 	BGObject->AddComponent(new HHMeshRender);
-	BGObject->AddComponent(new HHLevelBackgroundScript);
+	BGObject->AddComponent(new HHTitleBackgroundScript);
 
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
 	BGObject->Transform()->SetRelativeScale(Vec3(2560.f, 1440.f, 1.f));

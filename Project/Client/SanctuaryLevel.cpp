@@ -15,7 +15,7 @@
 #include <Engine/HHSetColorCS.h>
 #include <Engine/HHStructuredBuffer.h>
 
-#include <Scripts/HHLevelBackgroundScript.h>
+#include <Scripts/HHTitleBackgroundScript.h>
 #include <Scripts/HHPlayerScript.h>
 #include <Scripts/HHSmallGirlScript.h>
 #include <Scripts/HHCameraMoveScript.h>
@@ -24,7 +24,7 @@
 
 #include "HHLevelSaveLoad.h"
 
-HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
+HHLevel* SanctuaryLevel::Initialize()
 {
 	//ShowCursor(false);
 
@@ -47,6 +47,8 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	MainCamera->AddComponent(new HHTransform);
 	MainCamera->AddComponent(new HHCamera);
 	MainCamera->AddComponent(new HHCameraMoveScript);
+
+	MainCamera->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 500.f));
 
 	// 우선순위를 0 : MainCamera 로 설정
 	MainCamera->Camera()->SetPriority(0);
@@ -91,7 +93,7 @@ HHLevel* SanctuaryLevel::CreateSanctuaryLevel()
 	BGObject->SetName(L"Sanctuary Background Texture");
 	BGObject->AddComponent(new HHTransform);
 	BGObject->AddComponent(new HHMeshRender);
-	BGObject->AddComponent(new HHLevelBackgroundScript);
+	BGObject->AddComponent(new HHTitleBackgroundScript);
 
 	BGObject->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
 	BGObject->Transform()->SetRelativeScale(Vec3(2560.f, 1440.f, 1.f));

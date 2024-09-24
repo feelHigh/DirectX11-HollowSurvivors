@@ -5,6 +5,6 @@ class HHLevel;
 class TitleLevel
 {
 public:
-	static HHLevel* CreateTitleLevel();
+	static HHLevel* Initialize();
 
 };

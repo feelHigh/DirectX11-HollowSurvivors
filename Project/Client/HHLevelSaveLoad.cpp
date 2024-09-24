@@ -209,7 +209,7 @@ HHComponent* HHLevelSaveLoad::GetComponent(COMPONENT_TYPE _Type)
 
 		break;
 	case COMPONENT_TYPE::LIGHT2D:
-		return  new HHLight2D;
+		return new HHLight2D;
 
 	case COMPONENT_TYPE::LIGHT3D:
 		break;
@@ -221,22 +221,22 @@ HHComponent* HHLevelSaveLoad::GetComponent(COMPONENT_TYPE _Type)
 		break;
 
 	case COMPONENT_TYPE::STATE_MACHINE:
-		break;
+		return new HHStateMachine;
 
 	case COMPONENT_TYPE::RIGIDBODY:
 		break;
 
 	case COMPONENT_TYPE::CAMERA:
-		return  new HHCamera;
+		return new HHCamera;
 
 	case COMPONENT_TYPE::MESHRENDER:
-		return  new HHMeshRender;
+		return new HHMeshRender;
 
 	case COMPONENT_TYPE::TILEMAP:
-		return  new HHTilemap;
+		return new HHTilemap;
 
 	case COMPONENT_TYPE::PARTICLESYSTEM:
-		break;
+		return new HHParticleSystem;
 
 	case COMPONENT_TYPE::DECAl:
 		break;

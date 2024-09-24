@@ -25,6 +25,7 @@ void HHLoadGameLevel::Initialize()
     levelMap =
     {
         { L"TitleLevel.lv", LEVEL_TYPE::TITLE },
+        { L"Tutorial.lv", LEVEL_TYPE::TUTORIAL },
         { L"SanctuaryLevel.lv", LEVEL_TYPE::SANCTUARY }
     };
 

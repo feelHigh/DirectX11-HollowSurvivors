@@ -5,6 +5,6 @@ class HHLevel;
 class SanctuaryLevel
 {
 public:
-	static HHLevel* CreateSanctuaryLevel();
+	static HHLevel* Initialize();
 
 };

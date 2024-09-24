@@ -177,6 +177,7 @@ enum TASK_TYPE
 enum class LEVEL_TYPE
 {
 	TITLE,
+	TUTORIAL,
 	SANCTUARY,
 
 	END,

@@ -1,8 +1,9 @@
 HHButtonScript
 HHCameraMoveScript
-HHLevelBackgroundScript
 HHMouseCursorScript
 HHPlayerScript
 HHSmallGirlScript
 HHTilemapScript
+HHTitleBackgroundScript
 HHTitleLogoScript
+HHTutorialBackgroundScript

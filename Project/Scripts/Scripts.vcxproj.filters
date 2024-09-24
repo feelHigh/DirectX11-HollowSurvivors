@@ -16,23 +16,32 @@
     <Filter Include="Scripts\UI">
       <UniqueIdentifier>{87d50ba9-c9b6-42e7-8580-9d29acc8da7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scripts\NPC">
-      <UniqueIdentifier>{8703a034-7022-4d7a-8616-2ee55d4e0ee9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scripts\Camera">
       <UniqueIdentifier>{251cc868-886a-431d-a774-5614b58ef06d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\Monster/Boss">
-      <UniqueIdentifier>{82c7e316-3d58-459a-aa2c-e112ac2de6d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scripts\Background">
-      <UniqueIdentifier>{fc6c4399-1190-4dd9-a41b-45e2fd9f83cc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Scripts\Level">
       <UniqueIdentifier>{668df7a2-e85b-4055-80c1-6f573ac30a0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Level\Dungeon">
+      <UniqueIdentifier>{336c04df-0636-4bfe-b768-b6dd4bc79aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Level\Sanctuary">
+      <UniqueIdentifier>{caefdf53-4922-40fa-aab9-757e0e61ceda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Level\Tutorial">
+      <UniqueIdentifier>{6dd0ab80-7db3-43ae-9c47-a25ec1086dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Level\Tutorial\Background">
+      <UniqueIdentifier>{7f2f8a46-eb6f-4db4-9117-908eee90fd7b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Scripts\Level\Title">
-      <UniqueIdentifier>{abdcb93c-adb1-45e8-a714-6afed8be7977}</UniqueIdentifier>
+      <UniqueIdentifier>{3c05cd4e-2576-4c62-a613-526573507348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Level\Title\Background">
+      <UniqueIdentifier>{fc6c4399-1190-4dd9-a41b-45e2fd9f83cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Level\Sanctuary\NPC">
+      <UniqueIdentifier>{8703a034-7022-4d7a-8616-2ee55d4e0ee9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +58,7 @@
       <Filter>Scripts\Player</Filter>
     </ClInclude>
     <ClInclude Include="HHSmallGirlScript.h">
-      <Filter>Scripts\NPC</Filter>
+      <Filter>Scripts\Level\Sanctuary\NPC</Filter>
     </ClInclude>
     <ClInclude Include="HHCameraMoveScript.h">
       <Filter>Scripts\Camera</Filter>
@@ -57,17 +66,20 @@
     <ClInclude Include="HHMouseCursorScript.h">
       <Filter>Scripts\UI</Filter>
     </ClInclude>
-    <ClInclude Include="HHLevelBackgroundScript.h">
-      <Filter>Scripts\Background</Filter>
+    <ClInclude Include="HHTitleBackgroundScript.h">
+      <Filter>Scripts\Level\Title\Background</Filter>
     </ClInclude>
     <ClInclude Include="HHTilemapScript.h">
       <Filter>Scripts\Level</Filter>
     </ClInclude>
-    <ClInclude Include="HHTitleLogoScript.h">
-      <Filter>Scripts\Level\Title</Filter>
-    </ClInclude>
     <ClInclude Include="HHButtonScript.h">
       <Filter>Scripts\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTutorialBackgroundScript.h">
+      <Filter>Scripts\Level\Tutorial\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="HHTitleLogoScript.h">
+      <Filter>Scripts\Level\Title</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +96,7 @@
       <Filter>Scripts\Player</Filter>
     </ClCompile>
     <ClCompile Include="HHSmallGirlScript.cpp">
-      <Filter>Scripts\NPC</Filter>
+      <Filter>Scripts\Level\Sanctuary\NPC</Filter>
     </ClCompile>
     <ClCompile Include="HHCameraMoveScript.cpp">
       <Filter>Scripts\Camera</Filter>
@@ -92,17 +104,20 @@
     <ClCompile Include="HHMouseCursorScript.cpp">
       <Filter>Scripts\UI</Filter>
     </ClCompile>
-    <ClCompile Include="HHLevelBackgroundScript.cpp">
-      <Filter>Scripts\Background</Filter>
+    <ClCompile Include="HHTitleBackgroundScript.cpp">
+      <Filter>Scripts\Level\Title\Background</Filter>
     </ClCompile>
     <ClCompile Include="HHTilemapScript.cpp">
       <Filter>Scripts\Level</Filter>
     </ClCompile>
-    <ClCompile Include="HHTitleLogoScript.cpp">
-      <Filter>Scripts\Level\Title</Filter>
-    </ClCompile>
     <ClCompile Include="HHButtonScript.cpp">
       <Filter>Scripts\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTutorialBackgroundScript.cpp">
+      <Filter>Scripts\Level\Tutorial\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTitleLogoScript.cpp">
+      <Filter>Scripts\Level\Title</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

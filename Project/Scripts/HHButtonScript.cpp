@@ -4,6 +4,7 @@
 #include <Engine/HHLevelMgr.h>
 
 #include <Client/HHLoadGameLevel.h>
+#include <Client/TutorialLevel.h>
 #include <Client/SanctuaryLevel.h>
 
 HHButtonScript::HHButtonScript()
@@ -25,16 +26,6 @@ void HHButtonScript::Tick()
 
 void HHButtonScript::BeginOverlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
 {
-	m_ButtonType = GetOwner()->Button()->GetButtonType();
-
-	if (m_ButtonType == BUTTON_TYPE::TITLE_PLAY && _OtherCollider->GetOwner()->GetName() == L"Mouse Cursor")
-	{
-		if (KEY_PRESSED(KEY::LBTN))
-		{
-			//HHLoadGameLevel::GetInstance()->ChangeLevelByName(L"SanctuaryLevel.lv", LEVEL_STATE::PLAY);
-			ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
-		}
-	}
 }
 
 void HHButtonScript::Overlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObject, HHCollider2D* _OtherCollider)
@@ -46,7 +37,7 @@ void HHButtonScript::Overlap(HHCollider2D* _OwnCollider, HHGameObject* _OtherObj
 		if (KEY_PRESSED(KEY::LBTN))
 		{
 			//HHLoadGameLevel::GetInstance()->ChangeLevelByName(L"SanctuaryLevel.lv", LEVEL_STATE::PLAY);
-			ChangeLevel(SanctuaryLevel::CreateSanctuaryLevel(), LEVEL_STATE::PLAY);
+			ChangeLevel(TutorialLevel::Initialize(), LEVEL_STATE::PLAY);
 		}
 	}
 }

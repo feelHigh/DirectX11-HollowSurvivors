@@ -169,25 +169,27 @@ call CodeGen.exe</Command>
     <ClInclude Include="framework.h" />
     <ClInclude Include="HHButtonScript.h" />
     <ClInclude Include="HHCameraMoveScript.h" />
-    <ClInclude Include="HHLevelBackgroundScript.h" />
+    <ClInclude Include="HHTitleBackgroundScript.h" />
     <ClInclude Include="HHMouseCursorScript.h" />
     <ClInclude Include="HHPlayerScript.h" />
     <ClInclude Include="HHScriptMgr.h" />
     <ClInclude Include="HHSmallGirlScript.h" />
     <ClInclude Include="HHTilemapScript.h" />
     <ClInclude Include="HHTitleLogoScript.h" />
+    <ClInclude Include="HHTutorialBackgroundScript.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HHButtonScript.cpp" />
     <ClCompile Include="HHCameraMoveScript.cpp" />
-    <ClCompile Include="HHLevelBackgroundScript.cpp" />
+    <ClCompile Include="HHTitleBackgroundScript.cpp" />
     <ClCompile Include="HHMouseCursorScript.cpp" />
     <ClCompile Include="HHPlayerScript.cpp" />
     <ClCompile Include="HHScriptMgr.cpp" />
     <ClCompile Include="HHSmallGirlScript.cpp" />
     <ClCompile Include="HHTilemapScript.cpp" />
     <ClCompile Include="HHTitleLogoScript.cpp" />
+    <ClCompile Include="HHTutorialBackgroundScript.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

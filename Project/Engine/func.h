@@ -73,5 +73,5 @@ ASSET_TYPE GetAssetType()
 	if constexpr (std::is_same_v<T, HHFlipbook>)
 		return ASSET_TYPE::FLIPBOOK;
 	if constexpr (std::is_same_v<T, HHFSM>)
-		return ASSET_TYPE::HHFSM;
+		return ASSET_TYPE::FSM;
 }

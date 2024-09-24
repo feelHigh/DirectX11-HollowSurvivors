@@ -43,22 +43,22 @@ void HHCameraMoveScript::OrthographicMovement()
 	Transform()->SetRelativeRotation(Vec3(0.f, 0.f, 0.f));
 	Vec3 vPos = Transform()->GetRelativePosition();
 
-	if (KEY_PRESSED(KEY::W))
+	if (KEY_PRESSED(KEY::UP))
 	{
 		vPos.y += DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::S))
+	if (KEY_PRESSED(KEY::DOWN))
 	{
 		vPos.y -= DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::A))
+	if (KEY_PRESSED(KEY::LEFT))
 	{
 		vPos.x -= DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::D))
+	if (KEY_PRESSED(KEY::RIGHT))
 	{
 		vPos.x += DT * Speed;
 	}
@@ -80,22 +80,22 @@ void HHCameraMoveScript::PerspectiveMovement()
 
 	Vec3 vPos = Transform()->GetRelativePosition();
 
-	if (KEY_PRESSED(KEY::W))
+	if (KEY_PRESSED(KEY::UP))
 	{
 		vPos += vFront * DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::S))
+	if (KEY_PRESSED(KEY::DOWN))
 	{
 		vPos -= vFront * DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::A))
+	if (KEY_PRESSED(KEY::LEFT))
 	{
 		vPos -= vRight * DT * Speed;
 	}
 
-	if (KEY_PRESSED(KEY::D))
+	if (KEY_PRESSED(KEY::RIGHT))
 	{
 		vPos += vRight * DT * Speed;
 	}

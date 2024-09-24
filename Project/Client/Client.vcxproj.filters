@@ -160,6 +160,9 @@
     <Filter Include="Manager\04. FSM State">
       <UniqueIdentifier>{69c3e1f6-3c69-4e47-8f14-8c929bdfebf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Editor UI\99. Tilemap Editor">
+      <UniqueIdentifier>{90a6791b-8adf-4e92-b48f-bca46170896c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -329,6 +332,12 @@
     </ClInclude>
     <ClInclude Include="FSMUI.h">
       <Filter>Editor UI\01. Inspector\AssetUI\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialLevel.h">
+      <Filter>Manager\02. Game Levels\02. Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapEditor.h">
+      <Filter>Editor UI\99. Tilemap Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -505,6 +514,12 @@
     </ClCompile>
     <ClCompile Include="FSMUI.cpp">
       <Filter>Editor UI\01. Inspector\AssetUI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialLevel.cpp">
+      <Filter>Manager\02. Game Levels\02. Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapEditor.cpp">
+      <Filter>Editor UI\99. Tilemap Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -16,23 +16,19 @@ HHPlayerScript::~HHPlayerScript()
 void HHPlayerScript::Begin()
 {
 	GetRenderComponent()->GetDynamicMaterial();
-	/*Ptr<HHTexture> FGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Title\\Hollow18-alpha.png"
-																		, L"Texture2D\\Title\\Hollow18-alpha.png");
-	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, FGTexture);*/
-	//GetRenderComponent()->GetDynamicMaterial()->SetScalarParam(INT_0, 0);
 }
 
 void HHPlayerScript::Tick()
 {
 	Vec3 vPos = Transform()->GetRelativePosition();
 
-	if (KEY_PRESSED(KEY::LEFT))
+	if (KEY_PRESSED(KEY::A))
 		vPos.x -= DT * m_Speed;
-	if (KEY_PRESSED(KEY::RIGHT))
+	if (KEY_PRESSED(KEY::D))
 		vPos.x += DT * m_Speed;
-	if (KEY_PRESSED(KEY::UP))
+	if (KEY_PRESSED(KEY::W))
 		vPos.y += DT * m_Speed;
-	if (KEY_PRESSED(KEY::DOWN))
+	if (KEY_PRESSED(KEY::S))
 		vPos.y -= DT * m_Speed;
 
 
