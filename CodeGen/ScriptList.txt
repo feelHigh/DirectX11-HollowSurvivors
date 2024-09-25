@@ -7,3 +7,4 @@ HHTilemapScript
 HHTitleBackgroundScript
 HHTitleLogoScript
 HHTutorialBackgroundScript
+HHTutorialMapScript

@@ -86,4 +86,12 @@ private:
     vector<HHGameObject*>   m_DomainSort[(UINT)SHADER_DOMAIN::DOMAIN_NONE];
 
     void SortGameObject();
+
+public:
+    void SetTarget(HHGameObject* _TargetObject) { m_TargetObject = _TargetObject; }
+
+private:
+    HHGameObject* m_TargetObject;
+
+
 };

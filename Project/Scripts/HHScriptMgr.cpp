@@ -10,6 +10,7 @@
 #include "HHTitleBackgroundScript.h"
 #include "HHTitleLogoScript.h"
 #include "HHTutorialBackgroundScript.h"
+#include "HHTutorialMapScript.h"
 
 void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 {
@@ -22,6 +23,7 @@ void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 	_vec.push_back(L"HHTitleBackgroundScript");
 	_vec.push_back(L"HHTitleLogoScript");
 	_vec.push_back(L"HHTutorialBackgroundScript");
+	_vec.push_back(L"HHTutorialMapScript");
 }
 
 HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
@@ -44,6 +46,8 @@ HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 		return new HHTitleLogoScript;
 	if (L"HHTutorialBackgroundScript" == _strScriptName)
 		return new HHTutorialBackgroundScript;
+	if (L"HHTutorialMapScript" == _strScriptName)
+		return new HHTutorialMapScript;
 	return nullptr;
 }
 
@@ -77,6 +81,9 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 		break;
 	case (UINT)SCRIPT_TYPE::TUTORIALBACKGROUNDSCRIPT:
 		return new HHTutorialBackgroundScript;
+		break;
+	case (UINT)SCRIPT_TYPE::TUTORIALMAPSCRIPT:
+		return new HHTutorialMapScript;
 		break;
 	}
 	return nullptr;
@@ -120,6 +127,10 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 
 	case SCRIPT_TYPE::TUTORIALBACKGROUNDSCRIPT:
 		return L"HHTutorialBackgroundScript";
+		break;
+
+	case SCRIPT_TYPE::TUTORIALMAPSCRIPT:
+		return L"HHTutorialMapScript";
 		break;
 
 	}

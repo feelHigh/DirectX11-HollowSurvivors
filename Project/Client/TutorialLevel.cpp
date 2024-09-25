@@ -25,6 +25,7 @@
 #include <Scripts/HHButtonScript.h>
 
 #include <Scripts/HHTutorialBackgroundScript.h>
+#include <Scripts/HHTutorialMapScript.h>
 
 #include "HHLevelSaveLoad.h"
 
@@ -118,7 +119,20 @@ HHLevel* TutorialLevel::Initialize()
 #pragma endregion
 
 #pragma region Tilemap Layer
+	HHGameObject* LevelMap = nullptr;
+	LevelMap = new HHGameObject;
+	LevelMap->SetName(L"Level Map");
+	LevelMap->AddComponent(new HHTransform);
+	LevelMap->AddComponent(new HHMeshRender);
+	LevelMap->AddComponent(new HHTutorialMapScript);
 
+	LevelMap->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 900.f));
+	LevelMap->Transform()->SetRelativeScale(Vec3(738.f * 2.5f, 368.f * 2.5f, 1.f));
+
+	LevelMap->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
+	LevelMap->MeshRender()->SetMaterial(BackgroundMtrl);
+
+	TutorialLvl->AddObject(2, LevelMap);
 #pragma endregion
 
 #pragma region Player Layer
@@ -130,7 +144,7 @@ HHLevel* TutorialLevel::Initialize()
 	pPlayer->AddComponent(new HHFlipbookRenderer);
 	pPlayer->AddComponent(new HHPlayerScript);
 	pPlayer->Transform()->SetRelativePosition(0.f, 0.f, 800.f);
-	pPlayer->Transform()->SetRelativeScale(200.f, 200.f, 1.f);
+	pPlayer->Transform()->SetRelativeScale(128.f, 128.f, 1.f);
 
 	pPlayer->Collider2D()->SetIndependentScale(false);
 	pPlayer->Collider2D()->SetOffset(Vec3(0.f, 0.f, 0.f));

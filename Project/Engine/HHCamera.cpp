@@ -26,6 +26,7 @@ HHCamera::HHCamera()
 	, m_Far(100000.f)
 	, m_FOV(XM_PI / 2.f)
 	, m_ProjectionScale(1.f)
+	, m_TargetObject(nullptr)
 {
 	Vec2 vResolution = HHDevice::GetInstance()->GetResolution();
 	m_Width = vResolution.x;

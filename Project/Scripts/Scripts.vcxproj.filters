@@ -43,6 +43,9 @@
     <Filter Include="Scripts\Level\Sanctuary\NPC">
       <UniqueIdentifier>{8703a034-7022-4d7a-8616-2ee55d4e0ee9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Level\Tutorial\Map">
+      <UniqueIdentifier>{29850bd7-dd0a-4df4-8724-e2d39b84da66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -81,6 +84,12 @@
     <ClInclude Include="HHTitleLogoScript.h">
       <Filter>Scripts\Level\Title</Filter>
     </ClInclude>
+    <ClInclude Include="HHTutorialMapScript.h">
+      <Filter>Scripts\Level\Tutorial\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="HHPlayerCameraScript.h">
+      <Filter>Scripts\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts.cpp">
@@ -118,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="HHTitleLogoScript.cpp">
       <Filter>Scripts\Level\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTutorialMapScript.cpp">
+      <Filter>Scripts\Level\Tutorial\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="HHPlayerCameraScript.cpp">
+      <Filter>Scripts\Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
