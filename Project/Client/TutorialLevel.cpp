@@ -25,6 +25,7 @@
 #include <Scripts/HHButtonScript.h>
 
 #include <Scripts/HHTutorialBackgroundScript.h>
+#include <Scripts/HHTutorialBackgroundCloudScript.h>
 #include <Scripts/HHTutorialMapScript.h>
 
 #include "HHLevelSaveLoad.h"
@@ -38,7 +39,7 @@ HHLevel* TutorialLevel::Initialize()
 	Ptr<HHMaterial> BackgroundMtrl = HHAssetMgr::GetInstance()->FindAsset<HHMaterial>(L"BackgroundMtrl");
 #pragma endregion
 
-	// Level 생성
+#pragma region Level Layer Setup
 	HHLevel* TutorialLvl = new HHLevel;
 
 	TutorialLvl->GetLayer(0)->SetName(L"Default");
@@ -47,24 +48,9 @@ HHLevel* TutorialLevel::Initialize()
 	TutorialLvl->GetLayer(3)->SetName(L"Background");
 	TutorialLvl->GetLayer(4)->SetName(L"Tilemap");
 	TutorialLvl->GetLayer(5)->SetName(L"Player");
+#pragma endregion
 
-	// 카메라 오브젝트
-	HHGameObject* MainCamera = new HHGameObject;
-	MainCamera->SetName(L"Main Camera");
-	MainCamera->AddComponent(new HHTransform);
-	MainCamera->AddComponent(new HHCamera);
-	MainCamera->AddComponent(new HHCameraMoveScript);
-
-	MainCamera->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 500.f));
-
-	MainCamera->Camera()->SetPriority(0);
-	MainCamera->Camera()->SetLayerAll();
-	MainCamera->Camera()->SetFar(100000.f);
-	MainCamera->Camera()->SetProjectionType(PERSPECTIVE);
-
-	TutorialLvl->AddObject(0, MainCamera);
-
-	// 광원 오브젝트 추가
+#pragma region Level Lighting
 	HHGameObject* Global_Illumination = nullptr;
 	Global_Illumination = new HHGameObject;
 	Global_Illumination->SetName(L"World Light");
@@ -76,6 +62,7 @@ HHLevel* TutorialLevel::Initialize()
 	Global_Illumination->Light2D()->SetLightAmbient(Vec3(1.f, 1.f, 1.f));
 
 	TutorialLvl->AddObject(0, Global_Illumination);
+#pragma endregion
 
 #pragma region User Layer
 	HHGameObject* MouseCursor = new HHGameObject;
@@ -85,6 +72,7 @@ HHLevel* TutorialLevel::Initialize()
 	MouseCursor->AddComponent(new HHMeshRender);
 	MouseCursor->AddComponent(new HHMouseCursorScript);
 
+	MouseCursor->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 800.f));
 	MouseCursor->Transform()->SetRelativeScale(Vec3(32.f, 32.f, 1.f));
 
 	MouseCursor->Collider2D()->SetIndependentScale(false);
@@ -110,12 +98,27 @@ HHLevel* TutorialLevel::Initialize()
 	LevelBackground->AddComponent(new HHTutorialBackgroundScript);
 
 	LevelBackground->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 1000.f));
-	LevelBackground->Transform()->SetRelativeScale(Vec3(760.f * 2.5f, 621.f * 2.5f, 1.f));
+	LevelBackground->Transform()->SetRelativeScale(Vec3(583.f * 8.f, 326.f * 8.f, 1.f));
 
 	LevelBackground->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	LevelBackground->MeshRender()->SetMaterial(BackgroundMtrl);
 
-	TutorialLvl->AddObject(1, LevelBackground);
+	TutorialLvl->AddObject(3, LevelBackground);
+
+	// Clouds
+	LevelBackground = new HHGameObject;
+	LevelBackground->SetName(L"Level Background Clouds");
+	LevelBackground->AddComponent(new HHTransform);
+	LevelBackground->AddComponent(new HHMeshRender);
+	LevelBackground->AddComponent(new HHTutorialBackgroundCloudScript);
+
+	LevelBackground->Transform()->SetRelativePosition(Vec3(0.f, 750.f, 950.f));
+	LevelBackground->Transform()->SetRelativeScale(Vec3(603.f * 8.f, 507.f * 8.f, 1.f));
+
+	LevelBackground->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
+	LevelBackground->MeshRender()->SetMaterial(BackgroundMtrl);
+
+	TutorialLvl->AddObject(3, LevelBackground);
 #pragma endregion
 
 #pragma region Tilemap Layer
@@ -127,12 +130,12 @@ HHLevel* TutorialLevel::Initialize()
 	LevelMap->AddComponent(new HHTutorialMapScript);
 
 	LevelMap->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 900.f));
-	LevelMap->Transform()->SetRelativeScale(Vec3(738.f * 2.5f, 368.f * 2.5f, 1.f));
+	LevelMap->Transform()->SetRelativeScale(Vec3(738.f * 4.f, 368.f * 4.f, 1.f));
 
 	LevelMap->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	LevelMap->MeshRender()->SetMaterial(BackgroundMtrl);
 
-	TutorialLvl->AddObject(2, LevelMap);
+	TutorialLvl->AddObject(4, LevelMap);
 #pragma endregion
 
 #pragma region Player Layer
@@ -160,11 +163,49 @@ HHLevel* TutorialLevel::Initialize()
 	TutorialLvl->AddObject(5, pPlayer);
 #pragma endregion
 
-	// 레벨 지정 Save
+#pragma region Camera Layer
+	HHGameObject* MainCamera = new HHGameObject;
+	MainCamera->SetName(L"Main Camera");
+	MainCamera->AddComponent(new HHTransform);
+	MainCamera->AddComponent(new HHCamera);
+	MainCamera->AddComponent(new HHCameraMoveScript);
+
+	MainCamera->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 500.f));
+
+	MainCamera->Camera()->SetPriority(0);
+	MainCamera->Camera()->SetLayerAll();
+	MainCamera->Camera()->SetLayer(1, false);
+	MainCamera->Camera()->SetLayer(2, false);
+	MainCamera->Camera()->SetFar(100000.f);
+	MainCamera->Camera()->SetProjectionType(PERSPECTIVE);
+
+	MainCamera->Camera()->SetTarget(pPlayer);
+
+	TutorialLvl->AddObject(0, MainCamera);
+
+	// Sub Camera for UI
+	HHGameObject* UICamera = new HHGameObject;
+	UICamera->SetName(L"UI Camera");
+	UICamera->AddComponent(new HHTransform);
+	UICamera->AddComponent(new HHCamera);
+
+	UICamera->Transform()->SetRelativePosition(Vec3(0.f, 0.f, 500.f));
+	UICamera->Camera()->SetPriority(1);
+	UICamera->Camera()->SetLayer(1, true);
+	UICamera->Camera()->SetLayer(2, true);
+	UICamera->Camera()->SetFar(100000.f);
+	UICamera->Camera()->SetProjectionType(ORTHOGRAPHIC);
+
+	TutorialLvl->AddObject(1, UICamera);
+#pragma endregion
+
+#pragma region Level Save
 	wstring strLevelPath = HHPathMgr::GetInstance()->GetContentPath();
 	strLevelPath += L"Level\\TutorialLevel.lv";
 	HHLevelSaveLoad::SaveLevel(strLevelPath, TutorialLvl);
 
 	return TutorialLvl;
+#pragma endregion
+
 }
 

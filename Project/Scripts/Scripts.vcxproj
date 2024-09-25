@@ -177,6 +177,7 @@ call CodeGen.exe</Command>
     <ClInclude Include="HHSmallGirlScript.h" />
     <ClInclude Include="HHTilemapScript.h" />
     <ClInclude Include="HHTitleLogoScript.h" />
+    <ClInclude Include="HHTutorialBackgroundCloudScript.h" />
     <ClInclude Include="HHTutorialBackgroundScript.h" />
     <ClInclude Include="HHTutorialMapScript.h" />
     <ClInclude Include="pch.h" />
@@ -192,6 +193,7 @@ call CodeGen.exe</Command>
     <ClCompile Include="HHSmallGirlScript.cpp" />
     <ClCompile Include="HHTilemapScript.cpp" />
     <ClCompile Include="HHTitleLogoScript.cpp" />
+    <ClCompile Include="HHTutorialBackgroundCloudScript.cpp" />
     <ClCompile Include="HHTutorialBackgroundScript.cpp" />
     <ClCompile Include="HHTutorialMapScript.cpp" />
     <ClCompile Include="pch.cpp">

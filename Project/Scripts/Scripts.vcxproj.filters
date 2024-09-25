@@ -90,6 +90,9 @@
     <ClInclude Include="HHPlayerCameraScript.h">
       <Filter>Scripts\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="HHTutorialBackgroundCloudScript.h">
+      <Filter>Scripts\Level\Tutorial\Background</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts.cpp">
@@ -133,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="HHPlayerCameraScript.cpp">
       <Filter>Scripts\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="HHTutorialBackgroundCloudScript.cpp">
+      <Filter>Scripts\Level\Tutorial\Background</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

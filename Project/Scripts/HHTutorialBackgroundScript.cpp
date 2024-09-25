@@ -12,8 +12,8 @@ HHTutorialBackgroundScript::~HHTutorialBackgroundScript()
 
 void HHTutorialBackgroundScript::Begin()
 {
-	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Tutorial\\TutorialBackground.png"
-																		, L"Texture2D\\Tutorial\\TutorialBackground.png");
+	Ptr<HHTexture> BGTexture = HHAssetMgr::GetInstance()->Load<HHTexture>(L"Texture2D\\Tutorial\\TutorialForeground-2.png"
+																		, L"Texture2D\\Tutorial\\TutorialForeground-2.png");
 	GetRenderComponent()->GetDynamicMaterial()->SetTextureParam(TEX_0, BGTexture);
 	//GetRenderComponent()->GetDynamicMaterial()->SetScalarParam(INT_0, 0);
 }

@@ -1,10 +1,12 @@
 HHButtonScript
 HHCameraMoveScript
 HHMouseCursorScript
+HHPlayerCameraScript
 HHPlayerScript
 HHSmallGirlScript
 HHTilemapScript
 HHTitleBackgroundScript
 HHTitleLogoScript
+HHTutorialBackgroundCloudScript
 HHTutorialBackgroundScript
 HHTutorialMapScript

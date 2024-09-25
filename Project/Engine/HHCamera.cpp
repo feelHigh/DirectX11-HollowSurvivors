@@ -68,6 +68,23 @@ void HHCamera::FinalTick()
 
 	// View 행렬을 계산한다.
 	// View 행렬은 World Space -> View Space 로 변경할때 사용하는 행렬		
+
+	if (m_TargetObject)
+	{
+		// Get the target's position
+		Vec3 targetPosition = m_TargetObject->Transform()->GetWorldPosition();
+
+		// Get the current camera position
+		Vec3 cameraPosition = Transform()->GetRelativePosition();
+
+		// Update the camera's position to follow the target's X and Y, but keep the Z unchanged
+		cameraPosition.x = targetPosition.x;
+		cameraPosition.y = targetPosition.y;
+
+		// Set the camera's position
+		Transform()->SetRelativePosition(cameraPosition);
+	}
+
 	Matrix matTrans = XMMatrixTranslation(-Transform()->GetRelativePosition().x
 										, -Transform()->GetRelativePosition().y
 										, -Transform()->GetRelativePosition().z);

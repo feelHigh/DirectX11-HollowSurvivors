@@ -4,11 +4,13 @@
 #include "HHButtonScript.h"
 #include "HHCameraMoveScript.h"
 #include "HHMouseCursorScript.h"
+#include "HHPlayerCameraScript.h"
 #include "HHPlayerScript.h"
 #include "HHSmallGirlScript.h"
 #include "HHTilemapScript.h"
 #include "HHTitleBackgroundScript.h"
 #include "HHTitleLogoScript.h"
+#include "HHTutorialBackgroundCloudScript.h"
 #include "HHTutorialBackgroundScript.h"
 #include "HHTutorialMapScript.h"
 
@@ -17,11 +19,13 @@ void HHScriptMgr::GetScriptInfo(vector<wstring>& _vec)
 	_vec.push_back(L"HHButtonScript");
 	_vec.push_back(L"HHCameraMoveScript");
 	_vec.push_back(L"HHMouseCursorScript");
+	_vec.push_back(L"HHPlayerCameraScript");
 	_vec.push_back(L"HHPlayerScript");
 	_vec.push_back(L"HHSmallGirlScript");
 	_vec.push_back(L"HHTilemapScript");
 	_vec.push_back(L"HHTitleBackgroundScript");
 	_vec.push_back(L"HHTitleLogoScript");
+	_vec.push_back(L"HHTutorialBackgroundCloudScript");
 	_vec.push_back(L"HHTutorialBackgroundScript");
 	_vec.push_back(L"HHTutorialMapScript");
 }
@@ -34,6 +38,8 @@ HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 		return new HHCameraMoveScript;
 	if (L"HHMouseCursorScript" == _strScriptName)
 		return new HHMouseCursorScript;
+	if (L"HHPlayerCameraScript" == _strScriptName)
+		return new HHPlayerCameraScript;
 	if (L"HHPlayerScript" == _strScriptName)
 		return new HHPlayerScript;
 	if (L"HHSmallGirlScript" == _strScriptName)
@@ -44,6 +50,8 @@ HHScript * HHScriptMgr::GetScript(const wstring& _strScriptName)
 		return new HHTitleBackgroundScript;
 	if (L"HHTitleLogoScript" == _strScriptName)
 		return new HHTitleLogoScript;
+	if (L"HHTutorialBackgroundCloudScript" == _strScriptName)
+		return new HHTutorialBackgroundCloudScript;
 	if (L"HHTutorialBackgroundScript" == _strScriptName)
 		return new HHTutorialBackgroundScript;
 	if (L"HHTutorialMapScript" == _strScriptName)
@@ -64,6 +72,9 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 	case (UINT)SCRIPT_TYPE::MOUSECURSORSCRIPT:
 		return new HHMouseCursorScript;
 		break;
+	case (UINT)SCRIPT_TYPE::PLAYERCAMERASCRIPT:
+		return new HHPlayerCameraScript;
+		break;
 	case (UINT)SCRIPT_TYPE::PLAYERSCRIPT:
 		return new HHPlayerScript;
 		break;
@@ -78,6 +89,9 @@ HHScript * HHScriptMgr::GetScript(UINT _iScriptType)
 		break;
 	case (UINT)SCRIPT_TYPE::TITLELOGOSCRIPT:
 		return new HHTitleLogoScript;
+		break;
+	case (UINT)SCRIPT_TYPE::TUTORIALBACKGROUNDCLOUDSCRIPT:
+		return new HHTutorialBackgroundCloudScript;
 		break;
 	case (UINT)SCRIPT_TYPE::TUTORIALBACKGROUNDSCRIPT:
 		return new HHTutorialBackgroundScript;
@@ -105,6 +119,10 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 		return L"HHMouseCursorScript";
 		break;
 
+	case SCRIPT_TYPE::PLAYERCAMERASCRIPT:
+		return L"HHPlayerCameraScript";
+		break;
+
 	case SCRIPT_TYPE::PLAYERSCRIPT:
 		return L"HHPlayerScript";
 		break;
@@ -123,6 +141,10 @@ const wchar_t * HHScriptMgr::GetScriptName(HHScript * _pScript)
 
 	case SCRIPT_TYPE::TITLELOGOSCRIPT:
 		return L"HHTitleLogoScript";
+		break;
+
+	case SCRIPT_TYPE::TUTORIALBACKGROUNDCLOUDSCRIPT:
+		return L"HHTutorialBackgroundCloudScript";
 		break;
 
 	case SCRIPT_TYPE::TUTORIALBACKGROUNDSCRIPT:
