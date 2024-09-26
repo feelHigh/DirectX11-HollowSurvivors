@@ -156,10 +156,6 @@ HHLevel* TutorialLevel::Initialize()
 	pPlayer->MeshRender()->SetMesh(HHAssetMgr::GetInstance()->FindAsset<HHMesh>(L"RectMesh"));
 	pPlayer->MeshRender()->SetMaterial(PlayerMtrl);
 
-	Ptr<HHFlipbook> pFlipBook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Down.flip");
-	pPlayer->FlipbookRenderer()->AddFlipbook(0, pFlipBook);
-	pPlayer->FlipbookRenderer()->Play(0, 8, true);
-
 	TutorialLvl->AddObject(5, pPlayer);
 #pragma endregion
 

@@ -217,3 +217,12 @@ enum BUTTON_TYPE
 	TITLE_CREDITS,
 	TITLE_QUIT,
 };
+
+enum class DIR
+{
+	DOWN,
+	UP,
+	LEFT,
+	RIGHT,
+	NONE,
+};
