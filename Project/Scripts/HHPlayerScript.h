@@ -62,9 +62,12 @@ private:
     vector<Ptr<HHFlipbook>> m_vFlipbooks;
     int                     m_iFPS;
 
-    // Melee Combo
+    // Melee Attack
     int                     m_iCombo;
     float                   m_fComboTimer;   // Timer to track combo duration
     bool                    m_bComboActive;  // Whether a combo is currently active
+
+    // Spell Attack
+    float                   m_fSpellTimer; // Timer to track the spell duration
 
 };

@@ -79,34 +79,34 @@ void HHPlayerScript::Begin()
 	m_vFlipbooks[16] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Down.flip");
 	FlipbookRenderer()->AddFlipbook(16, m_vFlipbooks[16]);
 
-	m_vFlipbooks[17] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Up.flip");
+	m_vFlipbooks[17] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Down.flip");
 	FlipbookRenderer()->AddFlipbook(17, m_vFlipbooks[17]);
 
-	m_vFlipbooks[18] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Left.flip");
+	m_vFlipbooks[18] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Down.flip");
 	FlipbookRenderer()->AddFlipbook(18, m_vFlipbooks[18]);
 
-	m_vFlipbooks[19] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Right.flip");
+	m_vFlipbooks[19] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Up.flip");
 	FlipbookRenderer()->AddFlipbook(19, m_vFlipbooks[19]);
 
-	m_vFlipbooks[20] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Down.flip");
+	m_vFlipbooks[20] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Up.flip");
 	FlipbookRenderer()->AddFlipbook(20, m_vFlipbooks[20]);
 
-	m_vFlipbooks[21] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Up.flip");
+	m_vFlipbooks[21] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Up.flip");
 	FlipbookRenderer()->AddFlipbook(21, m_vFlipbooks[21]);
 
-	m_vFlipbooks[22] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Left.flip");
+	m_vFlipbooks[22] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Left.flip");
 	FlipbookRenderer()->AddFlipbook(22, m_vFlipbooks[22]);
 
-	m_vFlipbooks[23] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Right.flip");
+	m_vFlipbooks[23] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Left.flip");
 	FlipbookRenderer()->AddFlipbook(23, m_vFlipbooks[23]);
 
-	m_vFlipbooks[24] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Down.flip");
+	m_vFlipbooks[24] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Left.flip");
 	FlipbookRenderer()->AddFlipbook(24, m_vFlipbooks[24]);
 
-	m_vFlipbooks[25] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Up.flip");
+	m_vFlipbooks[25] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Right.flip");
 	FlipbookRenderer()->AddFlipbook(25, m_vFlipbooks[25]);
 
-	m_vFlipbooks[26] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Left.flip");
+	m_vFlipbooks[26] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Right.flip");
 	FlipbookRenderer()->AddFlipbook(26, m_vFlipbooks[26]);
 
 	m_vFlipbooks[27] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Right.flip");
@@ -119,17 +119,17 @@ void HHPlayerScript::Begin()
 
 void HHPlayerScript::Tick()
 {
-	if (m_bComboActive)
+	/*if (m_bComboActive)
 	{
-		m_fComboTimer -= DT; // Decrease the timer by delta time
+		m_fComboTimer -= DT;
 
 		if (m_fComboTimer <= 0.0f)
 		{
-			if (m_iCombo < 2) // If not the last combo, increment combo
+			if (m_iCombo < 2)
 			{
 				m_iCombo++;
-				Attack_Melee_Animation(); // Play the next combo animation
-				m_fComboTimer = 0.5f; // Reset the timer for the next combo
+				Attack_Melee_Animation();
+				m_fComboTimer = 2.f;
 			}
 			else
 			{
@@ -138,6 +138,21 @@ void HHPlayerScript::Tick()
 				Idle_Animation();
 			}
 		}
+	}*/
+
+	// Handle combo timer countdown
+	//if (m_bComboActive)
+	//{
+	//	m_fComboTimer -= DT; // Decrease the timer by delta time
+	//}
+
+	// Handle combo timer countdown
+	if (m_bComboActive)
+	{
+		m_fComboTimer -= DT; // Decrease the timer by delta time
+
+		// Handle the logic for transitioning combos or resetting
+		Attack_Melee();
 	}
 
 	switch (m_eState)
@@ -345,26 +360,30 @@ void HHPlayerScript::Dash()
 
 void HHPlayerScript::Attack_Melee()
 {
-	// If the combo is not active, start with the first combo attack
 	if (!m_bComboActive)
 	{
+		// Start the first combo attack
 		m_iCombo = 0;
-		m_fComboTimer = 0.5f; // Start the timer for 1.5 seconds
+		m_fComboTimer = 0.5f; // Set the duration of the first combo attack
 		m_bComboActive = true;
 		Attack_Melee_Animation(); // Play the first combo animation
 	}
-	else if (m_bComboActive && m_fComboTimer <= 0.0f)
+	else
 	{
-		// Transition to the next combo if the timer has expired
-		if (m_iCombo < 2)
+		// Check if LBTN is clicked and enough time has passed for the next combo
+		if (KEY_TAP(KEY::LBTN))
 		{
-			m_iCombo++;
-			m_fComboTimer = 0.5f; // Reset the timer for the next combo
-			Attack_Melee_Animation(); // Play the next combo animation
+			if (m_fComboTimer <= 0.0f && m_iCombo < 2)
+			{
+				m_iCombo++; // Proceed to the next combo
+				m_fComboTimer = 0.5f; // Reset the timer for the next combo attack
+				Attack_Melee_Animation(); // Play the next combo animation
+			}
 		}
-		else
+
+		// If the player doesn't click in time (1.5 seconds), reset the combo
+		if (m_fComboTimer <= -1.0f) // 1.5 seconds after the combo timer hits 0
 		{
-			// If all combos are done, reset the combo system
 			ResetCombo();
 			m_eState = PLAYER_STATE::IDLE;
 			Idle_Animation();
@@ -374,6 +393,22 @@ void HHPlayerScript::Attack_Melee()
 
 void HHPlayerScript::Attack_Spell()
 {
+	if (m_fSpellTimer <= 0.0f)
+	{
+		// Start the spell attack
+		m_fSpellTimer = 0.2f; // Set the spell duration to 0.2 seconds
+		Attack_Spell_Animation(); // Play the spell animation
+	}
+
+	// Check if the spell duration has ended
+	m_fSpellTimer -= DT; // Decrease the timer by delta time
+
+	if (m_fSpellTimer <= 0.0f)
+	{
+		// Spell duration ended, reset state to IDLE
+		m_eState = PLAYER_STATE::IDLE;
+		Idle_Animation();
+	}
 }
 
 void HHPlayerScript::Dead()
@@ -476,33 +511,23 @@ void HHPlayerScript::Attack_Melee_Animation()
 
 void HHPlayerScript::Attack_Spell_Animation()
 {
-	Vec3 vPos = Transform()->GetRelativePosition();
-
 	switch (m_eDir)
 	{
 	case DIR::DOWN:
-		vPos.y -= m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(12, m_iFPS, false);
 		break;
 	case DIR::UP:
-		vPos.y += m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(13, m_iFPS, false);
 		break;
 	case DIR::LEFT:
-		vPos.x -= m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(14, m_iFPS, false);
 		break;
 	case DIR::RIGHT:
-		vPos.x += m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(15, m_iFPS, false);
-		break;
-	case DIR::NONE:
 		break;
 	default:
 		break;
 	}
-
-	Transform()->SetRelativePosition(vPos);
 }
 
 void HHPlayerScript::Dead_Animation()
