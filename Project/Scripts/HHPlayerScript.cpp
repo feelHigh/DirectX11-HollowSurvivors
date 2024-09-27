@@ -11,7 +11,7 @@ HHPlayerScript::HHPlayerScript()
 	, m_fSpeed(340.f)
 	, m_pFlipbook(nullptr)
 	, m_iFPS(8)
-	, m_eCombo(MELEE_COMBO::NONE)
+	, m_iCombo(0)
 	//, m_pFlipbookRenderer(nullptr)
 {
 	//AddScriptParam(SCRIPT_PARAM::FLOAT, "PlayerSpeed", &m_Speed);
@@ -148,17 +148,22 @@ void HHPlayerScript::Tick()
 
 void HHPlayerScript::Idle()
 {
+	// Move
 	if (KEY_TAP(KEY::S) || KEY_TAP(KEY::W) || KEY_TAP(KEY::A) || KEY_TAP(KEY::D)
 		|| KEY_PRESSED(KEY::S) || KEY_PRESSED(KEY::W) || KEY_PRESSED(KEY::A) || KEY_PRESSED(KEY::D))
 	{
 		m_eState = PLAYER_STATE::MOVE;
 		Move_Animation();
 	}
+
+	// Dash
 	if (KEY_TAP(KEY::SPACE))
 	{
 		m_eState = PLAYER_STATE::DASH;
 		Dash_Animation();
 	}
+
+	// Attack
 	if (KEY_TAP(KEY::LBTN) || KEY_TAP(KEY::RBTN))
 	{
 		if(KEY_TAP(KEY::LBTN))
@@ -178,62 +183,84 @@ void HHPlayerScript::Move()
 {
 	Vec3 vPos = Transform()->GetRelativePosition();
 
-	if (KEY_TAP(KEY::S) || KEY_TAP(KEY::W) || KEY_TAP(KEY::A) || KEY_TAP(KEY::D)
-		|| KEY_RELEASED(KEY::S) || KEY_RELEASED(KEY::W) || KEY_RELEASED(KEY::A) || KEY_RELEASED(KEY::D))
+	// Direction
+	if (KEY_PRESSED(KEY::W) || KEY_PRESSED(KEY::S))
 	{
-		if (KEY_TAP(KEY::S))
+		if (KEY_RELEASED(KEY::W))
 		{
-			m_eDir = (DIR::DOWN);
+			m_eDir = DIR::UP;
 			Move_Animation();
 		}
+		if (KEY_RELEASED(KEY::S))
+		{
+			m_eDir = DIR::DOWN;
+			Move_Animation();
+		}
+	}
+	if (KEY_PRESSED(KEY::A) || KEY_PRESSED(KEY::D))
+	{
+		if (KEY_RELEASED(KEY::A))
+		{
+			m_eDir = DIR::LEFT;
+			Move_Animation();
+		}
+		if (KEY_RELEASED(KEY::D))
+		{
+			m_eDir = DIR::RIGHT;
+			Move_Animation();
+		}
+	}
+	if (KEY_TAP(KEY::W) || KEY_TAP(KEY::S) || KEY_RELEASED(KEY::W) || KEY_RELEASED(KEY::S))
+	{
 		if (KEY_TAP(KEY::W))
 		{
-			m_eDir = (DIR::UP);
-			Move_Animation();
-		}
-		if (KEY_TAP(KEY::A))
-		{
-			m_eDir = (DIR::LEFT);
-			Move_Animation();
-		}
-		if (KEY_TAP(KEY::D))
-		{
-			m_eDir = (DIR::RIGHT);
 			Move_Animation();
 		}
 
 		if (KEY_RELEASED(KEY::S))
 		{
-			m_eState = (PLAYER_STATE::IDLE);
-			Idle();
+			Move_Animation();
 		}
+
 		if (KEY_RELEASED(KEY::W))
 		{
-			m_eState = (PLAYER_STATE::IDLE);
-			Idle();
+			if (KEY_PRESSED(KEY::A))
+			{
+				m_eDir = DIR::LEFT;
+			}
+			else if (KEY_PRESSED(KEY::D))
+			{
+				m_eDir = DIR::RIGHT;
+			}
+
+			Move_Animation();
 		}
-		if (KEY_RELEASED(KEY::A))
+
+		if (KEY_RELEASED(KEY::S))
 		{
-			m_eState = (PLAYER_STATE::IDLE);
-			Idle();
-		}
-		if (KEY_RELEASED(KEY::D))
-		{
-			m_eState = (PLAYER_STATE::IDLE);
-			Idle();
+			if (KEY_PRESSED(KEY::A))
+			{
+				m_eDir = DIR::LEFT;
+			}
+			else if (KEY_PRESSED(KEY::D))
+			{
+				m_eDir = DIR::RIGHT;
+			}
+
+			Move_Animation();
 		}
 	}
 
-	if (KEY_PRESSED(KEY::S) || KEY_PRESSED(KEY::W) || KEY_PRESSED(KEY::A) || KEY_PRESSED(KEY::D))
+	if (KEY_PRESSED(KEY::A) || KEY_PRESSED(KEY::D) || KEY_PRESSED(KEY::W) || KEY_PRESSED(KEY::S))
 	{
-		if (KEY_PRESSED(KEY::S))
-		{
-			vPos.y -= m_fSpeed * DT;
-		}
-
 		if (KEY_PRESSED(KEY::W))
 		{
 			vPos.y += m_fSpeed * DT;
+		}
+
+		if (KEY_PRESSED(KEY::S))
+		{
+			vPos.y -= m_fSpeed * DT;
 		}
 
 		if (KEY_PRESSED(KEY::A))
@@ -252,42 +279,46 @@ void HHPlayerScript::Move()
 		Idle_Animation();
 	}
 
+	Transform()->SetRelativePosition(vPos);
+
+	// Handle dash
 	if (KEY_TAP(KEY::SPACE))
 	{
 		m_eState = PLAYER_STATE::DASH;
 		Dash_Animation();
 	}
-	else if (KEY_RELEASED(KEY::SPACE))
-	{
-		m_eState = PLAYER_STATE::IDLE;
-		Idle_Animation();
-	}
-
-	Transform()->SetRelativePosition(vPos);
-
 }
 
 void HHPlayerScript::Dash()
 {
+	Vec3 vPos = Transform()->GetRelativePosition();
+
 	switch (m_eDir)
 	{
 	case DIR::DOWN:
-		FlipbookRenderer()->Play(8, m_iFPS, true);
+		vPos.y -= m_fSpeed * 256.0f * DT;
+		FlipbookRenderer()->Play(8, m_iFPS, false);
 		break;
 	case DIR::UP:
-		FlipbookRenderer()->Play(9, m_iFPS, true);
+		vPos.y += m_fSpeed * 256.0f * DT;
+		FlipbookRenderer()->Play(9, m_iFPS, false);
 		break;
 	case DIR::LEFT:
-		FlipbookRenderer()->Play(10, m_iFPS, true);
+		vPos.x -= m_fSpeed * 256.0f * DT;
+		FlipbookRenderer()->Play(10, m_iFPS, false);
 		break;
 	case DIR::RIGHT:
-		FlipbookRenderer()->Play(11, m_iFPS, true);
-		break;
-	case DIR::NONE:
+		vPos.x += m_fSpeed * 256.0f * DT;
+		FlipbookRenderer()->Play(11, m_iFPS, false);
 		break;
 	default:
 		break;
 	}
+
+	Transform()->SetRelativePosition(vPos);
+
+	// After dashing, return to idle or move state
+	m_eState = PLAYER_STATE::IDLE;
 }
 
 void HHPlayerScript::Attack_Melee()
@@ -327,24 +358,28 @@ void HHPlayerScript::Idle_Animation()
 
 void HHPlayerScript::Move_Animation()
 {
-	switch (m_eDir)
+	if (KEY_TAP(KEY::S) || KEY_PRESSED(KEY::S))
 	{
-	case DIR::DOWN:
+		m_eDir = DIR::DOWN;
 		FlipbookRenderer()->Play(4, m_iFPS, true);
-		break;
-	case DIR::UP:
+	}
+
+	if (KEY_TAP(KEY::W) || KEY_PRESSED(KEY::W))
+	{
+		m_eDir = DIR::UP;
 		FlipbookRenderer()->Play(5, m_iFPS, true);
-		break;
-	case DIR::LEFT:
+	}
+
+	if (KEY_TAP(KEY::A) || KEY_PRESSED(KEY::A))
+	{
+		m_eDir = DIR::LEFT;
 		FlipbookRenderer()->Play(6, m_iFPS, true);
-		break;
-	case DIR::RIGHT:
+	}
+
+	if (KEY_TAP(KEY::D) || KEY_PRESSED(KEY::D))
+	{
+		m_eDir = DIR::RIGHT;
 		FlipbookRenderer()->Play(7, m_iFPS, true);
-		break;
-	case DIR::NONE:
-		break;
-	default:
-		break;
 	}
 }
 
@@ -373,41 +408,55 @@ void HHPlayerScript::Dash_Animation()
 
 void HHPlayerScript::Attack_Melee_Animation()
 {
+	Vec3 vPos = Transform()->GetRelativePosition();
+
 	switch (m_eDir)
 	{
 	case DIR::DOWN:
+		vPos.y -= m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(16, m_iFPS, false);
 		break;
 	case DIR::UP:
+		vPos.y += m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(19, m_iFPS, false);
 		break;
 	case DIR::LEFT:
-		FlipbookRenderer()->Play(22, m_iFPS, false);
+		vPos.x -= m_fSpeed * 32.0f * DT;
+		FlipbookRenderer()->Play(21, m_iFPS, false);
 		break;
 	case DIR::RIGHT:
-		FlipbookRenderer()->Play(25, m_iFPS, false);
+		vPos.x += m_fSpeed * 32.0f * DT;
+		FlipbookRenderer()->Play(24, m_iFPS, false);
 		break;
 	case DIR::NONE:
 		break;
 	default:
 		break;
 	}
+
+	Transform()->SetRelativePosition(vPos);
 }
 
 void HHPlayerScript::Attack_Spell_Animation()
 {
+	Vec3 vPos = Transform()->GetRelativePosition();
+
 	switch (m_eDir)
 	{
 	case DIR::DOWN:
+		vPos.y -= m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(12, m_iFPS, false);
 		break;
 	case DIR::UP:
+		vPos.y += m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(13, m_iFPS, false);
 		break;
 	case DIR::LEFT:
+		vPos.x -= m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(14, m_iFPS, false);
 		break;
 	case DIR::RIGHT:
+		vPos.x += m_fSpeed * 32.0f * DT;
 		FlipbookRenderer()->Play(15, m_iFPS, false);
 		break;
 	case DIR::NONE:
@@ -415,6 +464,8 @@ void HHPlayerScript::Attack_Spell_Animation()
 	default:
 		break;
 	}
+
+	Transform()->SetRelativePosition(vPos);
 }
 
 void HHPlayerScript::Dead_Animation()

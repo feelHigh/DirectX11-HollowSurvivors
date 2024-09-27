@@ -12,14 +12,6 @@ enum class PLAYER_STATE
     NONE,
 };
 
-enum class MELEE_COMBO
-{
-    FIRST,
-    SECOND,
-    THIRD,
-    NONE,
-};
-
 class HHPlayerScript :
     public HHScript
 {
@@ -69,5 +61,5 @@ private:
     int                 m_iFPS;
 
     // Melee Combo
-    MELEE_COMBO         m_eCombo;
+    int                 m_iCombo;
 };

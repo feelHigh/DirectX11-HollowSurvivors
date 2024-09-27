@@ -102,24 +102,24 @@ void HHCameraMoveScript::PerspectiveMovement()
 
 	Transform()->SetRelativePosition(vPos);
 
-	if (KEY_PRESSED(KEY::RBTN))
-	{
-		HHKeyMgr::GetInstance()->MouseCapture(true);
+	//if (KEY_PRESSED(KEY::RBTN))
+	//{
+	//	HHKeyMgr::GetInstance()->MouseCapture(true);
 
-		// 마우스가 이동하는 방향
-		//vDir.x; ==> y축 회전;
-		//vDir.y; ==> x축 회전
-		Vec2 vDir = HHKeyMgr::GetInstance()->GetDragDir();
+	//	// 마우스가 이동하는 방향
+	//	//vDir.x; ==> y축 회전;
+	//	//vDir.y; ==> x축 회전
+	//	Vec2 vDir = HHKeyMgr::GetInstance()->GetDragDir();
 
-		Vec3 vRot = Transform()->GetRelativeRoatation();
-		vRot.y += vDir.x * XM_PI * DT * 10.f;
-		vRot.x += vDir.y * XM_PI * DT * 10.f;
-		Transform()->SetRelativeRotation(vRot);
-	}
-	else if (KEY_RELEASED(KEY::RBTN))
-	{
-		HHKeyMgr::GetInstance()->MouseCapture(false);
-	}
+	//	Vec3 vRot = Transform()->GetRelativeRoatation();
+	//	vRot.y += vDir.x * XM_PI * DT * 10.f;
+	//	vRot.x += vDir.y * XM_PI * DT * 10.f;
+	//	Transform()->SetRelativeRotation(vRot);
+	//}
+	//else if (KEY_RELEASED(KEY::RBTN))
+	//{
+	//	HHKeyMgr::GetInstance()->MouseCapture(false);
+	//}
 }
 
 void HHCameraMoveScript::SaveToFile(FILE* _File)
