@@ -45,21 +45,26 @@ private:
     void Attack_Spell_Animation();
     void Dead_Animation();
 
+    void ResetCombo();
+
 private:
     // Base Status
-    DIR                 m_eDir;
-    PLAYER_STATE        m_eState;
+    DIR                     m_eDir;
+    PLAYER_STATE            m_eState;
 
-    UINT                m_uHP;
-    UINT                m_uMP;
-    UINT                m_uProgress;
+    UINT                    m_uHP;
+    UINT                    m_uMP;
+    UINT                    m_uProgress;
 
-    float               m_fSpeed;
+    float                   m_fSpeed;
 
     // Flipbook
-    Ptr<HHFlipbook>     m_pFlipbook;
-    int                 m_iFPS;
+    vector<Ptr<HHFlipbook>> m_vFlipbooks;
+    int                     m_iFPS;
 
     // Melee Combo
-    int                 m_iCombo;
+    int                     m_iCombo;
+    float                   m_fComboTimer;   // Timer to track combo duration
+    bool                    m_bComboActive;  // Whether a combo is currently active
+
 };

@@ -9,10 +9,11 @@ HHPlayerScript::HHPlayerScript()
 	, m_uMP(2)
 	, m_uProgress(0)
 	, m_fSpeed(340.f)
-	, m_pFlipbook(nullptr)
 	, m_iFPS(8)
 	, m_iCombo(0)
-	//, m_pFlipbookRenderer(nullptr)
+	, m_fComboTimer(0.0f)
+	, m_bComboActive(false)
+	, m_vFlipbooks(50)
 {
 	//AddScriptParam(SCRIPT_PARAM::FLOAT, "PlayerSpeed", &m_Speed);
 	//AddScriptParam(SCRIPT_PARAM::TEXTURE, "Test", &m_Texture);
@@ -27,89 +28,89 @@ void HHPlayerScript::Begin()
 	GetRenderComponent()->GetDynamicMaterial();
 
 #pragma region Load Animation Asset
-	Ptr<HHFlipbook> m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Down.flip");
-	FlipbookRenderer()->AddFlipbook(0, m_pFlipbook);
+	m_vFlipbooks[0] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Down.flip");
+	FlipbookRenderer()->AddFlipbook(0, m_vFlipbooks[0]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Up.flip");
-	FlipbookRenderer()->AddFlipbook(1, m_pFlipbook);
+	m_vFlipbooks[1] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Up.flip");
+	FlipbookRenderer()->AddFlipbook(1, m_vFlipbooks[1]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Left.flip");
-	FlipbookRenderer()->AddFlipbook(2, m_pFlipbook);
+	m_vFlipbooks[2] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Left.flip");
+	FlipbookRenderer()->AddFlipbook(2, m_vFlipbooks[2]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Right.flip");
-	FlipbookRenderer()->AddFlipbook(3, m_pFlipbook);
+	m_vFlipbooks[3] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Idle_Right.flip");
+	FlipbookRenderer()->AddFlipbook(3, m_vFlipbooks[3]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Down.flip");
-	FlipbookRenderer()->AddFlipbook(4, m_pFlipbook);
+	m_vFlipbooks[4] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Down.flip");
+	FlipbookRenderer()->AddFlipbook(4, m_vFlipbooks[4]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Up.flip");
-	FlipbookRenderer()->AddFlipbook(5, m_pFlipbook);
+	m_vFlipbooks[5] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Up.flip");
+	FlipbookRenderer()->AddFlipbook(5, m_vFlipbooks[5]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Left.flip");
-	FlipbookRenderer()->AddFlipbook(6, m_pFlipbook);
+	m_vFlipbooks[6] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Left.flip");
+	FlipbookRenderer()->AddFlipbook(6, m_vFlipbooks[6]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Right.flip");
-	FlipbookRenderer()->AddFlipbook(7, m_pFlipbook);
+	m_vFlipbooks[7] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Walk_Right.flip");
+	FlipbookRenderer()->AddFlipbook(7, m_vFlipbooks[7]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Down.flip");
-	FlipbookRenderer()->AddFlipbook(8, m_pFlipbook);
+	m_vFlipbooks[8] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Down.flip");
+	FlipbookRenderer()->AddFlipbook(8, m_vFlipbooks[8]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Up.flip");
-	FlipbookRenderer()->AddFlipbook(9, m_pFlipbook);
+	m_vFlipbooks[9] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Up.flip");
+	FlipbookRenderer()->AddFlipbook(9, m_vFlipbooks[9]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Left.flip");
-	FlipbookRenderer()->AddFlipbook(10, m_pFlipbook);
+	m_vFlipbooks[10] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Left.flip");
+	FlipbookRenderer()->AddFlipbook(10, m_vFlipbooks[10]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Right.flip");
-	FlipbookRenderer()->AddFlipbook(11, m_pFlipbook);
+	m_vFlipbooks[11] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Dash_Right.flip");
+	FlipbookRenderer()->AddFlipbook(11, m_vFlipbooks[11]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Down.flip");
-	FlipbookRenderer()->AddFlipbook(12, m_pFlipbook);
+	m_vFlipbooks[12] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Down.flip");
+	FlipbookRenderer()->AddFlipbook(12, m_vFlipbooks[12]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Up.flip");
-	FlipbookRenderer()->AddFlipbook(13, m_pFlipbook);
+	m_vFlipbooks[13] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Up.flip");
+	FlipbookRenderer()->AddFlipbook(13, m_vFlipbooks[13]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Left.flip");
-	FlipbookRenderer()->AddFlipbook(14, m_pFlipbook);
+	m_vFlipbooks[14] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Left.flip");
+	FlipbookRenderer()->AddFlipbook(14, m_vFlipbooks[14]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Right.flip");
-	FlipbookRenderer()->AddFlipbook(15, m_pFlipbook);
+	m_vFlipbooks[15] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Spell_Right.flip");
+	FlipbookRenderer()->AddFlipbook(15, m_vFlipbooks[15]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Down.flip");
-	FlipbookRenderer()->AddFlipbook(16, m_pFlipbook);
+	m_vFlipbooks[16] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Down.flip");
+	FlipbookRenderer()->AddFlipbook(16, m_vFlipbooks[16]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Up.flip");
-	FlipbookRenderer()->AddFlipbook(17, m_pFlipbook);
+	m_vFlipbooks[17] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Up.flip");
+	FlipbookRenderer()->AddFlipbook(17, m_vFlipbooks[17]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Left.flip");
-	FlipbookRenderer()->AddFlipbook(18, m_pFlipbook);
+	m_vFlipbooks[18] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Left.flip");
+	FlipbookRenderer()->AddFlipbook(18, m_vFlipbooks[18]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Right.flip");
-	FlipbookRenderer()->AddFlipbook(19, m_pFlipbook);
+	m_vFlipbooks[19] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo1_Right.flip");
+	FlipbookRenderer()->AddFlipbook(19, m_vFlipbooks[19]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Down.flip");
-	FlipbookRenderer()->AddFlipbook(20, m_pFlipbook);
+	m_vFlipbooks[20] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Down.flip");
+	FlipbookRenderer()->AddFlipbook(20, m_vFlipbooks[20]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Up.flip");
-	FlipbookRenderer()->AddFlipbook(21, m_pFlipbook);
+	m_vFlipbooks[21] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Up.flip");
+	FlipbookRenderer()->AddFlipbook(21, m_vFlipbooks[21]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Left.flip");
-	FlipbookRenderer()->AddFlipbook(22, m_pFlipbook);
+	m_vFlipbooks[22] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Left.flip");
+	FlipbookRenderer()->AddFlipbook(22, m_vFlipbooks[22]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Right.flip");
-	FlipbookRenderer()->AddFlipbook(23, m_pFlipbook);
+	m_vFlipbooks[23] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo2_Right.flip");
+	FlipbookRenderer()->AddFlipbook(23, m_vFlipbooks[23]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Down.flip");
-	FlipbookRenderer()->AddFlipbook(24, m_pFlipbook);
+	m_vFlipbooks[24] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Down.flip");
+	FlipbookRenderer()->AddFlipbook(24, m_vFlipbooks[24]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Up.flip");
-	FlipbookRenderer()->AddFlipbook(25, m_pFlipbook);
+	m_vFlipbooks[25] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Up.flip");
+	FlipbookRenderer()->AddFlipbook(25, m_vFlipbooks[25]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Left.flip");
-	FlipbookRenderer()->AddFlipbook(26, m_pFlipbook);
+	m_vFlipbooks[26] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Left.flip");
+	FlipbookRenderer()->AddFlipbook(26, m_vFlipbooks[26]);
 
-	m_pFlipbook = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Right.flip");
-	FlipbookRenderer()->AddFlipbook(27, m_pFlipbook);
+	m_vFlipbooks[27] = HHAssetMgr::GetInstance()->FindAsset<HHFlipbook>(L"Animation\\Player_Attack_Sword_Combo3_Right.flip");
+	FlipbookRenderer()->AddFlipbook(27, m_vFlipbooks[27]);
 
 	FlipbookRenderer()->Play(0, 8, true);
 #pragma endregion
@@ -118,6 +119,27 @@ void HHPlayerScript::Begin()
 
 void HHPlayerScript::Tick()
 {
+	if (m_bComboActive)
+	{
+		m_fComboTimer -= DT; // Decrease the timer by delta time
+
+		if (m_fComboTimer <= 0.0f)
+		{
+			if (m_iCombo < 2) // If not the last combo, increment combo
+			{
+				m_iCombo++;
+				Attack_Melee_Animation(); // Play the next combo animation
+				m_fComboTimer = 0.5f; // Reset the timer for the next combo
+			}
+			else
+			{
+				ResetCombo();
+				m_eState = PLAYER_STATE::IDLE;
+				Idle_Animation();
+			}
+		}
+	}
+
 	switch (m_eState)
 	{
 	case PLAYER_STATE::IDLE:
@@ -323,6 +345,31 @@ void HHPlayerScript::Dash()
 
 void HHPlayerScript::Attack_Melee()
 {
+	// If the combo is not active, start with the first combo attack
+	if (!m_bComboActive)
+	{
+		m_iCombo = 0;
+		m_fComboTimer = 0.5f; // Start the timer for 1.5 seconds
+		m_bComboActive = true;
+		Attack_Melee_Animation(); // Play the first combo animation
+	}
+	else if (m_bComboActive && m_fComboTimer <= 0.0f)
+	{
+		// Transition to the next combo if the timer has expired
+		if (m_iCombo < 2)
+		{
+			m_iCombo++;
+			m_fComboTimer = 0.5f; // Reset the timer for the next combo
+			Attack_Melee_Animation(); // Play the next combo animation
+		}
+		else
+		{
+			// If all combos are done, reset the combo system
+			ResetCombo();
+			m_eState = PLAYER_STATE::IDLE;
+			Idle_Animation();
+		}
+	}
 }
 
 void HHPlayerScript::Attack_Spell()
@@ -408,33 +455,23 @@ void HHPlayerScript::Dash_Animation()
 
 void HHPlayerScript::Attack_Melee_Animation()
 {
-	Vec3 vPos = Transform()->GetRelativePosition();
-
 	switch (m_eDir)
 	{
 	case DIR::DOWN:
-		vPos.y -= m_fSpeed * 32.0f * DT;
-		FlipbookRenderer()->Play(16, m_iFPS, false);
+		FlipbookRenderer()->Play(16 + m_iCombo, m_iFPS, false); // Adjust for each combo
 		break;
 	case DIR::UP:
-		vPos.y += m_fSpeed * 32.0f * DT;
-		FlipbookRenderer()->Play(19, m_iFPS, false);
+		FlipbookRenderer()->Play(19 + m_iCombo, m_iFPS, false);
 		break;
 	case DIR::LEFT:
-		vPos.x -= m_fSpeed * 32.0f * DT;
-		FlipbookRenderer()->Play(21, m_iFPS, false);
+		FlipbookRenderer()->Play(22 + m_iCombo, m_iFPS, false);
 		break;
 	case DIR::RIGHT:
-		vPos.x += m_fSpeed * 32.0f * DT;
-		FlipbookRenderer()->Play(24, m_iFPS, false);
-		break;
-	case DIR::NONE:
+		FlipbookRenderer()->Play(25 + m_iCombo, m_iFPS, false);
 		break;
 	default:
 		break;
 	}
-
-	Transform()->SetRelativePosition(vPos);
 }
 
 void HHPlayerScript::Attack_Spell_Animation()
@@ -470,6 +507,13 @@ void HHPlayerScript::Attack_Spell_Animation()
 
 void HHPlayerScript::Dead_Animation()
 {
+}
+
+void HHPlayerScript::ResetCombo()
+{
+	m_iCombo = 0;
+	m_fComboTimer = 0.0f;
+	m_bComboActive = false;
 }
 
 
