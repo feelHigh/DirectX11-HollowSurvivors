@@ -11,9 +11,11 @@ HHPlayerScript::HHPlayerScript()
 	, m_fSpeed(340.f)
 	, m_iFPS(8)
 	, m_iCombo(0)
-	, m_fComboTimer(0.0f)
+	, m_fComboTimer(0.f)
 	, m_bComboActive(false)
 	, m_vFlipbooks(50)
+	, m_fSpellTimer(0.f)
+	, m_fDashTimer(0.f)
 {
 	//AddScriptParam(SCRIPT_PARAM::FLOAT, "PlayerSpeed", &m_Speed);
 	//AddScriptParam(SCRIPT_PARAM::TEXTURE, "Test", &m_Texture);
@@ -114,44 +116,14 @@ void HHPlayerScript::Begin()
 
 	FlipbookRenderer()->Play(0, 8, true);
 #pragma endregion
-	
 }
 
 void HHPlayerScript::Tick()
 {
-	/*if (m_bComboActive)
+	if (m_bComboActive)
 	{
 		m_fComboTimer -= DT;
 
-		if (m_fComboTimer <= 0.0f)
-		{
-			if (m_iCombo < 2)
-			{
-				m_iCombo++;
-				Attack_Melee_Animation();
-				m_fComboTimer = 2.f;
-			}
-			else
-			{
-				ResetCombo();
-				m_eState = PLAYER_STATE::IDLE;
-				Idle_Animation();
-			}
-		}
-	}*/
-
-	// Handle combo timer countdown
-	//if (m_bComboActive)
-	//{
-	//	m_fComboTimer -= DT; // Decrease the timer by delta time
-	//}
-
-	// Handle combo timer countdown
-	if (m_bComboActive)
-	{
-		m_fComboTimer -= DT; // Decrease the timer by delta time
-
-		// Handle the logic for transitioning combos or resetting
 		Attack_Melee();
 	}
 
@@ -328,61 +300,74 @@ void HHPlayerScript::Move()
 
 void HHPlayerScript::Dash()
 {
-	Vec3 vPos = Transform()->GetRelativePosition();
+	static Vec3 initialPos;
+	static Vec3 targetPos;
+	static const float dashDistance = 192.0f;
 
-	switch (m_eDir)
+	if (m_fDashTimer <= 0.0f)
 	{
-	case DIR::DOWN:
-		vPos.y -= m_fSpeed * 256.0f * DT;
-		FlipbookRenderer()->Play(8, m_iFPS, false);
-		break;
-	case DIR::UP:
-		vPos.y += m_fSpeed * 256.0f * DT;
-		FlipbookRenderer()->Play(9, m_iFPS, false);
-		break;
-	case DIR::LEFT:
-		vPos.x -= m_fSpeed * 256.0f * DT;
-		FlipbookRenderer()->Play(10, m_iFPS, false);
-		break;
-	case DIR::RIGHT:
-		vPos.x += m_fSpeed * 256.0f * DT;
-		FlipbookRenderer()->Play(11, m_iFPS, false);
-		break;
-	default:
-		break;
+		m_fDashTimer = 0.3f;
+
+		initialPos = Transform()->GetRelativePosition();
+
+		switch (m_eDir)
+		{
+		case DIR::DOWN:
+			targetPos = initialPos + Vec3(0, -dashDistance, 0);
+			break;
+		case DIR::UP:
+			targetPos = initialPos + Vec3(0, dashDistance, 0);
+			break;
+		case DIR::LEFT:
+			targetPos = initialPos + Vec3(-dashDistance, 0, 0);
+			break;
+		case DIR::RIGHT:
+			targetPos = initialPos + Vec3(dashDistance, 0, 0);
+			break;
+		default:
+			break;
+		}
+
+		Dash_Animation();
 	}
 
-	Transform()->SetRelativePosition(vPos);
+	float progress = 1.0f - (m_fDashTimer / 0.3f);
+	Vec3 currentPos = Vec3::Lerp(initialPos, targetPos, progress);
 
-	// After dashing, return to idle or move state
-	m_eState = PLAYER_STATE::IDLE;
+	Transform()->SetRelativePosition(currentPos);
+
+	m_fDashTimer -= DT;
+
+	if (m_fDashTimer <= 0.0f)
+	{
+		Transform()->SetRelativePosition(targetPos);
+		m_eState = PLAYER_STATE::IDLE;
+		Idle_Animation();
+	}
 }
 
 void HHPlayerScript::Attack_Melee()
 {
 	if (!m_bComboActive)
 	{
-		// Start the first combo attack
 		m_iCombo = 0;
-		m_fComboTimer = 0.5f; // Set the duration of the first combo attack
+		m_fComboTimer = 0.2f;
 		m_bComboActive = true;
-		Attack_Melee_Animation(); // Play the first combo animation
+		Attack_Melee_Animation();
 	}
 	else
 	{
-		// Check if LBTN is clicked and enough time has passed for the next combo
 		if (KEY_TAP(KEY::LBTN))
 		{
 			if (m_fComboTimer <= 0.0f && m_iCombo < 2)
 			{
-				m_iCombo++; // Proceed to the next combo
-				m_fComboTimer = 0.5f; // Reset the timer for the next combo attack
-				Attack_Melee_Animation(); // Play the next combo animation
+				m_iCombo++;
+				m_fComboTimer = 0.2f;
+				Attack_Melee_Animation();
 			}
 		}
 
-		// If the player doesn't click in time (1.5 seconds), reset the combo
-		if (m_fComboTimer <= -1.0f) // 1.5 seconds after the combo timer hits 0
+		if (m_fComboTimer <= -1.0f)
 		{
 			ResetCombo();
 			m_eState = PLAYER_STATE::IDLE;
@@ -395,17 +380,14 @@ void HHPlayerScript::Attack_Spell()
 {
 	if (m_fSpellTimer <= 0.0f)
 	{
-		// Start the spell attack
-		m_fSpellTimer = 0.2f; // Set the spell duration to 0.2 seconds
-		Attack_Spell_Animation(); // Play the spell animation
+		m_fSpellTimer = 0.2f;
+		Attack_Spell_Animation();
 	}
 
-	// Check if the spell duration has ended
-	m_fSpellTimer -= DT; // Decrease the timer by delta time
+	m_fSpellTimer -= DT;
 
 	if (m_fSpellTimer <= 0.0f)
 	{
-		// Spell duration ended, reset state to IDLE
 		m_eState = PLAYER_STATE::IDLE;
 		Idle_Animation();
 	}

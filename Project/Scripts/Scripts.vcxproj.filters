@@ -46,6 +46,9 @@
     <Filter Include="Scripts\Level\Tutorial\Map">
       <UniqueIdentifier>{29850bd7-dd0a-4df4-8724-e2d39b84da66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Monster">
+      <UniqueIdentifier>{99c6d042-1372-4c6d-8216-dd204c3c9573}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

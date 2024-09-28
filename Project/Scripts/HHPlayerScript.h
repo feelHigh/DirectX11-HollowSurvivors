@@ -70,4 +70,7 @@ private:
     // Spell Attack
     float                   m_fSpellTimer; // Timer to track the spell duration
 
+    // Dash
+    float                   m_fDashTimer; // Timer to track the dash duration
+
 };
